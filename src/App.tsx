@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router';
+import { OfflineBanner } from '@/components/layout/OfflineBanner';
 import { ProtectedRoute } from '@/components/layout/ProtectedRoute';
 import { UpdatePrompt } from '@/components/layout/UpdatePrompt';
 import { AuthProvider } from '@/context/AuthProvider';
@@ -44,6 +45,7 @@ export default function App() {
       ) : (
         <SetupHintPage />
       )}
+      <OfflineBanner />
       <UpdatePrompt />
     </ToastProvider>
   );
