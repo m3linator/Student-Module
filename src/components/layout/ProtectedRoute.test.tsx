@@ -1,8 +1,13 @@
 import { screen } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router';
-import { describe, expect, it } from 'vitest';
+import type { ReactNode } from 'react';
+import { describe, expect, it, vi } from 'vitest';
 import { fakeSession, renderWithAuth } from '@/test/renderWithAuth';
 import { ProtectedRoute } from './ProtectedRoute';
+
+vi.mock('@/context/DataProvider', () => ({
+  DataProvider: ({ children }: { children: ReactNode }) => children,
+}));
 
 const tree = (
   <MemoryRouter initialEntries={['/module/1']}>
