@@ -1,0 +1,132 @@
+/**
+ * @file database.ts
+ * @brief Typed description of the Supabase schema (mirrors `supabase/migrations`).
+ *
+ * The shape follows the output of `supabase gen types typescript`, so it can be regenerated with
+ * the Supabase CLI later. Row types are `type` aliases (not interfaces) because supabase-js
+ * requires them to be assignable to `Record<string, unknown>`.
+ */
+
+/** @brief Row type of `public.modules`. */
+export type ModuleRow = {
+  id: string;
+  user_id: string;
+  name: string;
+  professor: string | null;
+  ects: number | null;
+  lecture_room: string | null;
+  lecture_time: string | null;
+  exercise_room: string | null;
+  exercise_time: string | null;
+  notes: string;
+  created_at: string;
+  updated_at: string;
+};
+
+/** @brief Row type of `public.module_links`. */
+export type ModuleLinkRow = {
+  id: string;
+  user_id: string;
+  module_id: string;
+  title: string;
+  url: string;
+  position: number;
+  created_at: string;
+};
+
+/** @brief Row type of `public.tasks`. */
+export type TaskRow = {
+  id: string;
+  user_id: string;
+  title: string;
+  /** Due date as ISO date (`YYYY-MM-DD`) or null. */
+  due_date: string | null;
+  finish_day_before: boolean;
+  module_id: string | null;
+  /** Completion timestamp; null means the task is still open. */
+  completed_at: string | null;
+  created_at: string;
+};
+
+/** @brief Row type of `public.habits`. */
+export type HabitRow = {
+  id: string;
+  user_id: string;
+  name: string;
+  created_at: string;
+};
+
+/** @brief Row type of `public.habit_checks`. */
+export type HabitCheckRow = {
+  habit_id: string;
+  user_id: string;
+  /** Checked day as ISO date (`YYYY-MM-DD`). */
+  date: string;
+};
+
+/**
+ * @brief Makes the given keys of a type optional.
+ * @tparam T Source type.
+ * @tparam K Keys that become optional (columns with a default or nullable columns).
+ */
+type Optional<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
+
+/**
+ * @brief Declares one table for the typed Supabase client.
+ * @tparam R Row type.
+ * @tparam K Columns that may be omitted on insert.
+ */
+type TableDef<R, K extends keyof R> = {
+  Row: R;
+  Insert: Optional<R, K>;
+  Update: Partial<R>;
+  Relationships: [];
+};
+
+/** @brief Full database type passed to `createClient<Database>()`. */
+export type Database = {
+  public: {
+    Tables: {
+      modules: TableDef<
+        ModuleRow,
+        | 'id'
+        | 'user_id'
+        | 'professor'
+        | 'ects'
+        | 'lecture_room'
+        | 'lecture_time'
+        | 'exercise_room'
+        | 'exercise_time'
+        | 'notes'
+        | 'created_at'
+        | 'updated_at'
+      >;
+      module_links: TableDef<ModuleLinkRow, 'id' | 'user_id' | 'position' | 'created_at'>;
+      tasks: TableDef<
+        TaskRow,
+        | 'id'
+        | 'user_id'
+        | 'due_date'
+        | 'finish_day_before'
+        | 'module_id'
+        | 'completed_at'
+        | 'created_at'
+      >;
+      habits: TableDef<HabitRow, 'id' | 'user_id' | 'name' | 'created_at'>;
+      habit_checks: TableDef<HabitCheckRow, 'user_id'>;
+    };
+    Views: Record<never, never>;
+    Functions: Record<never, never>;
+    Enums: Record<never, never>;
+    CompositeTypes: Record<never, never>;
+  };
+};
+
+/** @brief Union of all table names in the public schema. */
+export type TableName = keyof Database['public']['Tables'];
+
+/**
+ * @brief Insert type lookup by table name.
+ * @tparam T Table name.
+ */
+export type InsertOf<T extends TableName> = Database['public']['Tables'][T]['Insert'];
