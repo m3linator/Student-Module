@@ -31,3 +31,9 @@ if (typeof window.matchMedia !== 'function') {
 afterEach(() => {
   cleanup();
 });
+
+// jsdom lacks pointer capture.
+if (!Element.prototype.setPointerCapture) {
+  Element.prototype.setPointerCapture = () => undefined;
+  Element.prototype.releasePointerCapture = () => undefined;
+}
