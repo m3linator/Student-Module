@@ -13,6 +13,22 @@
 @utility safe-x {
   padding-left: max(1rem, env(safe-area-inset-left));
   padding-right: max(1rem, env(safe-area-inset-right));
+
+  @media (width >= 64rem) {
+    padding-left: max(2.5rem, env(safe-area-inset-left));
+    padding-right: max(2.5rem, env(safe-area-inset-right));
+  }
+}
+
+/* Centred content column: full width on phones, 640px on tablets, 1200px on desktop. */
+@utility page-width {
+  width: 100%;
+  max-width: 640px;
+  margin-inline: auto;
+
+  @media (width >= 64rem) {
+    max-width: 1200px;
+  }
 }
 
 @layer base {

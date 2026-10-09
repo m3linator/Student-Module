@@ -1,16 +1,24 @@
-import { useAuth } from '@/hooks/useAuth';
+import { AppHeader } from '@/components/layout/AppHeader';
+import { Section } from '@/components/ui/Section';
 
 /**
- * @brief Overview page with tasks, modules and habit tracker.
- * @returns The overview.
+ * @brief Overview: tasks + completed tasks (left on desktop), modules + habit tracker (right).
+ * @details One column below 1024 px; two columns (≈40/60) from 1024 px.
+ * @returns The overview page.
  */
 export function OverviewPage() {
-  const { signOut } = useAuth();
   return (
-    <main className="p-4">
-      <button type="button" onClick={() => void signOut()}>
-        Abmelden
-      </button>
-    </main>
+    <div className="min-h-dvh">
+      <AppHeader />
+      <main className="page-width safe-x grid gap-10 pt-6 pb-[calc(env(safe-area-inset-bottom)+2.5rem)] lg:grid-cols-[2fr_3fr] lg:gap-12 lg:pt-10">
+        <div className="flex min-w-0 flex-col gap-6">
+          <Section title="Aufgaben">{null}</Section>
+        </div>
+        <div className="flex min-w-0 flex-col gap-10">
+          <Section title="Module">{null}</Section>
+          <Section title="Habittracker">{null}</Section>
+        </div>
+      </main>
+    </div>
   );
 }
