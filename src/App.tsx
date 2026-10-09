@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router';
 import { ProtectedRoute } from '@/components/layout/ProtectedRoute';
 import { UpdatePrompt } from '@/components/layout/UpdatePrompt';
@@ -5,9 +6,13 @@ import { AuthProvider } from '@/context/AuthProvider';
 import { ToastProvider } from '@/context/ToastProvider';
 import { isSupabaseConfigured } from '@/lib/supabase';
 import { LoginPage } from '@/pages/LoginPage';
-import { ModulePage } from '@/pages/ModulePage';
 import { OverviewPage } from '@/pages/OverviewPage';
 import { SetupHintPage } from '@/pages/SetupHintPage';
+
+/** @brief Module page incl. Markdown renderer, loaded on first visit (own chunk). */
+const ModulePage = lazy(() =>
+  import('@/pages/ModulePage').then((module) => ({ default: module.ModulePage })),
+);
 
 /**
  * @brief Root component: providers, routes and global overlays.
@@ -23,7 +28,14 @@ export default function App() {
               <Route path="/login" element={<LoginPage />} />
               <Route element={<ProtectedRoute />}>
                 <Route path="/" element={<OverviewPage />} />
-                <Route path="/module/:id" element={<ModulePage />} />
+                <Route
+                  path="/module/:id"
+                  element={
+                    <Suspense fallback={<div className="min-h-dvh bg-white" aria-busy="true" />}>
+                      <ModulePage />
+                    </Suspense>
+                  }
+                />
               </Route>
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
