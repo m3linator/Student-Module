@@ -55,7 +55,7 @@ export function HabitGrid({ month, checked, today, onToggle }: HabitGridProps) {
                   : 'border-gray-200 bg-white hover:bg-gray-100',
                 isFuture &&
                   'cursor-not-allowed border-gray-100 bg-gray-50 opacity-60 hover:bg-gray-50',
-                isToday && 'border-2 border-gray-900 ring-2 ring-gray-900/15 ring-offset-1',
+                isToday && 'ring-2 ring-gray-900 ring-offset-2',
               )}
             />
           );
