@@ -4,14 +4,28 @@
   --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
 }
 
+/* Safe areas (notch, home indicator) for the installed iOS app. */
+@utility safe-area {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+@utility safe-x {
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+}
+
 @layer base {
   html {
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
+    /* Disables double-tap zoom while keeping pinch zoom for accessibility. */
+    touch-action: manipulation;
   }
 
   body {
     @apply bg-white font-sans text-gray-900 antialiased;
+    overflow-x: hidden;
     overscroll-behavior-y: none;
   }
 
@@ -20,5 +34,15 @@
   select,
   textarea {
     font-size: 16px;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gray-900);
+    outline-offset: 2px;
+  }
+
+  button:not(:disabled),
+  [role='button']:not([aria-disabled='true']) {
+    cursor: pointer;
   }
 }
