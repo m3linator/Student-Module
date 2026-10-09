@@ -28,9 +28,11 @@ export function AppHeader({ desktopOnly = false }: { desktopOnly?: boolean }) {
         <div className="lg:hidden">
           <AccountMenu onSignOut={handleSignOut} />
         </div>
-        <Button variant="ghost" onClick={handleSignOut} className="hidden lg:inline-flex">
-          Abmelden
-        </Button>
+        <div className="hidden lg:block">
+          <Button variant="ghost" onClick={handleSignOut}>
+            Abmelden
+          </Button>
+        </div>
       </div>
     </header>
   );
