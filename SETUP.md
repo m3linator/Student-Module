@@ -259,14 +259,17 @@ Siehe Abschnitt **Projektstruktur** in der [README](README.md#projektstruktur).
 - [ ] Habit-Tag antippen → grün; erneut tippen → wieder leer. Zukünftige Tage sind gesperrt.
 - [ ] Heute ist schwarz umrandet, die Serie („🔥 N Tage in Folge“) stimmt.
 - [ ] WLAN aus → dezenter Offline-Hinweis oben; WLAN an → Hinweis verschwindet.
-- [ ] RLS-Test: Abfrage ohne Login liefert keine Daten (Ergebnis `[]`). URL und Key aus deiner
-      `.env` einsetzen:
-      `bash
-    curl "https://DEIN-PROJEKT.supabase.co/rest/v1/tasks?select=*" -H "apikey: DEIN_KEY"
-    `
+- [ ] RLS-Test: Eine Abfrage ohne Login liefert keine Daten (Ergebnis `[]`). URL und Key aus
+      deiner `.env` einsetzen:
+
+  ```bash
+  curl "https://DEIN-PROJEKT.supabase.co/rest/v1/tasks?select=*" -H "apikey: DEIN_KEY"
+  ```
+
 - [ ] Mac-App im Dock öffnet ohne Browserleiste; iPhone-Layout ist sauber, Notch und
       Home-Indicator verdecken nichts, kein horizontales Scrollen, kein Zoom beim Tippen.
 - [ ] Die Git-Historie enthält nur deine eigene Autorenschaft – dieser Befehl gibt nichts aus:
-      `bash
-    git log --format='%b' | grep -i "co-authored-by"
-    `
+
+  ```bash
+  git log --format='%b' | grep -i "co-authored-by"
+  ```
