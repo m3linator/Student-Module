@@ -2,6 +2,7 @@ import {
   useContext,
   useRef,
   useState,
+  type MouseEvent,
   type PointerEvent as ReactPointerEvent,
   type ReactNode,
   type WheelEvent,
@@ -16,6 +17,9 @@ const ACTION_WIDTH = 64;
 const AXIS_LOCK_PX = 8;
 /** @brief Accumulated trackpad deltaX (px) that opens or closes a row. */
 const WHEEL_THRESHOLD = 40;
+
+/** @brief Classes of the tappable row content (button or link). */
+const CONTENT_CLASSES = 'block min-w-0 flex-1 touch-pan-y text-left select-none';
 
 /** @brief Colour of an action button. */
 export type SwipeTone = 'green' | 'red' | 'gray';
@@ -44,8 +48,12 @@ export interface SwipeRowProps {
   actions: SwipeAction[];
   /** Tap/click on the row content (e.g. open the edit pop-up). */
   onTap?: () => void;
-  /** Accessible name of the row content button. */
+  /** Accessible name of the row content. */
   label: string;
+  /** Render the content as an external link (opens in a new tab/browser) instead of a button. */
+  href?: string;
+  /** Element shown left of the content, moving with it (e.g. a drag handle). */
+  leading?: ReactNode;
   children: ReactNode;
 }
 
@@ -64,7 +72,7 @@ interface Gesture {
  * @param props See SwipeRowProps.
  * @returns The row.
  */
-export function SwipeRow({ id, actions, onTap, label, children }: SwipeRowProps) {
+export function SwipeRow({ id, actions, onTap, label, href, leading, children }: SwipeRowProps) {
   const group = useContext(SwipeContext);
   const [localOpenId, setLocalOpenId] = useState<string | null>(null);
   const openId = group ? group.openId : localOpenId;
@@ -84,7 +92,7 @@ export function SwipeRow({ id, actions, onTap, label, children }: SwipeRowProps)
    * @brief Starts tracking a potential swipe.
    * @param event Pointer down on the row content.
    */
-  function handlePointerDown(event: ReactPointerEvent<HTMLButtonElement>) {
+  function handlePointerDown(event: ReactPointerEvent<HTMLElement>) {
     if (event.pointerType === 'mouse' && event.button !== 0) return;
     gesture.current = {
       pointerId: event.pointerId,
@@ -99,7 +107,7 @@ export function SwipeRow({ id, actions, onTap, label, children }: SwipeRowProps)
    * @brief Follows the finger/mouse once the gesture is clearly horizontal.
    * @param event Pointer move.
    */
-  function handlePointerMove(event: ReactPointerEvent<HTMLButtonElement>) {
+  function handlePointerMove(event: ReactPointerEvent<HTMLElement>) {
     const g = gesture.current;
     if (!g || g.pointerId !== event.pointerId) return;
     const dx = event.clientX - g.startX;
@@ -119,7 +127,7 @@ export function SwipeRow({ id, actions, onTap, label, children }: SwipeRowProps)
    * @brief Snaps the row open or closed after a horizontal gesture.
    * @param event Pointer up/cancel.
    */
-  function handlePointerEnd(event: ReactPointerEvent<HTMLButtonElement>) {
+  function handlePointerEnd(event: ReactPointerEvent<HTMLElement>) {
     const g = gesture.current;
     gesture.current = null;
     if (!g || g.pointerId !== event.pointerId || g.axis !== 'x' || dragOffset === null) {
@@ -131,21 +139,29 @@ export function SwipeRow({ id, actions, onTap, label, children }: SwipeRowProps)
     setDragOffset(null);
   }
 
-  /** @brief Handles a tap: closes an open row, otherwise forwards to onTap. */
-  function handleClick() {
+  /**
+   * @brief Handles a tap: closes an open row, otherwise forwards to onTap / follows the link.
+   * @param event Click event (default prevented for links after a swipe or while open).
+   */
+  function handleClick(event: MouseEvent<HTMLElement>) {
     if (suppressClick.current) {
       suppressClick.current = false;
+      event.preventDefault();
       return;
     }
-    if (open) setOpenId(null);
-    else onTap?.();
+    if (open) {
+      event.preventDefault();
+      setOpenId(null);
+    } else {
+      onTap?.();
+    }
   }
 
   /**
    * @brief Two-finger horizontal trackpad swipe (Mac) opens/closes the row.
    * @param event Wheel event.
    */
-  function handleWheel(event: WheelEvent<HTMLButtonElement>) {
+  function handleWheel(event: WheelEvent<HTMLElement>) {
     if (Math.abs(event.deltaX) <= Math.abs(event.deltaY)) return;
     const state = wheel.current;
     state.sum += event.deltaX;
@@ -173,6 +189,15 @@ export function SwipeRow({ id, actions, onTap, label, children }: SwipeRowProps)
     setExiting(true);
     window.setTimeout(action.onClick, leaveDuration());
   }
+
+  const contentHandlers = {
+    onPointerDown: handlePointerDown,
+    onPointerMove: handlePointerMove,
+    onPointerUp: handlePointerEnd,
+    onPointerCancel: handlePointerEnd,
+    onWheel: handleWheel,
+    onClick: handleClick,
+  };
 
   return (
     <div
@@ -205,23 +230,37 @@ export function SwipeRow({ id, actions, onTap, label, children }: SwipeRowProps)
             </button>
           ))}
         </div>
-        <button
-          type="button"
-          aria-label={label}
-          onPointerDown={handlePointerDown}
-          onPointerMove={handlePointerMove}
-          onPointerUp={handlePointerEnd}
-          onPointerCancel={handlePointerEnd}
-          onWheel={handleWheel}
-          onClick={handleClick}
+        <div
           style={{ transform: `translateX(${offset}px)` }}
           className={cn(
-            'can-hover:hover:bg-gray-50 relative z-10 block w-full touch-pan-y bg-white text-left select-none',
+            'can-hover:hover:bg-gray-50 relative z-10 flex bg-white',
             dragOffset === null && 'transition-transform duration-200 ease-out',
           )}
         >
-          {children}
-        </button>
+          {leading}
+          {href ? (
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              draggable={false}
+              {...contentHandlers}
+              className={CONTENT_CLASSES}
+            >
+              {children}
+            </a>
+          ) : (
+            <button
+              type="button"
+              aria-label={label}
+              {...contentHandlers}
+              className={CONTENT_CLASSES}
+            >
+              {children}
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

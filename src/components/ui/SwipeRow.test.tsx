@@ -36,7 +36,8 @@ function swipe(element: HTMLElement, dx: number) {
   fireEvent.click(element);
 }
 
-const translateOf = (name: string) => screen.getByRole('button', { name }).style.transform;
+const translateOf = (name: string) =>
+  (screen.getByRole('button', { name }).parentElement as HTMLElement).style.transform;
 
 describe('SwipeRow', () => {
   afterEach(() => {
@@ -121,5 +122,25 @@ describe('SwipeRow', () => {
     expect(translateOf('Zeile A')).toBe('translateX(-128px)');
     fireEvent.wheel(row, { deltaX: -50, deltaY: 0 });
     expect(translateOf('Zeile A')).toBe('translateX(0px)');
+  });
+});
+
+describe('SwipeRow as link', () => {
+  it('renders a safe external link and blocks navigation right after a swipe', () => {
+    render(
+      <SwipeRow id="l" label="Moodle" href="https://moodle.example" actions={[]}>
+        Moodle
+      </SwipeRow>,
+    );
+    const link = screen.getByRole('link', { name: 'Moodle' });
+    expect(link).toHaveAttribute('target', '_blank');
+    expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+
+    fireEvent.pointerDown(link, { pointerId: 1, clientX: 200, clientY: 10, button: 0 });
+    fireEvent.pointerMove(link, { pointerId: 1, clientX: 150, clientY: 10 });
+    fireEvent.pointerUp(link, { pointerId: 1, clientX: 150, clientY: 10 });
+    const click = new MouseEvent('click', { bubbles: true, cancelable: true });
+    link.dispatchEvent(click);
+    expect(click.defaultPrevented).toBe(true);
   });
 });
