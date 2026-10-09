@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Uni-App: Uni-App – Code-Dokumentation</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Uni-App
+   </div>
+   <div id="projectbrief">Persönliche Studien-PWA: Aufgaben, Module, Habittracker</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.18.0 -->
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": false,
+  "searchEngine": false,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="doc-content">
+<div><div class="header">
+  <div class="headertitle"><div class="title">Uni-App – Code-Dokumentation </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="mainpage"></a></p>
+<p>Persönliche Studien-App als Progressive Web App (React, TypeScript, Supabase).</p>
+<p>Diese Seiten werden aus den Doxygen-Kommentaren im Quellcode erzeugt (<span class="tt">npm run docs</span>). TypeScript-Signaturen sind dabei vereinfacht als C++-ähnliche Deklarationen dargestellt.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md0"></a>
+Einstieg</h1>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Bereich  </th><th class="markdownTableHeadNone">Dateien  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Konfiguration  </td><td class="markdownTableBodyNone"><span class="tt"><a class="el" href="app_8ts.html" title="Central app-wide constants (name, time zone, breakpoints, timings).">config/app.ts</a></span> – App-Name, Zeitzone, Breakpoint, Timings  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Geschäftslogik  </td><td class="markdownTableBodyNone"><span class="tt"><a class="el" href="deadline_8ts.html" title="&quot;Remaining days&quot; logic for tasks.">lib/deadline.ts</a></span>, <span class="tt"><a class="el" href="sort_8ts.html" title="Ordering rules for task lists.">lib/sort.ts</a></span>, <span class="tt"><a class="el" href="habit_8ts.html" title="Streak calculation for the habit tracker.">lib/habit.ts</a></span>, <span class="tt"><a class="el" href="calendar_8ts.html" title="Month grid helpers shared by the date picker and the habit tracker.">lib/calendar.ts</a></span>  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Daten &amp; Sync  </td><td class="markdownTableBodyNone"><span class="tt"><a class="el" href="store_8ts.html" title="Minimal immutable in-memory store holding all synced tables.">data/store.ts</a></span>, <span class="tt"><a class="el" href="actions_8ts.html" title="All data changes of the app as optimistic mutations against Supabase.">data/actions.ts</a></span>, <span class="tt"><a class="el" href="realtime_8ts.html" title="Live sync: Supabase Realtime (postgres_changes) → store actions.">data/realtime.ts</a></span>  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Hooks  </td><td class="markdownTableBodyNone"><span class="tt"><a class="el" href="use_data_8ts.html" title="Hooks reading derived data from the store and exposing the actions.">hooks/useData.ts</a></span>, <span class="tt"><a class="el" href="use_today_8ts.html" title="Shared &quot;today in Berlin&quot; value that flips at midnight and when the app is reopened.">hooks/useToday.ts</a></span>, <span class="tt"><a class="el" href="use_autosave_draft_8ts.html">hooks/useAutosaveDraft.ts</a></span>  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Oberfläche  </td><td class="markdownTableBodyNone"><span class="tt">components/**</span>, <span class="tt">pages/**</span>  </td></tr>
+</table>
+<p>Unter <b>Dateien</b> sind alle Module mit ihren Funktionen, Komponenten und Typen aufgelistet, unter <b>Klassen</b> die Props- und Datentypen. </p>
+</div></div><!-- PageDoc -->
+
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

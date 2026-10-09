@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Uni-App: data/mutation.ts-Dateireferenz</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Uni-App
+   </div>
+   <div id="projectbrief">Persönliche Studien-PWA: Aufgaben, Module, Habittracker</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.18.0 -->
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": false,
+  "searchEngine": false,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+    </li>
+  </ul>
+</div><!-- main-nav -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><b>data</b></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Klassen</a> &#124;
+<a href="#func-members">Funktionen</a>  </div>
+  <div class="headertitle"><div class="title">mutation.ts-Dateireferenz</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Optimistic mutation runner: apply locally, send to Supabase, roll back on failure.  
+<a href="#details">Mehr ...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Klassen</h2></td></tr>
+<tr class="memitem:RequestResult" id="r_RequestResult"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_request_result.html">RequestResult</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Result shape shared by all Supabase/PostgREST calls.  <a href="struct_request_result.html#details">Mehr ...</a><br /></td></tr>
+<tr class="memitem:Mutation" id="r_Mutation"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_mutation.html">Mutation</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">One optimistic change.  <a href="struct_mutation.html#details">Mehr ...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Funktionen</h2></td></tr>
+<tr class="memitem:ac3a6f7f063caa4a7f822c531370d1bc0" id="r_ac3a6f7f063caa4a7f822c531370d1bc0"><td class="memItemLeft">Promise&#160;</td><td class="memItemRight"><a class="el" href="#ac3a6f7f063caa4a7f822c531370d1bc0">runMutation</a> (<a class="el" href="struct_data_store.html">DataStore</a> store, auto onError, <a class="el" href="struct_mutation.html">Mutation</a> mutation)</td></tr>
+<tr class="memdesc:ac3a6f7f063caa4a7f822c531370d1bc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs a mutation optimistically.  <br /></td></tr>
+<tr class="memitem:a3e367050445f23f3bee27cd58a378d9e" id="r_a3e367050445f23f3bee27cd58a378d9e"><td class="memItemLeft">Promise&#160;</td><td class="memItemRight"><a class="el" href="#a3e367050445f23f3bee27cd58a378d9e">allRequests</a> (std::vector&lt; PromiseLike &gt; requests)</td></tr>
+<tr class="memdesc:a3e367050445f23f3bee27cd58a378d9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs several requests in parallel and reports the first error.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Ausführliche Beschreibung</h2>
+<div class="textblock"><p>Optimistic mutation runner: apply locally, send to Supabase, roll back on failure. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentation der Funktionen</h2>
+<a id="a3e367050445f23f3bee27cd58a378d9e" name="a3e367050445f23f3bee27cd58a378d9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e367050445f23f3bee27cd58a378d9e">&#9670;&#160;</a></span>allRequests()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Promise allRequests </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; PromiseLike &gt;</td>          <td class="paramname"><span class="paramname"><em>requests</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Runs several requests in parallel and reports the first error. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">requests</td><td>Requests to run. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Combined result. </dd></dl>
+
+</div>
+</div>
+<a id="ac3a6f7f063caa4a7f822c531370d1bc0" name="ac3a6f7f063caa4a7f822c531370d1bc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3a6f7f063caa4a7f822c531370d1bc0">&#9670;&#160;</a></span>runMutation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Promise runMutation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_data_store.html">DataStore</a></td>          <td class="paramname"><span class="paramname"><em>store</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">auto</td>          <td class="paramname"><span class="paramname"><em>onError</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_mutation.html">Mutation</a></td>          <td class="paramname"><span class="paramname"><em>mutation</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Runs a mutation optimistically. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">store</td><td>Data store. </td></tr>
+    <tr><td class="paramname">onError</td><td>Receives a German error message after a rollback. </td></tr>
+    <tr><td class="paramname">mutation</td><td>Change description. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>True on success, false after a rollback. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Uni-App: data/realtime.ts-Dateireferenz</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Uni-App
+   </div>
+   <div id="projectbrief">Persönliche Studien-PWA: Aufgaben, Module, Habittracker</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.18.0 -->
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": false,
+  "searchEngine": false,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+    </li>
+  </ul>
+</div><!-- main-nav -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><b>data</b></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Klassen</a> &#124;
+<a href="#func-members">Funktionen</a> &#124;
+<a href="#var-members">Variablen</a>  </div>
+  <div class="headertitle"><div class="title">realtime.ts-Dateireferenz</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Live sync: Supabase Realtime (postgres_changes) → store actions.  
+<a href="#details">Mehr ...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Klassen</h2></td></tr>
+<tr class="memitem:ChangePayload" id="r_ChangePayload"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_change_payload.html">ChangePayload</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimal shape of a postgres_changes payload used here.  <a href="struct_change_payload.html#details">Mehr ...</a><br /></td></tr>
+<tr class="memitem:RealtimeHandlers" id="r_RealtimeHandlers"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_realtime_handlers.html">RealtimeHandlers</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callbacks of subscribeToChanges.  <a href="struct_realtime_handlers.html#details">Mehr ...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Funktionen</h2></td></tr>
+<tr class="memitem:a475ea294d7af5be7fe9579c2e1393f0b" id="r_a475ea294d7af5be7fe9579c2e1393f0b"><td class="memItemLeft"><a class="el" href="store_8ts.html#aaba675f42c8c944848a241e16b240f44">DataAction</a>&#160;</td><td class="memItemRight"><a class="el" href="#a475ea294d7af5be7fe9579c2e1393f0b">realtimeToAction</a> (<a class="el" href="database_8ts.html#acdd815f7176b78f46c991f03bc7bc925">TableName</a> table, <a class="el" href="struct_change_payload.html">ChangePayload</a> payload)</td></tr>
+<tr class="memdesc:a475ea294d7af5be7fe9579c2e1393f0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts one Realtime change into a store action.  <br /></td></tr>
+<tr class="memitem:a657b927de87638b28e89037dc0dc12b0" id="r_a657b927de87638b28e89037dc0dc12b0"><td class="memItemLeft">auto&#160;</td><td class="memItemRight"><a class="el" href="#a657b927de87638b28e89037dc0dc12b0">subscribeToChanges</a> (<a class="el" href="struct_realtime_handlers.html">RealtimeHandlers</a> handlers)</td></tr>
+<tr class="memdesc:a657b927de87638b28e89037dc0dc12b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subscribes to changes of all synced tables of the signed-in user.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variablen</h2></td></tr>
+<tr class="memitem:afe8db9a0cf0cb0dea1e5746d2380d714" id="r_afe8db9a0cf0cb0dea1e5746d2380d714"><td class="memItemLeft"><a id="afe8db9a0cf0cb0dea1e5746d2380d714" name="afe8db9a0cf0cb0dea1e5746d2380d714"></a>
+const auto&#160;</td><td class="memItemRight"><b>SYNCED_TABLES</b></td></tr>
+<tr class="memdesc:afe8db9a0cf0cb0dea1e5746d2380d714"><td class="mdescLeft">&#160;</td><td class="mdescRight">All tables that are kept in sync. <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Ausführliche Beschreibung</h2>
+<div class="textblock"><p>Live sync: Supabase Realtime (postgres_changes) → store actions. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentation der Funktionen</h2>
+<a id="a475ea294d7af5be7fe9579c2e1393f0b" name="a475ea294d7af5be7fe9579c2e1393f0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a475ea294d7af5be7fe9579c2e1393f0b">&#9670;&#160;</a></span>realtimeToAction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="store_8ts.html#aaba675f42c8c944848a241e16b240f44">DataAction</a> realtimeToAction </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="database_8ts.html#acdd815f7176b78f46c991f03bc7bc925">TableName</a></td>          <td class="paramname"><span class="paramname"><em>table</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_change_payload.html">ChangePayload</a></td>          <td class="paramname"><span class="paramname"><em>payload</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts one Realtime change into a store action. </p>
+<p>With RLS enabled, DELETE events only carry the primary key – that is all we need. </p><dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">table</td><td>Table the change belongs to. </td></tr>
+    <tr><td class="paramname">payload</td><td>Realtime payload. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Store action, or null if the payload cannot be applied. </dd></dl>
+
+</div>
+</div>
+<a id="a657b927de87638b28e89037dc0dc12b0" name="a657b927de87638b28e89037dc0dc12b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a657b927de87638b28e89037dc0dc12b0">&#9670;&#160;</a></span>subscribeToChanges()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto subscribeToChanges </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_realtime_handlers.html">RealtimeHandlers</a></td>          <td class="paramname"><span class="paramname"><em>handlers</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Subscribes to changes of all synced tables of the signed-in user. </p>
+<p>No row filter is used: RLS already restricts INSERT/UPDATE events to own rows, and DELETE events cannot be filtered anyway. </p><dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handlers</td><td>Change and reconnect callbacks. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Unsubscribe function. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

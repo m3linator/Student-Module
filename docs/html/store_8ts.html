@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Uni-App: data/store.ts-Dateireferenz</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Uni-App
+   </div>
+   <div id="projectbrief">Persönliche Studien-PWA: Aufgaben, Module, Habittracker</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.18.0 -->
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": false,
+  "searchEngine": false,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+    </li>
+  </ul>
+</div><!-- main-nav -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><b>data</b></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Klassen</a> &#124;
+<a href="#typedef-members">Typdefinitionen</a> &#124;
+<a href="#func-members">Funktionen</a>  </div>
+  <div class="headertitle"><div class="title">store.ts-Dateireferenz</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Minimal immutable in-memory store holding all synced tables.  
+<a href="#details">Mehr ...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Klassen</h2></td></tr>
+<tr class="memitem:DataState" id="r_DataState"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_data_state.html">DataState</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Complete store state.  <a href="struct_data_state.html#details">Mehr ...</a><br /></td></tr>
+<tr class="memitem:DataStore" id="r_DataStore"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_data_store.html">DataStore</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Observable store wrapping <span class="tt"><a class="el" href="#a3cb192600bbc90eb0e763e142cae398e" title="Pure reducer applying one action to the state.">reduce</a></span>.  <a href="struct_data_store.html#details">Mehr ...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typdefinitionen</h2></td></tr>
+<tr class="memitem:a49451a3b815ad25d47b2458429d423f0" id="r_a49451a3b815ad25d47b2458429d423f0"><td class="memItemLeft"><a id="a49451a3b815ad25d47b2458429d423f0" name="a49451a3b815ad25d47b2458429d423f0"></a>
+using&#160;</td><td class="memItemRight"><b>RowOf</b> = auto</td></tr>
+<tr class="memdesc:a49451a3b815ad25d47b2458429d423f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Row type per table name. <br /></td></tr>
+<tr class="memitem:a1d44ae4ac30cf97137c2e5b160613618" id="r_a1d44ae4ac30cf97137c2e5b160613618"><td class="memItemLeft"><a id="a1d44ae4ac30cf97137c2e5b160613618" name="a1d44ae4ac30cf97137c2e5b160613618"></a>
+using&#160;</td><td class="memItemRight"><b>Tables</b> = auto</td></tr>
+<tr class="memdesc:a1d44ae4ac30cf97137c2e5b160613618"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rows of every table, indexed by row key. <br /></td></tr>
+<tr class="memitem:a01ac5134257808a1d89efaac8bab3a9e" id="r_a01ac5134257808a1d89efaac8bab3a9e"><td class="memItemLeft"><a id="a01ac5134257808a1d89efaac8bab3a9e" name="a01ac5134257808a1d89efaac8bab3a9e"></a>
+using&#160;</td><td class="memItemRight"><b>TableRows</b> = auto</td></tr>
+<tr class="memdesc:a01ac5134257808a1d89efaac8bab3a9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Row arrays of every table, as returned by the initial load. <br /></td></tr>
+<tr class="memitem:ae2d08f2b3f483deb8e7dcceaafa30efd" id="r_ae2d08f2b3f483deb8e7dcceaafa30efd"><td class="memItemLeft"><a id="ae2d08f2b3f483deb8e7dcceaafa30efd" name="ae2d08f2b3f483deb8e7dcceaafa30efd"></a>
+using&#160;</td><td class="memItemRight"><b>UpsertAction</b> = auto</td></tr>
+<tr class="memdesc:ae2d08f2b3f483deb8e7dcceaafa30efd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts or replaces one row (discriminated per table for type safety). <br /></td></tr>
+<tr class="memitem:aaba675f42c8c944848a241e16b240f44" id="r_aaba675f42c8c944848a241e16b240f44"><td class="memItemLeft"><a id="aaba675f42c8c944848a241e16b240f44" name="aaba675f42c8c944848a241e16b240f44"></a>
+using&#160;</td><td class="memItemRight"><b>DataAction</b> = auto</td></tr>
+<tr class="memdesc:aaba675f42c8c944848a241e16b240f44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Every change the store understands. <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Funktionen</h2></td></tr>
+<tr class="memitem:a5580447e184d33cfac502d172fe15d1e" id="r_a5580447e184d33cfac502d172fe15d1e"><td class="memItemLeft"><a class="el" href="#a1d44ae4ac30cf97137c2e5b160613618">Tables</a>&#160;</td><td class="memItemRight"><a class="el" href="#a5580447e184d33cfac502d172fe15d1e">emptyTables</a> ()</td></tr>
+<tr class="memdesc:a5580447e184d33cfac502d172fe15d1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates empty indexes for all tables.  <br /></td></tr>
+<tr class="memitem:a88a2b3caff5abbb29a13abd179cfe036" id="r_a88a2b3caff5abbb29a13abd179cfe036"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#a88a2b3caff5abbb29a13abd179cfe036">rowKey</a> (T table, <a class="el" href="#a49451a3b815ad25d47b2458429d423f0">RowOf</a> row)</td></tr>
+<tr class="memdesc:a88a2b3caff5abbb29a13abd179cfe036"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the unique key of a row.  <br /></td></tr>
+<tr class="memitem:af692a7a9e186c6eefc31ab6b813521e6" id="r_af692a7a9e186c6eefc31ab6b813521e6"><td class="memItemLeft">Record&#160;</td><td class="memItemRight"><a class="el" href="#af692a7a9e186c6eefc31ab6b813521e6">indexRows</a> (T table, std::vector&lt; <a class="el" href="#a49451a3b815ad25d47b2458429d423f0">RowOf</a> &gt; rows)</td></tr>
+<tr class="memdesc:af692a7a9e186c6eefc31ab6b813521e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a key → row index.  <br /></td></tr>
+<tr class="memitem:a3cb192600bbc90eb0e763e142cae398e" id="r_a3cb192600bbc90eb0e763e142cae398e"><td class="memItemLeft"><a class="el" href="struct_data_state.html">DataState</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3cb192600bbc90eb0e763e142cae398e">reduce</a> (<a class="el" href="struct_data_state.html">DataState</a> state, <a class="el" href="#aaba675f42c8c944848a241e16b240f44">DataAction</a> action)</td></tr>
+<tr class="memdesc:a3cb192600bbc90eb0e763e142cae398e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure reducer applying one action to the state.  <br /></td></tr>
+<tr class="memitem:aa244a8ac8f9ed9285b9dace26cb9ff84" id="r_aa244a8ac8f9ed9285b9dace26cb9ff84"><td class="memItemLeft"><a class="el" href="struct_data_store.html">DataStore</a>&#160;</td><td class="memItemRight"><a class="el" href="#aa244a8ac8f9ed9285b9dace26cb9ff84">createDataStore</a> ()</td></tr>
+<tr class="memdesc:aa244a8ac8f9ed9285b9dace26cb9ff84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new store (one per signed-in session).  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Ausführliche Beschreibung</h2>
+<div class="textblock"><p>Minimal immutable in-memory store holding all synced tables. </p>
+<p>All changes – initial load, optimistic updates, rollbacks and Realtime events – go through the pure <span class="tt"><a class="el" href="#a3cb192600bbc90eb0e763e142cae398e" title="Pure reducer applying one action to the state.">reduce</a></span> function, so the merge rules are testable without React or Supabase. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentation der Funktionen</h2>
+<a id="aa244a8ac8f9ed9285b9dace26cb9ff84" name="aa244a8ac8f9ed9285b9dace26cb9ff84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa244a8ac8f9ed9285b9dace26cb9ff84">&#9670;&#160;</a></span>createDataStore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_data_store.html">DataStore</a> createDataStore </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a new store (one per signed-in session). </p>
+<dl class="section return"><dt>Rückgabe</dt><dd>Store in the loading state. </dd></dl>
+
+</div>
+</div>
+<a id="a5580447e184d33cfac502d172fe15d1e" name="a5580447e184d33cfac502d172fe15d1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5580447e184d33cfac502d172fe15d1e">&#9670;&#160;</a></span>emptyTables()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a1d44ae4ac30cf97137c2e5b160613618">Tables</a> emptyTables </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates empty indexes for all tables. </p>
+<dl class="section return"><dt>Rückgabe</dt><dd><a class="el" href="#a1d44ae4ac30cf97137c2e5b160613618" title="Rows of every table, indexed by row key.">Tables</a> object without rows. </dd></dl>
+
+</div>
+</div>
+<a id="af692a7a9e186c6eefc31ab6b813521e6" name="af692a7a9e186c6eefc31ab6b813521e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af692a7a9e186c6eefc31ab6b813521e6">&#9670;&#160;</a></span>indexRows()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Record indexRows </td>
+          <td>(</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>table</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="#a49451a3b815ad25d47b2458429d423f0">RowOf</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>rows</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Builds a key → row index. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">table</td><td>Table name (for key computation). </td></tr>
+    <tr><td class="paramname">rows</td><td>Rows to index. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Index object. </dd></dl>
+
+</div>
+</div>
+<a id="a3cb192600bbc90eb0e763e142cae398e" name="a3cb192600bbc90eb0e763e142cae398e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cb192600bbc90eb0e763e142cae398e">&#9670;&#160;</a></span>reduce()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_data_state.html">DataState</a> reduce </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_data_state.html">DataState</a></td>          <td class="paramname"><span class="paramname"><em>state</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#aaba675f42c8c944848a241e16b240f44">DataAction</a></td>          <td class="paramname"><span class="paramname"><em>action</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pure reducer applying one action to the state. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">state</td><td>Current state (not mutated). </td></tr>
+    <tr><td class="paramname">action</td><td>Change to apply. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>New state, or the same object if nothing changed. </dd></dl>
+
+</div>
+</div>
+<a id="a88a2b3caff5abbb29a13abd179cfe036" name="a88a2b3caff5abbb29a13abd179cfe036"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88a2b3caff5abbb29a13abd179cfe036">&#9670;&#160;</a></span>rowKey()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string rowKey </td>
+          <td>(</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>table</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a49451a3b815ad25d47b2458429d423f0">RowOf</a></td>          <td class="paramname"><span class="paramname"><em>row</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Computes the unique key of a row. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">table</td><td>Table the row belongs to. </td></tr>
+    <tr><td class="paramname">row</td><td>The row. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd><span class="tt">id</span>, or <span class="tt">habit_id|date</span> for habit checks (composite primary key). </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

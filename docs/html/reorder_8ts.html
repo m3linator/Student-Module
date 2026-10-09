@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Uni-App: lib/reorder.ts-Dateireferenz</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Uni-App
+   </div>
+   <div id="projectbrief">Persönliche Studien-PWA: Aufgaben, Module, Habittracker</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.18.0 -->
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": false,
+  "searchEngine": false,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+    </li>
+  </ul>
+</div><!-- main-nav -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><b>lib</b></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funktionen</a>  </div>
+  <div class="headertitle"><div class="title">reorder.ts-Dateireferenz</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Pure helpers for drag &amp; drop reordering.  
+<a href="#details">Mehr ...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Funktionen</h2></td></tr>
+<tr class="memitem:a24f2bb4249eb646fb300e551494bc718" id="r_a24f2bb4249eb646fb300e551494bc718"><td class="memItemLeft">std::vector&lt; T &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a24f2bb4249eb646fb300e551494bc718">moveItem</a> (auto items, number from, number to)</td></tr>
+<tr class="memdesc:a24f2bb4249eb646fb300e551494bc718"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves one element of a list to another index.  <br /></td></tr>
+<tr class="memitem:a3bb31b5cda05868effd20ea67a71b624" id="r_a3bb31b5cda05868effd20ea67a71b624"><td class="memItemLeft">number&#160;</td><td class="memItemRight"><a class="el" href="#a3bb31b5cda05868effd20ea67a71b624">insertIndex</a> (auto midpoints, number draggedIndex, number pointerY)</td></tr>
+<tr class="memdesc:a3bb31b5cda05868effd20ea67a71b624"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the drop index of a dragged item from the pointer position.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Ausführliche Beschreibung</h2>
+<div class="textblock"><p>Pure helpers for drag &amp; drop reordering. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentation der Funktionen</h2>
+<a id="a3bb31b5cda05868effd20ea67a71b624" name="a3bb31b5cda05868effd20ea67a71b624"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bb31b5cda05868effd20ea67a71b624">&#9670;&#160;</a></span>insertIndex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">number insertIndex </td>
+          <td>(</td>
+          <td class="paramtype">auto</td>          <td class="paramname"><span class="paramname"><em>midpoints</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">number</td>          <td class="paramname"><span class="paramname"><em>draggedIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">number</td>          <td class="paramname"><span class="paramname"><em>pointerY</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Computes the drop index of a dragged item from the pointer position. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">midpoints</td><td>Vertical midpoints of all items at drag start (in list order). </td></tr>
+    <tr><td class="paramname">draggedIndex</td><td>Index of the dragged item at drag start. </td></tr>
+    <tr><td class="paramname">pointerY</td><td>Current pointer position (same coordinate space as the midpoints). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Target index = number of other items whose midpoint lies above the pointer. </dd></dl>
+
+</div>
+</div>
+<a id="a24f2bb4249eb646fb300e551494bc718" name="a24f2bb4249eb646fb300e551494bc718"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24f2bb4249eb646fb300e551494bc718">&#9670;&#160;</a></span>moveItem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; T &gt; moveItem </td>
+          <td>(</td>
+          <td class="paramtype">auto</td>          <td class="paramname"><span class="paramname"><em>items</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">number</td>          <td class="paramname"><span class="paramname"><em>from</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">number</td>          <td class="paramname"><span class="paramname"><em>to</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Moves one element of a list to another index. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">items</td><td>Source list (not mutated). </td></tr>
+    <tr><td class="paramname">from</td><td>Current index. </td></tr>
+    <tr><td class="paramname">to</td><td>Target index (clamped to the list bounds). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>New list. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

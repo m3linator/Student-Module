@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Uni-App: lib/sort.ts-Dateireferenz</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Uni-App
+   </div>
+   <div id="projectbrief">Persönliche Studien-PWA: Aufgaben, Module, Habittracker</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.18.0 -->
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": false,
+  "searchEngine": false,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+    </li>
+  </ul>
+</div><!-- main-nav -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><b>lib</b></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funktionen</a>  </div>
+  <div class="headertitle"><div class="title">sort.ts-Dateireferenz</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Ordering rules for task lists.  
+<a href="#details">Mehr ...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Funktionen</h2></td></tr>
+<tr class="memitem:ad6dc6a541b14514904924d3d8bc0ffcd" id="r_ad6dc6a541b14514904924d3d8bc0ffcd"><td class="memItemLeft">std::vector&lt; <a class="el" href="struct_task_row.html">TaskRow</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ad6dc6a541b14514904924d3d8bc0ffcd">sortOpenTasks</a> (auto tasks, <a class="el" href="berlin_date_8ts.html#a4a0b6a1b9a9bc7faff756bdaca4baea6">IsoDate</a> today)</td></tr>
+<tr class="memdesc:ad6dc6a541b14514904924d3d8bc0ffcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sorts open tasks: fewest remaining days first, tasks without date last, ties broken by creation time (oldest first).  <br /></td></tr>
+<tr class="memitem:a7b8dff41db1f8d27325d0b8ecc650ee4" id="r_a7b8dff41db1f8d27325d0b8ecc650ee4"><td class="memItemLeft">std::vector&lt; <a class="el" href="struct_task_row.html">TaskRow</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a7b8dff41db1f8d27325d0b8ecc650ee4">sortCompletedTasks</a> (auto tasks)</td></tr>
+<tr class="memdesc:a7b8dff41db1f8d27325d0b8ecc650ee4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sorts completed tasks by completion time, newest first.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Ausführliche Beschreibung</h2>
+<div class="textblock"><p>Ordering rules for task lists. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentation der Funktionen</h2>
+<a id="a7b8dff41db1f8d27325d0b8ecc650ee4" name="a7b8dff41db1f8d27325d0b8ecc650ee4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b8dff41db1f8d27325d0b8ecc650ee4">&#9670;&#160;</a></span>sortCompletedTasks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="struct_task_row.html">TaskRow</a> &gt; sortCompletedTasks </td>
+          <td>(</td>
+          <td class="paramtype">auto</td>          <td class="paramname"><span class="paramname"><em>tasks</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sorts completed tasks by completion time, newest first. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tasks</td><td>Completed tasks (not mutated). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>New, sorted array. </dd></dl>
+
+</div>
+</div>
+<a id="ad6dc6a541b14514904924d3d8bc0ffcd" name="ad6dc6a541b14514904924d3d8bc0ffcd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6dc6a541b14514904924d3d8bc0ffcd">&#9670;&#160;</a></span>sortOpenTasks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="struct_task_row.html">TaskRow</a> &gt; sortOpenTasks </td>
+          <td>(</td>
+          <td class="paramtype">auto</td>          <td class="paramname"><span class="paramname"><em>tasks</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="berlin_date_8ts.html#a4a0b6a1b9a9bc7faff756bdaca4baea6">IsoDate</a></td>          <td class="paramname"><span class="paramname"><em>today</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sorts open tasks: fewest remaining days first, tasks without date last, ties broken by creation time (oldest first). </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tasks</td><td>Open tasks (not mutated). </td></tr>
+    <tr><td class="paramname">today</td><td>Current Berlin calendar day. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>New, sorted array. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

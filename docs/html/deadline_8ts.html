@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Uni-App: lib/deadline.ts-Dateireferenz</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Uni-App
+   </div>
+   <div id="projectbrief">Persönliche Studien-PWA: Aufgaben, Module, Habittracker</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.18.0 -->
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": false,
+  "searchEngine": false,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+    </li>
+  </ul>
+</div><!-- main-nav -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><b>lib</b></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funktionen</a> &#124;
+<a href="#var-members">Variablen</a>  </div>
+  <div class="headertitle"><div class="title">deadline.ts-Dateireferenz</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>"Remaining days" logic for tasks.  
+<a href="#details">Mehr ...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Funktionen</h2></td></tr>
+<tr class="memitem:a82b9280cb2e6c399e024ea98662ef105" id="r_a82b9280cb2e6c399e024ea98662ef105"><td class="memItemLeft"><a class="el" href="berlin_date_8ts.html#a4a0b6a1b9a9bc7faff756bdaca4baea6">IsoDate</a>&#160;</td><td class="memItemRight"><a class="el" href="#a82b9280cb2e6c399e024ea98662ef105">getDeadline</a> (<a class="el" href="berlin_date_8ts.html#a4a0b6a1b9a9bc7faff756bdaca4baea6">IsoDate</a> dueDate, boolean finishDayBefore)</td></tr>
+<tr class="memdesc:a82b9280cb2e6c399e024ea98662ef105"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the working deadline of a task.  <br /></td></tr>
+<tr class="memitem:afd92669ab7615e1306e712049548f3f6" id="r_afd92669ab7615e1306e712049548f3f6"><td class="memItemLeft">number&#160;</td><td class="memItemRight"><a class="el" href="#afd92669ab7615e1306e712049548f3f6">getRemainingDays</a> (<a class="el" href="berlin_date_8ts.html#a4a0b6a1b9a9bc7faff756bdaca4baea6">IsoDate</a> dueDate, boolean finishDayBefore, <a class="el" href="berlin_date_8ts.html#a4a0b6a1b9a9bc7faff756bdaca4baea6">IsoDate</a> today)</td></tr>
+<tr class="memdesc:afd92669ab7615e1306e712049548f3f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the remaining calendar days until the working deadline.  <br /></td></tr>
+<tr class="memitem:a57e0bc757e50bd0c8e6bf1bebebd00a3" id="r_a57e0bc757e50bd0c8e6bf1bebebd00a3"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#a57e0bc757e50bd0c8e6bf1bebebd00a3">formatRemaining</a> (number remaining)</td></tr>
+<tr class="memdesc:a57e0bc757e50bd0c8e6bf1bebebd00a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats remaining days for the "verbl. Tage" column.  <br /></td></tr>
+<tr class="memitem:ade9cade5962cbe306f8383167915efa2" id="r_ade9cade5962cbe306f8383167915efa2"><td class="memItemLeft">boolean&#160;</td><td class="memItemRight"><a class="el" href="#ade9cade5962cbe306f8383167915efa2">isUrgent</a> (number remaining)</td></tr>
+<tr class="memdesc:ade9cade5962cbe306f8383167915efa2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decides whether a task is due soon enough to be shown in red.  <br /></td></tr>
+<tr class="memitem:a46353391192ef8a9e564b5a2762e6e86" id="r_a46353391192ef8a9e564b5a2762e6e86"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#a46353391192ef8a9e564b5a2762e6e86">formatDueDate</a> (<a class="el" href="berlin_date_8ts.html#a4a0b6a1b9a9bc7faff756bdaca4baea6">IsoDate</a> dueDate)</td></tr>
+<tr class="memdesc:a46353391192ef8a9e564b5a2762e6e86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats a due date for the task row ("Mi, 14.10.").  <br /></td></tr>
+<tr class="memitem:ad08c54b5464b3e069f17af323df73236" id="r_ad08c54b5464b3e069f17af323df73236"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#ad08c54b5464b3e069f17af323df73236">formatDueDateLong</a> (<a class="el" href="berlin_date_8ts.html#a4a0b6a1b9a9bc7faff756bdaca4baea6">IsoDate</a> dueDate)</td></tr>
+<tr class="memdesc:ad08c54b5464b3e069f17af323df73236"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats a due date including the year ("Mi, 14.10.2026") for the date picker field.  <br /></td></tr>
+<tr class="memitem:abf696a364964540352965e0a9ce4cedb" id="r_abf696a364964540352965e0a9ce4cedb"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#abf696a364964540352965e0a9ce4cedb">describeRemaining</a> (number remaining)</td></tr>
+<tr class="memdesc:abf696a364964540352965e0a9ce4cedb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes the remaining days in words for screen readers.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variablen</h2></td></tr>
+<tr class="memitem:ac5e2112ff1bd2cfe4a3cb360c30667ea" id="r_ac5e2112ff1bd2cfe4a3cb360c30667ea"><td class="memItemLeft"><a id="ac5e2112ff1bd2cfe4a3cb360c30667ea" name="ac5e2112ff1bd2cfe4a3cb360c30667ea"></a>
+const auto&#160;</td><td class="memItemRight"><b>URGENT_DAYS</b></td></tr>
+<tr class="memdesc:ac5e2112ff1bd2cfe4a3cb360c30667ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tasks with this many remaining days or fewer are highlighted in red. <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Ausführliche Beschreibung</h2>
+<div class="textblock"><p>"Remaining days" logic for tasks. </p>
+<p>deadline = finish_day_before ? due_date − 1 day : due_date remaining = calendar days from today (Berlin) to deadline; times of day are ignored. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentation der Funktionen</h2>
+<a id="abf696a364964540352965e0a9ce4cedb" name="abf696a364964540352965e0a9ce4cedb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf696a364964540352965e0a9ce4cedb">&#9670;&#160;</a></span>describeRemaining()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string describeRemaining </td>
+          <td>(</td>
+          <td class="paramtype">number</td>          <td class="paramname"><span class="paramname"><em>remaining</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Describes the remaining days in words for screen readers. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">remaining</td><td>Result of <a class="el" href="#afd92669ab7615e1306e712049548f3f6" title="Calculates the remaining calendar days until the working deadline.">getRemainingDays()</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>E.g. "noch 3 Tage", "heute fällig", "2 Tage überfällig". </dd></dl>
+
+</div>
+</div>
+<a id="a46353391192ef8a9e564b5a2762e6e86" name="a46353391192ef8a9e564b5a2762e6e86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46353391192ef8a9e564b5a2762e6e86">&#9670;&#160;</a></span>formatDueDate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string formatDueDate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="berlin_date_8ts.html#a4a0b6a1b9a9bc7faff756bdaca4baea6">IsoDate</a></td>          <td class="paramname"><span class="paramname"><em>dueDate</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Formats a due date for the task row ("Mi, 14.10."). </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dueDate</td><td>ISO date. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Short German weekday plus day and month. </dd></dl>
+
+</div>
+</div>
+<a id="ad08c54b5464b3e069f17af323df73236" name="ad08c54b5464b3e069f17af323df73236"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad08c54b5464b3e069f17af323df73236">&#9670;&#160;</a></span>formatDueDateLong()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string formatDueDateLong </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="berlin_date_8ts.html#a4a0b6a1b9a9bc7faff756bdaca4baea6">IsoDate</a></td>          <td class="paramname"><span class="paramname"><em>dueDate</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Formats a due date including the year ("Mi, 14.10.2026") for the date picker field. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dueDate</td><td>ISO date. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Short German weekday, day, month and year. </dd></dl>
+
+</div>
+</div>
+<a id="a57e0bc757e50bd0c8e6bf1bebebd00a3" name="a57e0bc757e50bd0c8e6bf1bebebd00a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57e0bc757e50bd0c8e6bf1bebebd00a3">&#9670;&#160;</a></span>formatRemaining()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string formatRemaining </td>
+          <td>(</td>
+          <td class="paramtype">number</td>          <td class="paramname"><span class="paramname"><em>remaining</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Formats remaining days for the "verbl. Tage" column. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">remaining</td><td>Result of <a class="el" href="#afd92669ab7615e1306e712049548f3f6" title="Calculates the remaining calendar days until the working deadline.">getRemainingDays()</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>"N Tage", "1 Tag", "Heute", "−N" (overdue) or "–" (no date). </dd></dl>
+
+</div>
+</div>
+<a id="a82b9280cb2e6c399e024ea98662ef105" name="a82b9280cb2e6c399e024ea98662ef105"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82b9280cb2e6c399e024ea98662ef105">&#9670;&#160;</a></span>getDeadline()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="berlin_date_8ts.html#a4a0b6a1b9a9bc7faff756bdaca4baea6">IsoDate</a> getDeadline </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="berlin_date_8ts.html#a4a0b6a1b9a9bc7faff756bdaca4baea6">IsoDate</a></td>          <td class="paramname"><span class="paramname"><em>dueDate</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">boolean</td>          <td class="paramname"><span class="paramname"><em>finishDayBefore</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Computes the working deadline of a task. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dueDate</td><td>Submission day (ISO date, YYYY-MM-DD). </td></tr>
+    <tr><td class="paramname">finishDayBefore</td><td>Whether the task must be finished by the evening before. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Deadline as ISO date. </dd></dl>
+
+</div>
+</div>
+<a id="afd92669ab7615e1306e712049548f3f6" name="afd92669ab7615e1306e712049548f3f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd92669ab7615e1306e712049548f3f6">&#9670;&#160;</a></span>getRemainingDays()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">number getRemainingDays </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="berlin_date_8ts.html#a4a0b6a1b9a9bc7faff756bdaca4baea6">IsoDate</a></td>          <td class="paramname"><span class="paramname"><em>dueDate</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">boolean</td>          <td class="paramname"><span class="paramname"><em>finishDayBefore</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="berlin_date_8ts.html#a4a0b6a1b9a9bc7faff756bdaca4baea6">IsoDate</a></td>          <td class="paramname"><span class="paramname"><em>today</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates the remaining calendar days until the working deadline. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dueDate</td><td>Submission day (ISO date) or null if none is set. </td></tr>
+    <tr><td class="paramname">finishDayBefore</td><td>Whether the task must be finished by the evening before. </td></tr>
+    <tr><td class="paramname">today</td><td>Current Berlin calendar day (ISO date), see <a class="el" href="berlin_date_8ts.html#a907ec7fb6f7ce417daf767006deb9d8b" title="Returns the current calendar day in Berlin.">todayInBerlin()</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Remaining calendar days (negative = overdue), or null without a due date. </dd></dl>
+
+</div>
+</div>
+<a id="ade9cade5962cbe306f8383167915efa2" name="ade9cade5962cbe306f8383167915efa2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade9cade5962cbe306f8383167915efa2">&#9670;&#160;</a></span>isUrgent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boolean isUrgent </td>
+          <td>(</td>
+          <td class="paramtype">number</td>          <td class="paramname"><span class="paramname"><em>remaining</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Decides whether a task is due soon enough to be shown in red. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">remaining</td><td>Result of <a class="el" href="#afd92669ab7615e1306e712049548f3f6" title="Calculates the remaining calendar days until the working deadline.">getRemainingDays()</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>True for ≤ 2 days, today and overdue; false without a date. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

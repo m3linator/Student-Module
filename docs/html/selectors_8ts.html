@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Uni-App: data/selectors.ts-Dateireferenz</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Uni-App
+   </div>
+   <div id="projectbrief">Persönliche Studien-PWA: Aufgaben, Module, Habittracker</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.18.0 -->
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": false,
+  "searchEngine": false,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+    </li>
+  </ul>
+</div><!-- main-nav -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><b>data</b></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funktionen</a>  </div>
+  <div class="headertitle"><div class="title">selectors.ts-Dateireferenz</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Pure functions deriving view data from the store tables.  
+<a href="#details">Mehr ...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Funktionen</h2></td></tr>
+<tr class="memitem:a678cef2d6906832c22ab8d7253ce2a6c" id="r_a678cef2d6906832c22ab8d7253ce2a6c"><td class="memItemLeft">std::vector&lt; <a class="el" href="struct_task_row.html">TaskRow</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a678cef2d6906832c22ab8d7253ce2a6c">selectOpenTasks</a> (<a class="el" href="store_8ts.html#a1d44ae4ac30cf97137c2e5b160613618">Tables</a> tables, <a class="el" href="berlin_date_8ts.html#a4a0b6a1b9a9bc7faff756bdaca4baea6">IsoDate</a> today)</td></tr>
+<tr class="memdesc:a678cef2d6906832c22ab8d7253ce2a6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open tasks in display order.  <br /></td></tr>
+<tr class="memitem:a900cf20edcdd606f85497e89da25a45e" id="r_a900cf20edcdd606f85497e89da25a45e"><td class="memItemLeft">std::vector&lt; <a class="el" href="struct_task_row.html">TaskRow</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a900cf20edcdd606f85497e89da25a45e">selectCompletedTasks</a> (<a class="el" href="store_8ts.html#a1d44ae4ac30cf97137c2e5b160613618">Tables</a> tables)</td></tr>
+<tr class="memdesc:a900cf20edcdd606f85497e89da25a45e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Completed tasks, most recently completed first.  <br /></td></tr>
+<tr class="memitem:a2b10876a63b7fff5758582511f5e888f" id="r_a2b10876a63b7fff5758582511f5e888f"><td class="memItemLeft">std::vector&lt; <a class="el" href="struct_module_row.html">ModuleRow</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a2b10876a63b7fff5758582511f5e888f">selectModules</a> (<a class="el" href="store_8ts.html#a1d44ae4ac30cf97137c2e5b160613618">Tables</a> tables)</td></tr>
+<tr class="memdesc:a2b10876a63b7fff5758582511f5e888f"><td class="mdescLeft">&#160;</td><td class="mdescRight">All modules in creation order.  <br /></td></tr>
+<tr class="memitem:aca11882322f2d790a2d6e7f4bfe5d5f9" id="r_aca11882322f2d790a2d6e7f4bfe5d5f9"><td class="memItemLeft">Map&#160;</td><td class="memItemRight"><a class="el" href="#aca11882322f2d790a2d6e7f4bfe5d5f9">selectOpenCountByModule</a> (<a class="el" href="store_8ts.html#a1d44ae4ac30cf97137c2e5b160613618">Tables</a> tables)</td></tr>
+<tr class="memdesc:aca11882322f2d790a2d6e7f4bfe5d5f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of open tasks per module id.  <br /></td></tr>
+<tr class="memitem:a4e2c273ad07eadbdbe1b6ddd7b8cf769" id="r_a4e2c273ad07eadbdbe1b6ddd7b8cf769"><td class="memItemLeft">std::vector&lt; <a class="el" href="struct_module_link_row.html">ModuleLinkRow</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a4e2c273ad07eadbdbe1b6ddd7b8cf769">selectLinks</a> (<a class="el" href="store_8ts.html#a1d44ae4ac30cf97137c2e5b160613618">Tables</a> tables, string moduleId)</td></tr>
+<tr class="memdesc:a4e2c273ad07eadbdbe1b6ddd7b8cf769"><td class="mdescLeft">&#160;</td><td class="mdescRight">Links of one module ordered by position, then creation time.  <br /></td></tr>
+<tr class="memitem:a123dddd6eb13b2d383e4de2c6826df36" id="r_a123dddd6eb13b2d383e4de2c6826df36"><td class="memItemLeft"><a class="el" href="struct_habit_row.html">HabitRow</a>&#160;</td><td class="memItemRight"><a class="el" href="#a123dddd6eb13b2d383e4de2c6826df36">selectHabit</a> (<a class="el" href="store_8ts.html#a1d44ae4ac30cf97137c2e5b160613618">Tables</a> tables)</td></tr>
+<tr class="memdesc:a123dddd6eb13b2d383e4de2c6826df36"><td class="mdescLeft">&#160;</td><td class="mdescRight">The user's single habit (oldest one, should duplicates ever exist).  <br /></td></tr>
+<tr class="memitem:a7699dc350d0a3de850a0e3ff5bc1a7c8" id="r_a7699dc350d0a3de850a0e3ff5bc1a7c8"><td class="memItemLeft">Set&#160;</td><td class="memItemRight"><a class="el" href="#a7699dc350d0a3de850a0e3ff5bc1a7c8">selectCheckedDates</a> (<a class="el" href="store_8ts.html#a1d44ae4ac30cf97137c2e5b160613618">Tables</a> tables, string habitId)</td></tr>
+<tr class="memdesc:a7699dc350d0a3de850a0e3ff5bc1a7c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checked days of a habit.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Ausführliche Beschreibung</h2>
+<div class="textblock"><p>Pure functions deriving view data from the store tables. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentation der Funktionen</h2>
+<a id="a7699dc350d0a3de850a0e3ff5bc1a7c8" name="a7699dc350d0a3de850a0e3ff5bc1a7c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7699dc350d0a3de850a0e3ff5bc1a7c8">&#9670;&#160;</a></span>selectCheckedDates()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Set selectCheckedDates </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="store_8ts.html#a1d44ae4ac30cf97137c2e5b160613618">Tables</a></td>          <td class="paramname"><span class="paramname"><em>tables</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>habitId</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checked days of a habit. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tables</td><td>Store tables. </td></tr>
+    <tr><td class="paramname">habitId</td><td>Habit id. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Set of ISO dates. </dd></dl>
+
+</div>
+</div>
+<a id="a900cf20edcdd606f85497e89da25a45e" name="a900cf20edcdd606f85497e89da25a45e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a900cf20edcdd606f85497e89da25a45e">&#9670;&#160;</a></span>selectCompletedTasks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="struct_task_row.html">TaskRow</a> &gt; selectCompletedTasks </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="store_8ts.html#a1d44ae4ac30cf97137c2e5b160613618">Tables</a></td>          <td class="paramname"><span class="paramname"><em>tables</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Completed tasks, most recently completed first. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tables</td><td>Store tables. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Sorted completed tasks. </dd></dl>
+
+</div>
+</div>
+<a id="a123dddd6eb13b2d383e4de2c6826df36" name="a123dddd6eb13b2d383e4de2c6826df36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a123dddd6eb13b2d383e4de2c6826df36">&#9670;&#160;</a></span>selectHabit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_habit_row.html">HabitRow</a> selectHabit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="store_8ts.html#a1d44ae4ac30cf97137c2e5b160613618">Tables</a></td>          <td class="paramname"><span class="paramname"><em>tables</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The user's single habit (oldest one, should duplicates ever exist). </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tables</td><td>Store tables. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Habit row or null while none exists. </dd></dl>
+
+</div>
+</div>
+<a id="a4e2c273ad07eadbdbe1b6ddd7b8cf769" name="a4e2c273ad07eadbdbe1b6ddd7b8cf769"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e2c273ad07eadbdbe1b6ddd7b8cf769">&#9670;&#160;</a></span>selectLinks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="struct_module_link_row.html">ModuleLinkRow</a> &gt; selectLinks </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="store_8ts.html#a1d44ae4ac30cf97137c2e5b160613618">Tables</a></td>          <td class="paramname"><span class="paramname"><em>tables</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>moduleId</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Links of one module ordered by position, then creation time. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tables</td><td>Store tables. </td></tr>
+    <tr><td class="paramname">moduleId</td><td>Module id. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Sorted links. </dd></dl>
+
+</div>
+</div>
+<a id="a2b10876a63b7fff5758582511f5e888f" name="a2b10876a63b7fff5758582511f5e888f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b10876a63b7fff5758582511f5e888f">&#9670;&#160;</a></span>selectModules()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="struct_module_row.html">ModuleRow</a> &gt; selectModules </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="store_8ts.html#a1d44ae4ac30cf97137c2e5b160613618">Tables</a></td>          <td class="paramname"><span class="paramname"><em>tables</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>All modules in creation order. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tables</td><td>Store tables. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Sorted modules. </dd></dl>
+
+</div>
+</div>
+<a id="aca11882322f2d790a2d6e7f4bfe5d5f9" name="aca11882322f2d790a2d6e7f4bfe5d5f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca11882322f2d790a2d6e7f4bfe5d5f9">&#9670;&#160;</a></span>selectOpenCountByModule()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Map selectOpenCountByModule </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="store_8ts.html#a1d44ae4ac30cf97137c2e5b160613618">Tables</a></td>          <td class="paramname"><span class="paramname"><em>tables</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Number of open tasks per module id. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tables</td><td>Store tables. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Map module id → open task count (modules without open tasks are absent). </dd></dl>
+
+</div>
+</div>
+<a id="a678cef2d6906832c22ab8d7253ce2a6c" name="a678cef2d6906832c22ab8d7253ce2a6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a678cef2d6906832c22ab8d7253ce2a6c">&#9670;&#160;</a></span>selectOpenTasks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="struct_task_row.html">TaskRow</a> &gt; selectOpenTasks </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="store_8ts.html#a1d44ae4ac30cf97137c2e5b160613618">Tables</a></td>          <td class="paramname"><span class="paramname"><em>tables</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="berlin_date_8ts.html#a4a0b6a1b9a9bc7faff756bdaca4baea6">IsoDate</a></td>          <td class="paramname"><span class="paramname"><em>today</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Open tasks in display order. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tables</td><td>Store tables. </td></tr>
+    <tr><td class="paramname">today</td><td>Current Berlin calendar day. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Sorted open tasks. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

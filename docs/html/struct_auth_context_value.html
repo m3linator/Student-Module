@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Uni-App: AuthContextValue Strukturreferenz</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Uni-App
+   </div>
+   <div id="projectbrief">Persönliche Studien-PWA: Aufgaben, Module, Habittracker</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.18.0 -->
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": false,
+  "searchEngine": false,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Öffentliche Attribute</a> &#124;
+<a href="struct_auth_context_value-members.html">Aufstellung aller Elemente</a>  </div>
+  <div class="headertitle"><div class="title">AuthContextValue Strukturreferenz</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Value exposed by the AuthProvider.  
+ <a href="#details">Mehr ...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Öffentliche Attribute</h2></td></tr>
+<tr class="memitem:af94443ed22ddf88071ab274e9d80cc40" id="r_af94443ed22ddf88071ab274e9d80cc40"><td class="memItemLeft"><a id="af94443ed22ddf88071ab274e9d80cc40" name="af94443ed22ddf88071ab274e9d80cc40"></a>
+Session&#160;</td><td class="memItemRight"><b>session</b></td></tr>
+<tr class="memdesc:af94443ed22ddf88071ab274e9d80cc40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current session, or null when logged out. <br /></td></tr>
+<tr class="memitem:af18dc9c5eb0f3fda0eabb317824079fb" id="r_af18dc9c5eb0f3fda0eabb317824079fb"><td class="memItemLeft"><a id="af18dc9c5eb0f3fda0eabb317824079fb" name="af18dc9c5eb0f3fda0eabb317824079fb"></a>
+boolean&#160;</td><td class="memItemRight"><b>loading</b></td></tr>
+<tr class="memdesc:af18dc9c5eb0f3fda0eabb317824079fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">True until the persisted session has been restored on startup. <br /></td></tr>
+<tr class="memitem:af8da56641513dff1c544b3077e8fa29e" id="r_af8da56641513dff1c544b3077e8fa29e"><td class="memItemLeft">auto&#160;</td><td class="memItemRight"><a class="el" href="#af8da56641513dff1c544b3077e8fa29e">signIn</a></td></tr>
+<tr class="memdesc:af8da56641513dff1c544b3077e8fa29e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signs in with e-mail and password.  <br /></td></tr>
+<tr class="memitem:af9f85a84d30dc43df56e54b90d0af206" id="r_af9f85a84d30dc43df56e54b90d0af206"><td class="memItemLeft"><a id="af9f85a84d30dc43df56e54b90d0af206" name="af9f85a84d30dc43df56e54b90d0af206"></a>
+auto&#160;</td><td class="memItemRight"><b>signOut</b></td></tr>
+<tr class="memdesc:af9f85a84d30dc43df56e54b90d0af206"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signs out on this device. <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Ausführliche Beschreibung</h2>
+<div class="textblock"><p>Value exposed by the AuthProvider. </p>
+</div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Dokumentation der Datenelemente</h2>
+<a id="af8da56641513dff1c544b3077e8fa29e" name="af8da56641513dff1c544b3077e8fa29e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8da56641513dff1c544b3077e8fa29e">&#9670;&#160;</a></span>signIn</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto AuthContextValue::signIn</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Signs in with e-mail and password. </p>
+<dl class="section return"><dt>Rückgabe</dt><dd>German error message, or null on success. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>
