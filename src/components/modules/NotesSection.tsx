@@ -88,7 +88,7 @@ export function NotesSection({ module }: { module: ModuleRow }) {
           onBlur={onBlur}
           placeholder={'# Überschrift\n- Stichpunkt\n- [ ] Aufgabe\n\n**fett**, [Link](https://…)'}
           spellCheck
-          className="min-h-[50dvh] w-full flex-1 resize-none rounded-xl border border-gray-200 p-4 text-base leading-relaxed text-gray-900 placeholder:text-gray-400 focus:border-gray-900 focus:outline-none lg:min-h-0"
+          className="min-h-[50dvh] w-full flex-1 resize-none rounded-xl border border-gray-200 p-4 text-base leading-relaxed text-gray-900 placeholder:text-gray-500 focus:border-gray-900 focus:outline-none lg:min-h-0"
         />
       )}
     </section>

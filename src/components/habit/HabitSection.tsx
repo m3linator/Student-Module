@@ -42,7 +42,7 @@ export function HabitSection() {
             className="group -mx-2 flex min-h-11 items-center gap-2 self-start rounded-lg px-2 text-lg font-medium hover:bg-gray-100"
           >
             {habit.name}
-            <PencilIcon className="size-4 text-gray-400 group-hover:text-gray-600" />
+            <PencilIcon className="size-4 text-gray-500 group-hover:text-gray-700" />
           </button>
 
           <div className="flex max-w-xs items-center justify-between">
