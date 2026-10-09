@@ -14,8 +14,17 @@ describe('toGermanMessage', () => {
     );
   });
 
-  it('recognises network failures', () => {
+  it('recognises network failures in Chrome, Safari and Firefox', () => {
     expect(toGermanMessage(new TypeError('Failed to fetch'))).toMatch(/Keine Verbindung/);
+    expect(toGermanMessage(new TypeError('Load failed'))).toMatch(/Keine Verbindung/);
+    expect(
+      toGermanMessage(new TypeError('NetworkError when attempting to fetch resource.')),
+    ).toMatch(/Keine Verbindung/);
+  });
+
+  it('points to the configuration for an invalid API key', () => {
+    expect(toGermanMessage({ message: 'Invalid API key' })).toMatch(/\.env/);
+    expect(toGermanMessage({ code: 'bad_jwt', message: 'invalid JWT' })).not.toMatch(/\.env/);
   });
 
   it('recognises rate limits', () => {

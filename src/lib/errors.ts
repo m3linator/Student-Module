@@ -35,7 +35,15 @@ export function toGermanMessage(error: unknown, fallback: string = GENERIC_ERROR
   if (code === 'over_request_rate_limit' || message.includes('rate limit')) {
     return 'Zu viele Versuche. Bitte warte kurz.';
   }
-  if (message.includes('failed to fetch') || message.includes('network')) {
+  if (message.includes('invalid api key')) {
+    return 'Ungültiger Supabase-Key. Bitte VITE_SUPABASE_ANON_KEY in der .env prüfen.';
+  }
+  // Chrome: "Failed to fetch", Safari: "Load failed", Firefox: "NetworkError when attempting…"
+  if (
+    message.includes('failed to fetch') ||
+    message.includes('load failed') ||
+    message.includes('network')
+  ) {
     return 'Keine Verbindung zum Server. Bitte prüfe deine Internetverbindung.';
   }
   if (code === 'PGRST301' || message.includes('jwt')) {
