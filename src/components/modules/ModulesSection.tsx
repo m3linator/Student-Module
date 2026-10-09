@@ -6,8 +6,11 @@ import { useActions, useModules } from '@/hooks/useData';
 import { ModuleSheet } from './ModuleSheet';
 import { ModuleTile } from './ModuleTile';
 
-/** @brief Grid columns: 2 on phones, 3 from 400 px, 4 on wide desktops. */
-const GRID = 'grid grid-cols-2 gap-3 min-[400px]:grid-cols-3 xl:grid-cols-4';
+/**
+ * @brief Tile grid sized by the available width (container query), not the viewport:
+ *        2 columns on phones, 3 from 480 px, 4 from 720 px of section width.
+ */
+const GRID = 'grid grid-cols-2 gap-3 @min-[30rem]:grid-cols-3 @min-[45rem]:grid-cols-4';
 
 /**
  * @brief "Module" section with the tile grid and the "new module" pop-up.
@@ -33,27 +36,29 @@ export function ModulesSection() {
       onAdd={() => setSheet((s) => ({ open: true, key: s.key + 1 }))}
       addLabel="Neues Modul"
     >
-      {loading ? (
-        <div className={GRID} role="status" aria-label="Module werden geladen">
-          <Skeleton className="h-28" />
-          <Skeleton className="h-28" />
-          <Skeleton className="h-28" />
-        </div>
-      ) : modules.length === 0 ? (
-        <p className="rounded-xl border border-dashed border-gray-200 px-4 py-6 text-center text-gray-500">
-          Noch keine Module – tippe auf +
-        </p>
-      ) : (
-        <div className={GRID}>
-          {modules.map((module) => (
-            <ModuleTile
-              key={module.id}
-              module={module}
-              openCount={openCounts.get(module.id) ?? 0}
-            />
-          ))}
-        </div>
-      )}
+      <div className="@container">
+        {loading ? (
+          <div className={GRID} role="status" aria-label="Module werden geladen">
+            <Skeleton className="h-28" />
+            <Skeleton className="h-28" />
+            <Skeleton className="h-28" />
+          </div>
+        ) : modules.length === 0 ? (
+          <p className="rounded-xl border border-dashed border-gray-200 px-4 py-6 text-center text-gray-500">
+            Noch keine Module – tippe auf +
+          </p>
+        ) : (
+          <div className={GRID}>
+            {modules.map((module) => (
+              <ModuleTile
+                key={module.id}
+                module={module}
+                openCount={openCounts.get(module.id) ?? 0}
+              />
+            ))}
+          </div>
+        )}
+      </div>
       <ModuleSheet
         key={sheet.key}
         open={sheet.open}

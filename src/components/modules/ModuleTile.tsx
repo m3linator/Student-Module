@@ -15,7 +15,7 @@ export function ModuleTile({ module, openCount }: { module: ModuleRow; openCount
       className="animate-row-in flex min-h-28 flex-col gap-1 rounded-xl border border-gray-200 p-3 transition-colors duration-150 hover:bg-gray-50 active:bg-gray-100"
     >
       <span className="flex items-start justify-between gap-2">
-        <span className="line-clamp-3 min-w-0 leading-snug font-semibold break-words">
+        <span className="line-clamp-3 min-w-0 leading-snug font-semibold break-words hyphens-auto">
           {module.name}
         </span>
         {module.ects !== null && (
