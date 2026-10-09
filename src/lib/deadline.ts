@@ -69,3 +69,25 @@ export function isUrgent(remaining: number | null): boolean {
 export function formatDueDate(dueDate: IsoDate): string {
   return format(parseISO(dueDate), 'EEEEEE, dd.MM.', { locale: de });
 }
+
+/**
+ * @brief Formats a due date including the year ("Mi, 14.10.2026") for the date picker field.
+ * @param dueDate ISO date.
+ * @returns Short German weekday, day, month and year.
+ */
+export function formatDueDateLong(dueDate: IsoDate): string {
+  return format(parseISO(dueDate), 'EEEEEE, dd.MM.yyyy', { locale: de });
+}
+
+/**
+ * @brief Describes the remaining days in words for screen readers.
+ * @param remaining Result of getRemainingDays().
+ * @returns E.g. "noch 3 Tage", "heute fällig", "2 Tage überfällig".
+ */
+export function describeRemaining(remaining: number | null): string {
+  if (remaining === null) return 'kein Abgabetag';
+  if (remaining === 0) return 'heute fällig';
+  const days = Math.abs(remaining);
+  const unit = days === 1 ? 'Tag' : 'Tage';
+  return remaining < 0 ? `${days} ${unit} überfällig` : `noch ${days} ${unit}`;
+}

@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import {
+  describeRemaining,
   formatDueDate,
+  formatDueDateLong,
   formatRemaining,
   getDeadline,
   getRemainingDays,
@@ -103,5 +105,24 @@ describe('formatDueDate', () => {
   it('formats as short German weekday and day.month.', () => {
     expect(formatDueDate('2026-10-14')).toBe('Mi, 14.10.');
     expect(formatDueDate('2027-01-03')).toBe('So, 03.01.');
+  });
+});
+
+describe('formatDueDateLong', () => {
+  it('includes the year', () => {
+    expect(formatDueDateLong('2026-10-14')).toBe('Mi, 14.10.2026');
+  });
+});
+
+describe('describeRemaining', () => {
+  it.each([
+    [null, 'kein Abgabetag'],
+    [-1, '1 Tag überfällig'],
+    [-4, '4 Tage überfällig'],
+    [0, 'heute fällig'],
+    [1, 'noch 1 Tag'],
+    [5, 'noch 5 Tage'],
+  ])('describes %s as "%s"', (remaining, expected) => {
+    expect(describeRemaining(remaining)).toBe(expected);
   });
 });
