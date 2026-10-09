@@ -1,7 +1,7 @@
 import { AppHeader } from '@/components/layout/AppHeader';
+import { HabitSection } from '@/components/habit/HabitSection';
 import { ModulesSection } from '@/components/modules/ModulesSection';
 import { TasksSection } from '@/components/tasks/TasksSection';
-import { Section } from '@/components/ui/Section';
 import { SwipeGroup } from '@/components/ui/SwipeGroup';
 
 /**
@@ -20,7 +20,7 @@ export function OverviewPage() {
           </div>
           <div className="flex min-w-0 flex-col gap-10">
             <ModulesSection />
-            <Section title="Habittracker">{null}</Section>
+            <HabitSection />
           </div>
         </main>
       </div>
