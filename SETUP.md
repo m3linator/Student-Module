@@ -112,6 +112,13 @@ VITE_SUPABASE_URL=https://abcd1234.supabase.co
 VITE_SUPABASE_ANON_KEY=sb_publishable_xxxxxxxxxxxxxxxx
 ```
 
+> ⚠️ Häufige Fehler:
+>
+> - Die Werte gehören in **`.env`**, nicht in `.env.example` (die Vorlage ist eingecheckt und
+>   wird von der App nicht gelesen).
+> - Die URL endet auf **`.supabase.co`** – ohne `/rest/v1/` oder anderen Zusatz.
+> - Nach jeder Änderung an der `.env` den Dev-Server neu starten (`Ctrl + C`, dann `npm run dev`).
+
 Die `.env` steht in `.gitignore` und wird nie committet.
 
 ---
