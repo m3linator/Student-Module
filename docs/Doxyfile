@@ -1,0 +1,52 @@
+# Doxygen configuration – only non-default settings. Run via `npm run docs`.
+# Paths are relative to the repository root (the generator runs Doxygen from there).
+
+PROJECT_NAME           = "Uni-App"
+PROJECT_BRIEF          = "Persönliche Studien-PWA: Aufgaben, Module, Habittracker"
+OUTPUT_DIRECTORY       = docs
+OUTPUT_LANGUAGE        = German
+CREATE_SUBDIRS         = NO
+FULL_PATH_NAMES        = YES
+STRIP_FROM_PATH        = src
+JAVADOC_AUTOBRIEF      = YES
+MARKDOWN_SUPPORT       = YES
+
+# TypeScript is translated to C++-like declarations by the input filter.
+INPUT                  = docs/mainpage.md src
+FILE_PATTERNS          = *.ts *.tsx
+RECURSIVE              = YES
+EXCLUDE_PATTERNS       = *.test.ts *.test.tsx */src/test/* *.d.ts
+EXTENSION_MAPPING      = ts=C++ tsx=C++
+FILTER_PATTERNS        = "*.ts=node scripts/doxygen-ts-filter.mjs" "*.tsx=node scripts/doxygen-ts-filter.mjs"
+USE_MDFILE_AS_MAINPAGE = docs/mainpage.md
+
+EXTRACT_ALL            = NO
+EXTRACT_STATIC         = YES
+SOURCE_BROWSER         = NO
+VERBATIM_HEADERS       = NO
+ALPHABETICAL_INDEX     = NO
+SHOW_USED_FILES        = NO
+SHOW_INCLUDE_FILES     = NO
+
+QUIET                  = YES
+WARNINGS               = NO
+WARN_IF_UNDOCUMENTED   = NO
+WARN_IF_DOC_ERROR      = NO
+WARN_NO_PARAMDOC       = NO
+WARN_IF_INCOMPLETE_DOC = NO
+
+# Lean HTML output: no search index, no LaTeX, no graphs.
+GENERATE_HTML          = YES
+HTML_OUTPUT            = html
+HTML_COLORSTYLE        = LIGHT
+HTML_DYNAMIC_SECTIONS  = NO
+HTML_CODE_FOLDING      = NO
+HTML_COPY_CLIPBOARD    = NO
+GENERATE_TREEVIEW      = NO
+SEARCHENGINE           = NO
+GENERATE_LATEX         = NO
+HAVE_DOT               = NO
+CLASS_GRAPH            = NO
+COLLABORATION_GRAPH    = NO
+INCLUDE_GRAPH          = NO
+INCLUDED_BY_GRAPH      = NO

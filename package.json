@@ -12,7 +12,8 @@
     "format:check": "prettier --check .",
     "test": "vitest run",
     "test:watch": "vitest",
-    "icons": "node scripts/generate-icons.mjs"
+    "icons": "node scripts/generate-icons.mjs",
+    "docs": "node scripts/generate-docs.mjs"
   },
   "dependencies": {
     "@date-fns/tz": "^1.5.0",
