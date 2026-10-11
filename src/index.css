@@ -114,6 +114,11 @@
     font-size: 16px;
   }
 
+  /* iOS centres the value of time inputs; align it like the other fields. */
+  input::-webkit-date-and-time-value {
+    text-align: left;
+  }
+
   :focus-visible {
     outline: 2px solid var(--color-link);
     outline-offset: 2px;

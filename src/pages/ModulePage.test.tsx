@@ -2,7 +2,7 @@ import { screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Route, Routes } from 'react-router';
 import { describe, expect, it, vi } from 'vitest';
-import { makeLink, makeModule } from '@/test/fixtures';
+import { makeLink, makeModule, makeSlot } from '@/test/fixtures';
 import { renderWithData } from '@/test/renderWithData';
 import { ModulePage } from './ModulePage';
 
@@ -13,10 +13,8 @@ const module = makeModule({
   name: 'Mathematik 1',
   professor: 'Prof. Dr. Euler',
   ects: 7.5,
-  lectures: [
-    { room: 'H-1.10', time: 'Di 10:00–11:30' },
-    { room: 'C-116', time: 'Fr 8:00–9:30' },
-  ],
+  lectures: [makeSlot(5, '08:00', '09:30', 'C-116'), makeSlot(2, '10:00', '11:30', 'H-1.10')],
+  exercises: [makeSlot(3, '14:15', '15:45')],
   notes: '# Klausur\n- [ ] Blatt 1',
 });
 
@@ -62,11 +60,13 @@ describe('ModulePage', () => {
     expect(screen.getByRole('heading', { level: 1, name: 'Mathematik 1' })).toBeInTheDocument();
     expect(screen.getByText('Prof. Dr. Euler')).toBeInTheDocument();
     expect(screen.getByText('7,5 ECTS')).toBeInTheDocument();
-    expect(screen.getByText('Vorlesung 1')).toBeInTheDocument();
-    expect(screen.getByText('H-1.10 · Di 10:00–11:30')).toBeInTheDocument();
-    expect(screen.getByText('Vorlesung 2')).toBeInTheDocument();
-    expect(screen.getByText('C-116 · Fr 8:00–9:30')).toBeInTheDocument();
-    expect(screen.queryByText(/Übung/)).not.toBeInTheDocument();
+    // Appointments are sorted by weekday and start; the room line is skipped when empty.
+    const rows = screen.getAllByRole('term').slice(2);
+    expect(rows.map((term) => term.parentElement?.textContent)).toEqual([
+      'Vorlesung·Di 10:00–11:30·RaumH-1.10',
+      'Übung·Mi 14:15–15:45',
+      'Vorlesung·Fr 8:00–9:30·RaumC-116',
+    ]);
   });
 
   it('lists links by name only, in order, opening in the browser', () => {

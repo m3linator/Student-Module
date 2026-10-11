@@ -3,8 +3,15 @@ import { Sheet } from '@/components/ui/Sheet';
 import { TextField } from '@/components/ui/TextField';
 import type { ModuleInput } from '@/data/actions';
 import { parseEcts } from '@/lib/module';
-import { cleanSlots, normalizeSlots } from '@/lib/slots';
-import type { ModuleRow, TimeSlot } from '@/types/database';
+import {
+  cleanSlots,
+  draftsValid,
+  EMPTY_DRAFT,
+  normalizeSlots,
+  toDraft,
+  type SlotDraft,
+} from '@/lib/slots';
+import type { ModuleRow } from '@/types/database';
 import { SlotListField } from './SlotListField';
 
 /** @brief Props of ModuleSheet. */
@@ -21,15 +28,15 @@ export interface ModuleSheetProps {
  * @param value Stored slot list.
  * @returns Editable slot list.
  */
-function initialSlots(value: unknown): TimeSlot[] {
-  const slots = normalizeSlots(value);
-  return slots.length > 0 ? slots : [{ room: '', time: '' }];
+function initialSlots(value: unknown): SlotDraft[] {
+  const slots = normalizeSlots(value).map(toDraft);
+  return slots.length > 0 ? slots : [EMPTY_DRAFT];
 }
 
 /**
  * @brief Pop-up for creating or editing a module. Only the name is required.
- * @details Any number of lectures and exercises can be added; entries without a time are removed
- * on save. Mount with a fresh `key` per opening so the form starts from the given module.
+ * @details Any number of lectures and exercises can be added; entries without weekday and time
+ * are removed on save, half-filled entries or an end before the start block saving. Mount with a fresh `key` per opening so the form starts from the given module.
  * @param props See ModuleSheetProps.
  * @returns The sheet.
  */
@@ -45,7 +52,8 @@ export function ModuleSheet({ open, module, onClose, onSave }: ModuleSheetProps)
 
   const parsedEcts = parseEcts(ects);
   const ectsInvalid = parsedEcts === undefined;
-  const valid = name.trim() !== '' && !ectsInvalid;
+  const valid =
+    name.trim() !== '' && !ectsInvalid && draftsValid(lectures) && draftsValid(exercises);
 
   /** @brief Validates and hands the form values to the caller. */
   function handleSubmit() {
@@ -100,21 +108,11 @@ export function ModuleSheet({ open, module, onClose, onSave }: ModuleSheetProps)
           )}
         </div>
 
-        <SlotListField
-          kind="Vorlesung"
-          slots={lectures}
-          onChange={setLectures}
-          timePlaceholder="Di 10:00–11:30"
-        />
-        <SlotListField
-          kind="Übung"
-          slots={exercises}
-          onChange={setExercises}
-          timePlaceholder="Do 14:00–15:30"
-        />
+        <SlotListField kind="Vorlesung" slots={lectures} onChange={setLectures} />
+        <SlotListField kind="Übung" slots={exercises} onChange={setExercises} />
 
         <p className="-mt-2 text-[13px] text-label-2">
-          Einträge ohne Uhrzeit werden beim Speichern entfernt.
+          Einträge ohne Tag und Uhrzeit werden beim Speichern entfernt.
         </p>
       </div>
     </Sheet>

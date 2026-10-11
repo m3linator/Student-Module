@@ -155,3 +155,19 @@ export const AutoThemeIcon = (props: IconProps) => (
     <path d="M12 3.5v17a8.5 8.5 0 000-17z" fill="currentColor" stroke="none" />
   </Icon>
 );
+
+/** @brief Clock (time of an appointment). @param props SVG props. @returns Icon. */
+export const ClockIcon = (props: IconProps) => (
+  <Icon {...props}>
+    <circle cx="12" cy="12" r="9" />
+    <path d="M12 7v5l3 2" />
+  </Icon>
+);
+
+/** @brief Map pin (room of an appointment). @param props SVG props. @returns Icon. */
+export const MapPinIcon = (props: IconProps) => (
+  <Icon {...props}>
+    <path d="M12 21s-7-6.2-7-11.5a7 7 0 0114 0C19 14.8 12 21 12 21z" />
+    <circle cx="12" cy="9.5" r="2.5" />
+  </Icon>
+);

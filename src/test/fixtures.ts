@@ -2,7 +2,20 @@
  * @file fixtures.ts
  * @brief Row builders for component tests.
  */
-import type { HabitRow, ModuleLinkRow, ModuleRow, TaskRow } from '@/types/database';
+import type { HabitRow, ModuleLinkRow, ModuleRow, TaskRow, Weekday } from '@/types/database';
+import type { CompleteSlot } from '@/lib/slots';
+
+/**
+ * @brief Builds a complete appointment.
+ * @param weekday 1 = Monday … 7 = Sunday.
+ * @param start Start as `HH:MM`.
+ * @param end End as `HH:MM`.
+ * @param room Room (default empty).
+ * @returns Time slot.
+ */
+export function makeSlot(weekday: Weekday, start: string, end: string, room = ''): CompleteSlot {
+  return { room, weekday, start_time: start, end_time: end };
+}
 
 /**
  * @brief Builds a task row.

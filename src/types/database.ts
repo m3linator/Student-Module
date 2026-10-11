@@ -7,12 +7,24 @@
  * requires them to be assignable to `Record<string, unknown>`.
  */
 
-/** @brief One lecture or exercise appointment (stored as JSON in `modules`). */
+/** @brief ISO weekday: 1 = Monday … 7 = Sunday. */
+export type Weekday = 1 | 2 | 3 | 4 | 5 | 6 | 7;
+
+/**
+ * @brief One lecture or exercise appointment (stored as JSON in `modules`).
+ * @details Weekday, start and end are either all set or – for entries from version 0.2.0 that
+ * could not be converted – all null. The database enforces this (see `time_slots_valid`).
+ */
 export type TimeSlot = {
   /** Room, may be empty. */
   room: string;
-  /** Free-text time, e.g. "Di 10:00–11:30". */
-  time: string;
+  weekday: Weekday | null;
+  /** Start as `HH:MM`. */
+  start_time: string | null;
+  /** End as `HH:MM`, later than the start. */
+  end_time: string | null;
+  /** Free-text time of version 0.2.0; only present until the cleanup migration ran. */
+  time?: string;
 };
 
 /** @brief Row type of `public.modules`. */
