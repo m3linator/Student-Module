@@ -1,4 +1,4 @@
-import { screen } from '@testing-library/react';
+import { screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router';
 import { describe, expect, it } from 'vitest';
@@ -27,5 +27,27 @@ describe('AppHeader', () => {
     await userEvent.click(screen.getByRole('button', { name: 'Konto' }));
     await userEvent.click(screen.getByRole('menuitem', { name: 'Abmelden' }));
     expect(auth.signOut).toHaveBeenCalledTimes(1);
+  });
+
+  it('switches the appearance from the account menu and remembers it', async () => {
+    renderWithAuth(
+      <MemoryRouter>
+        <AppHeader />
+      </MemoryRouter>,
+      { session: fakeSession },
+    );
+    await userEvent.click(screen.getByRole('button', { name: 'Konto' }));
+    const menu = screen.getByRole('menu', { name: 'Konto' });
+    await userEvent.click(within(menu).getByRole('button', { name: 'Dunkel' }));
+    expect(document.documentElement).toHaveClass('dark');
+    expect(localStorage.getItem('uni-app:theme')).toBe('dark');
+    expect(within(menu).getByRole('button', { name: 'Dunkel' })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
+
+    await userEvent.click(within(menu).getByRole('button', { name: 'Hell' }));
+    expect(document.documentElement).not.toHaveClass('dark');
+    localStorage.clear();
   });
 });

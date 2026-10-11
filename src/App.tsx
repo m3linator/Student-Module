@@ -5,6 +5,7 @@ import { ProtectedRoute } from '@/components/layout/ProtectedRoute';
 import { UpdatePrompt } from '@/components/layout/UpdatePrompt';
 import { AuthProvider } from '@/context/AuthProvider';
 import { ToastProvider } from '@/context/ToastProvider';
+import { useTheme } from '@/hooks/useTheme';
 import { isSupabaseConfigured } from '@/lib/supabase';
 import { LoginPage } from '@/pages/LoginPage';
 import { OverviewPage } from '@/pages/OverviewPage';
@@ -20,6 +21,7 @@ const ModulePage = lazy(() =>
  * @returns The rendered application.
  */
 export default function App() {
+  useTheme(); // applies the stored appearance and follows system changes
   return (
     <ToastProvider>
       {isSupabaseConfigured ? (
@@ -32,7 +34,7 @@ export default function App() {
                 <Route
                   path="/module/:id"
                   element={
-                    <Suspense fallback={<div className="min-h-dvh bg-white" aria-busy="true" />}>
+                    <Suspense fallback={<div className="min-h-dvh" aria-busy="true" />}>
                       <ModulePage />
                     </Suspense>
                   }

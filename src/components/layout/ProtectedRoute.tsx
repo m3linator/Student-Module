@@ -10,7 +10,7 @@ export function ProtectedRoute() {
   const { session, loading } = useAuth();
   const location = useLocation();
 
-  if (loading) return <div className="min-h-dvh bg-white" aria-busy="true" />;
+  if (loading) return <div className="min-h-dvh" aria-busy="true" />;
   if (!session) return <Navigate to="/login" replace state={{ from: location.pathname }} />;
   return (
     <DataProvider key={session.user.id} userId={session.user.id}>
