@@ -45,14 +45,14 @@ export function ModulePage() {
     <SwipeGroup>
       <div className="flex min-h-dvh flex-col">
         <AppHeader desktopOnly />
-        <div className="material border-separator sticky top-0 z-20 border-b-[0.5px] pt-[env(safe-area-inset-top)] lg:static lg:border-0 lg:bg-transparent lg:pt-0 lg:backdrop-filter-none">
+        <div className="sticky top-0 z-20 border-b-[0.5px] border-separator material pt-[env(safe-area-inset-top)] lg:static lg:border-0 lg:bg-transparent lg:pt-0 lg:backdrop-filter-none">
           <nav
             aria-label="Modulaktionen"
-            className="page-width safe-x flex h-14 items-center justify-between lg:h-16"
+            className="page-width flex h-14 items-center justify-between safe-x lg:h-16"
           >
             <Link
               to="/"
-              className="text-link hover:bg-fill -ml-2 inline-flex min-h-11 items-center gap-0.5 rounded-lg pr-3 pl-0.5 text-[17px]"
+              className="-ml-2 inline-flex min-h-11 items-center gap-0.5 rounded-lg pr-3 pl-0.5 text-[17px] text-link hover:bg-fill"
             >
               <ChevronLeftIcon className="size-6" strokeWidth={2.5} />
               <span className="lg:hidden">Zurück</span>
@@ -80,7 +80,7 @@ export function ModulePage() {
 
         {loading ? (
           <div
-            className="page-width safe-x flex flex-col gap-4 pt-6"
+            className="page-width flex flex-col gap-4 pt-6 safe-x"
             role="status"
             aria-label="Modul wird geladen"
           >
@@ -89,15 +89,15 @@ export function ModulePage() {
             <Skeleton className="h-40 w-full" />
           </div>
         ) : !module ? (
-          <div className="page-width safe-x flex flex-col items-start gap-3 pt-10">
+          <div className="page-width flex flex-col items-start gap-3 pt-10 safe-x">
             <h1 className="text-xl font-semibold">Modul nicht gefunden</h1>
             <p className="text-label-2">Es wurde vielleicht auf einem anderen Gerät gelöscht.</p>
-            <Link to="/" className="text-link font-medium">
+            <Link to="/" className="font-medium text-link">
               Zur Übersicht
             </Link>
           </div>
         ) : (
-          <main className="page-width safe-x grid flex-1 gap-10 pt-6 pb-[calc(env(safe-area-inset-bottom)+2rem)] lg:h-[calc(100dvh-7.5rem)] lg:grid-cols-[35fr_65fr] lg:gap-12 lg:pt-2">
+          <main className="page-width grid flex-1 gap-10 pt-6 safe-x pb-[calc(env(safe-area-inset-bottom)+2rem)] lg:h-[calc(100dvh-7.5rem)] lg:grid-cols-[35fr_65fr] lg:gap-12 lg:pt-2">
             <div className="flex min-w-0 flex-col gap-10 lg:overflow-y-auto lg:pb-6">
               <ModuleInfo module={module} />
               <LinksSection moduleId={module.id} links={links} />

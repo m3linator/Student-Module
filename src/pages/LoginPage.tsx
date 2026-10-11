@@ -34,7 +34,7 @@ export function LoginPage() {
   }
 
   return (
-    <main className="safe-area safe-x flex min-h-dvh items-center justify-center">
+    <main className="flex min-h-dvh items-center justify-center safe-area safe-x">
       <form onSubmit={handleSubmit} className="flex w-full max-w-sm flex-col gap-5" noValidate>
         <div className="flex flex-col items-center gap-3 pb-2">
           <img src="/icon.svg" alt="" className="size-20 rounded-[22px] shadow-lg" />
@@ -59,7 +59,7 @@ export function LoginPage() {
           onChange={(event) => setPassword(event.target.value)}
         />
         {error && (
-          <p role="alert" className="text-danger-ink text-[15px]">
+          <p role="alert" className="text-[15px] text-danger-ink">
             {error}
           </p>
         )}

@@ -40,13 +40,13 @@ export function TaskList({
 }: TaskListProps) {
   if (tasks.length === 0) return <>{empty}</>;
   return (
-    <div className="card overflow-hidden">
+    <div className="overflow-hidden card">
       {showHeader && (
         <div
           aria-hidden="true"
           className={cn(
             TASK_GRID,
-            'border-separator text-label-2 border-b-[0.5px] pt-2.5 pb-2 text-xs font-medium',
+            'border-b-[0.5px] border-separator pt-2.5 pb-2 text-xs font-medium text-label-2',
           )}
         >
           <span>Aufgabe</span>
@@ -54,7 +54,7 @@ export function TaskList({
           <span className="text-right">verbl. Tage</span>
         </div>
       )}
-      <ul className="divide-separator divide-y-[0.5px]">
+      <ul className="divide-y-[0.5px] divide-separator">
         {tasks.map((task) => {
           const moduleName = task.module_id ? modules[task.module_id]?.name : undefined;
           return (

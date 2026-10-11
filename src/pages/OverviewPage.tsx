@@ -14,7 +14,7 @@ export function OverviewPage() {
     <SwipeGroup>
       <div className="min-h-dvh">
         <AppHeader />
-        <main className="page-width safe-x grid gap-10 pt-6 pb-[calc(env(safe-area-inset-bottom)+2.5rem)] lg:grid-cols-[2fr_3fr] lg:gap-12 lg:pt-10">
+        <main className="page-width grid gap-10 pt-6 safe-x pb-[calc(env(safe-area-inset-bottom)+2.5rem)] lg:grid-cols-[2fr_3fr] lg:gap-12 lg:pt-10">
           <div className="flex min-w-0 flex-col gap-6">
             <TasksSection />
           </div>

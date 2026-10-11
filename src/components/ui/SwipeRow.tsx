@@ -210,7 +210,7 @@ export function SwipeRow({ id, actions, onTap, label, href, leading, children }:
       <div className="group relative overflow-hidden">
         <div
           data-open={open || dragOffset !== null}
-          className="can-hover:opacity-0 can-hover:group-focus-within:z-20 can-hover:group-focus-within:opacity-100 can-hover:group-hover:z-20 can-hover:group-hover:opacity-100 can-hover:data-[open=true]:opacity-100 absolute inset-y-0 right-0 z-0 flex transition-opacity duration-150"
+          className="absolute inset-y-0 right-0 z-0 flex transition-opacity duration-150 can-hover:opacity-0 can-hover:group-focus-within:z-20 can-hover:group-focus-within:opacity-100 can-hover:group-hover:z-20 can-hover:group-hover:opacity-100 can-hover:data-[open=true]:opacity-100"
         >
           {actions.map((action) => (
             <button
@@ -233,7 +233,7 @@ export function SwipeRow({ id, actions, onTap, label, href, leading, children }:
         <div
           style={{ transform: `translateX(${offset}px)` }}
           className={cn(
-            'can-hover:hover:bg-surface-hover bg-surface relative z-10 flex',
+            'relative z-10 flex bg-surface can-hover:hover:bg-surface-hover',
             dragOffset === null && 'transition-transform duration-200 ease-out',
           )}
         >

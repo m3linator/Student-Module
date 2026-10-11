@@ -94,7 +94,7 @@ export function Calendar({ value, onChange, today }: CalendarProps) {
         </IconButton>
       </div>
       <div
-        className="text-label-2 grid grid-cols-7 text-center text-[13px] font-medium"
+        className="grid grid-cols-7 text-center text-[13px] font-medium text-label-2"
         aria-hidden="true"
       >
         {WEEKDAY_LABELS.map((label) => (
@@ -128,7 +128,7 @@ export function Calendar({ value, onChange, today }: CalendarProps) {
               className={cn(
                 'mx-auto flex size-10 items-center justify-center rounded-full text-[15px] tabular-nums transition-colors duration-150',
                 selected ? 'bg-accent font-semibold text-white' : 'text-label hover:bg-fill',
-                !selected && isToday && 'text-link font-semibold',
+                !selected && isToday && 'font-semibold text-link',
               )}
             >
               {Number(date.slice(8))}

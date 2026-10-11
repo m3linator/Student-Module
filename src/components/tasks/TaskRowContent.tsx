@@ -29,14 +29,14 @@ export function TaskRowContent({ task, moduleName, today, done = false }: TaskRo
       <span className="flex min-w-0 flex-col">
         <span className="text-[15px] leading-snug break-words">{task.title}</span>
         {task.due_date && (
-          <span className="text-label-2 text-[13px]">Abgabe: {formatDueDate(task.due_date)}</span>
+          <span className="text-[13px] text-label-2">Abgabe: {formatDueDate(task.due_date)}</span>
         )}
       </span>
-      <span className="text-label-2 truncate text-sm">{moduleName ?? ''}</span>
+      <span className="truncate text-sm text-label-2">{moduleName ?? ''}</span>
       <span
         className={cn(
           'justify-self-end rounded-lg px-2 py-1 text-sm whitespace-nowrap tabular-nums',
-          urgent ? 'bg-danger-tint text-danger-ink font-semibold' : 'text-label-2',
+          urgent ? 'bg-danger-tint font-semibold text-danger-ink' : 'text-label-2',
         )}
       >
         {formatRemaining(remaining)}

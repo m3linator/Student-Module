@@ -118,9 +118,9 @@ export function LinksSection({ moduleId, links }: { moduleId: string; links: Mod
   return (
     <Section title="Wichtige Links" onAdd={() => openSheet(null)} addLabel="Neuer Link">
       {links.length === 0 ? (
-        <p className="card text-label-2 px-4 py-5 text-center">Noch keine Links – tippe auf +</p>
+        <p className="card px-4 py-5 text-center text-label-2">Noch keine Links – tippe auf +</p>
       ) : (
-        <ul ref={listRef} className="card divide-separator divide-y-[0.5px] overflow-hidden">
+        <ul ref={listRef} className="divide-y-[0.5px] divide-separator overflow-hidden card">
           {ordered.map((link, index) => (
             <li
               key={link.id}
@@ -142,7 +142,7 @@ export function LinksSection({ moduleId, links }: { moduleId: string; links: Mod
                       onPointerUp={endDrag}
                       onPointerCancel={endDrag}
                       onKeyDown={(event) => handleHandleKey(event, index)}
-                      className="text-label-3 hover:text-label-2 flex w-9 shrink-0 cursor-grab touch-none items-center justify-center active:cursor-grabbing"
+                      className="flex w-9 shrink-0 cursor-grab touch-none items-center justify-center text-label-3 hover:text-label-2 active:cursor-grabbing"
                     >
                       <GripIcon className="size-4" />
                     </button>
@@ -166,12 +166,12 @@ export function LinksSection({ moduleId, links }: { moduleId: string; links: Mod
               >
                 <span
                   className={cn(
-                    'text-link flex min-h-12 items-center gap-2 py-2 pr-4 text-base',
+                    'flex min-h-12 items-center gap-2 py-2 pr-4 text-base text-link',
                     links.length > 1 ? 'pl-1' : 'pl-4',
                   )}
                 >
                   <span className="min-w-0 flex-1 truncate">{link.title}</span>
-                  <ExternalIcon className="text-label-3 size-4 shrink-0" />
+                  <ExternalIcon className="size-4 shrink-0 text-label-3" />
                 </span>
               </SwipeRow>
             </li>

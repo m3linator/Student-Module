@@ -102,7 +102,7 @@
   }
 
   body {
-    @apply bg-canvas text-label font-sans antialiased;
+    @apply bg-canvas font-sans text-label antialiased;
     overflow-x: hidden;
     overscroll-behavior-y: none;
   }
@@ -177,7 +177,7 @@
 /* Markdown preview of the module notes. */
 @layer components {
   .markdown {
-    @apply text-label text-[15px] leading-relaxed break-words;
+    @apply text-[15px] leading-relaxed break-words text-label;
   }
   .markdown > * + * {
     @apply mt-3;
@@ -211,28 +211,28 @@
     @apply pl-1;
   }
   .markdown input[type='checkbox'] {
-    @apply accent-success mr-2 size-4 translate-y-0.5;
+    @apply mr-2 size-4 translate-y-0.5 accent-success;
   }
   .markdown a {
     @apply text-link underline-offset-2 hover:underline;
   }
   .markdown code {
-    @apply bg-fill rounded px-1 py-0.5 font-mono text-[13px];
+    @apply rounded bg-fill px-1 py-0.5 font-mono text-[13px];
   }
   .markdown pre {
-    @apply bg-fill overflow-x-auto rounded-lg p-3;
+    @apply overflow-x-auto rounded-lg bg-fill p-3;
   }
   .markdown pre code {
     @apply bg-transparent p-0;
   }
   .markdown blockquote {
-    @apply border-separator text-label-2 border-l-2 pl-3;
+    @apply border-l-2 border-separator pl-3 text-label-2;
   }
   .markdown table {
     @apply block overflow-x-auto text-sm;
   }
   .markdown :is(th, td) {
-    @apply border-separator border px-2 py-1 text-left;
+    @apply border border-separator px-2 py-1 text-left;
   }
   .markdown hr {
     @apply border-separator;

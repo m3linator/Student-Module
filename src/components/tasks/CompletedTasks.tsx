@@ -18,7 +18,7 @@ export function CompletedTasks({ count, children }: { count: number; children: R
         aria-expanded={expanded}
         aria-controls={contentId}
         onClick={() => setExpanded(!expanded)}
-        className="text-label-2 hover:bg-fill -mx-2 flex min-h-11 items-center gap-2 self-start rounded-lg px-2 text-[15px]"
+        className="-mx-2 flex min-h-11 items-center gap-2 self-start rounded-lg px-2 text-[15px] text-label-2 hover:bg-fill"
       >
         <span aria-hidden="true" className="w-3 text-center">
           {expanded ? '▾' : '▸'}

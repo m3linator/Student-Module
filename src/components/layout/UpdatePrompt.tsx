@@ -31,12 +31,12 @@ export function UpdatePrompt() {
       role="status"
       className="fixed inset-x-0 top-0 z-50 flex justify-center px-4 pt-[calc(env(safe-area-inset-top)+0.5rem)]"
     >
-      <div className="bg-elevated text-label ring-separator flex items-center gap-3 rounded-2xl py-1.5 pr-1.5 pl-4 text-[15px] shadow-xl ring-1">
+      <div className="flex items-center gap-3 rounded-2xl bg-elevated py-1.5 pr-1.5 pl-4 text-[15px] text-label shadow-xl ring-1 ring-separator">
         <span>Neue Version verfügbar</span>
         <button
           type="button"
           onClick={() => void updateServiceWorker(true)}
-          className="bg-accent min-h-11 rounded-xl px-4 font-semibold text-white hover:brightness-110"
+          className="min-h-11 rounded-xl bg-accent px-4 font-semibold text-white hover:brightness-110"
         >
           Neu laden
         </button>

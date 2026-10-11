@@ -64,7 +64,7 @@ export function NotesSection({ module }: { module: ModuleRow }) {
         />
       </div>
       {preview ? (
-        <div className="card flex-1 overflow-y-auto p-4">
+        <div className="flex-1 overflow-y-auto card p-4">
           <MarkdownPreview source={draft} />
         </div>
       ) : (
@@ -76,7 +76,7 @@ export function NotesSection({ module }: { module: ModuleRow }) {
           onBlur={onBlur}
           placeholder={'# Überschrift\n- Stichpunkt\n- [ ] Aufgabe\n\n**fett**, [Link](https://…)'}
           spellCheck
-          className="card text-label placeholder:text-label-2 focus:ring-link min-h-[50dvh] w-full flex-1 resize-none p-4 text-base leading-relaxed focus:ring-2 focus-visible:outline-none lg:min-h-0"
+          className="min-h-[50dvh] w-full flex-1 resize-none card p-4 text-base leading-relaxed text-label placeholder:text-label-2 focus:ring-2 focus:ring-link focus-visible:outline-none lg:min-h-0"
         />
       )}
     </section>

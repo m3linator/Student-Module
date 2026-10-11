@@ -31,7 +31,7 @@ export function SelectField({ label, className, id, children, ...props }: Select
         <svg
           viewBox="0 0 24 24"
           aria-hidden="true"
-          className="text-label-3 pointer-events-none absolute top-1/2 right-3.5 size-4 -translate-y-1/2"
+          className="pointer-events-none absolute top-1/2 right-3.5 size-4 -translate-y-1/2 text-label-3"
           fill="none"
           stroke="currentColor"
           strokeWidth={2.5}

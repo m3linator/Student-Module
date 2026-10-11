@@ -12,22 +12,22 @@ export function ModuleTile({ module, openCount }: { module: ModuleRow; openCount
   return (
     <Link
       to={`/module/${module.id}`}
-      className="card animate-row-in hover:bg-surface-hover flex min-h-28 flex-col gap-1 p-3.5 transition duration-150 active:scale-[0.98]"
+      className="flex min-h-28 animate-row-in flex-col gap-1 card p-3.5 transition duration-150 hover:bg-surface-hover active:scale-[0.98]"
     >
       <span className="flex items-start justify-between gap-2">
         <span className="line-clamp-3 min-w-0 leading-snug font-semibold break-words hyphens-auto">
           {module.name}
         </span>
         {module.ects !== null && (
-          <span className="text-label-2 shrink-0 pt-0.5 text-xs whitespace-nowrap">
+          <span className="shrink-0 pt-0.5 text-xs whitespace-nowrap text-label-2">
             {formatEcts(module.ects)}
           </span>
         )}
       </span>
       {module.professor && (
-        <span className="text-label-2 truncate text-[13px]">{module.professor}</span>
+        <span className="truncate text-[13px] text-label-2">{module.professor}</span>
       )}
-      <span className="text-label-2 mt-auto pt-2 text-[13px]">{formatOpenCount(openCount)}</span>
+      <span className="mt-auto pt-2 text-[13px] text-label-2">{formatOpenCount(openCount)}</span>
     </Link>
   );
 }

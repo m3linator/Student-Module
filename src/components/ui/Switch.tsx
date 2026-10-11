@@ -21,11 +21,11 @@ export function Switch({ label, checked, onChange, description }: SwitchProps) {
   return (
     <div className="flex items-start justify-between gap-4">
       <div className="flex flex-col gap-0.5 pt-2.5">
-        <span id={labelId} className="text-label text-base">
+        <span id={labelId} className="text-base text-label">
           {label}
         </span>
         {description && (
-          <span id={descriptionId} className="text-label-2 text-[13px]">
+          <span id={descriptionId} className="text-[13px] text-label-2">
             {description}
           </span>
         )}

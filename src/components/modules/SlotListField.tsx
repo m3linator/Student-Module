@@ -42,7 +42,7 @@ export function SlotListField({ kind, slots, onChange, timePlaceholder }: SlotLi
     <div className="flex flex-col gap-3">
       {slots.map((slot, index) => (
         <fieldset key={index} className="flex flex-col gap-1.5">
-          <legend className="text-label mb-1.5 text-[15px] font-semibold">
+          <legend className="mb-1.5 text-[15px] font-semibold text-label">
             {slotLabel(kind, index, slots.length)}
           </legend>
           <div className="grid grid-cols-2 gap-3">
@@ -64,7 +64,7 @@ export function SlotListField({ kind, slots, onChange, timePlaceholder }: SlotLi
       <button
         type="button"
         onClick={add}
-        className="bg-fill text-link hover:bg-fill-strong flex h-9 w-full items-center justify-center gap-1.5 rounded-xl text-[15px] font-medium transition-colors duration-150"
+        className="flex h-9 w-full items-center justify-center gap-1.5 rounded-xl bg-fill text-[15px] font-medium text-link transition-colors duration-150 hover:bg-fill-strong"
       >
         <PlusIcon className="size-4" strokeWidth={2.5} />
         {kind}

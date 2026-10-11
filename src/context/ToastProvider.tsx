@@ -64,7 +64,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
           <div
             key={toast.id}
             role={toast.tone === 'error' ? 'alert' : 'status'}
-            className="animate-toast-in pointer-events-auto flex w-full max-w-sm items-center gap-3 rounded-2xl bg-[#1c1c1e] py-1.5 pr-1.5 pl-4 text-[15px] text-white shadow-xl dark:bg-[#2c2c2e]"
+            className="pointer-events-auto flex w-full max-w-sm animate-toast-in items-center gap-3 rounded-2xl bg-[#1c1c1e] py-1.5 pr-1.5 pl-4 text-[15px] text-white shadow-xl dark:bg-[#2c2c2e]"
           >
             {toast.tone === 'error' && (
               <span className="size-2 shrink-0 rounded-full bg-[#ff453a]" aria-hidden="true" />

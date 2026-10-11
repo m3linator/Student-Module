@@ -33,7 +33,7 @@ export function ConfirmDialog({
       submitLabel={confirmLabel}
       submitVariant="danger"
     >
-      <p className="text-label-2 text-[15px] leading-relaxed">{message}</p>
+      <p className="text-[15px] leading-relaxed text-label-2">{message}</p>
     </Sheet>
   );
 }

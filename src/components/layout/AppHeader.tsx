@@ -19,11 +19,11 @@ export function AppHeader({ desktopOnly = false }: { desktopOnly?: boolean }) {
   return (
     <header
       className={cn(
-        'material border-separator sticky top-0 z-20 border-b-[0.5px] pt-[env(safe-area-inset-top)]',
+        'sticky top-0 z-20 border-b-[0.5px] border-separator material pt-[env(safe-area-inset-top)]',
         desktopOnly && 'hidden lg:block',
       )}
     >
-      <div className="page-width safe-x flex h-12 items-center justify-between lg:h-14">
+      <div className="page-width flex h-12 items-center justify-between safe-x lg:h-14">
         <Link to="/" className="rounded text-[17px] font-semibold tracking-tight">
           {APP_NAME}
         </Link>
@@ -32,7 +32,7 @@ export function AppHeader({ desktopOnly = false }: { desktopOnly?: boolean }) {
             {(close) => (
               <>
                 <ThemePicker />
-                <div className="bg-separator mx-2 my-1 h-[0.5px]" />
+                <div className="mx-2 my-1 h-[0.5px] bg-separator" />
                 <button
                   type="button"
                   role="menuitem"
@@ -40,7 +40,7 @@ export function AppHeader({ desktopOnly = false }: { desktopOnly?: boolean }) {
                     close();
                     handleSignOut();
                   }}
-                  className="text-danger-ink hover:bg-fill flex min-h-11 w-full items-center gap-2.5 rounded-lg px-2.5 text-left text-base"
+                  className="flex min-h-11 w-full items-center gap-2.5 rounded-lg px-2.5 text-left text-base text-danger-ink hover:bg-fill"
                 >
                   <LogoutIcon className="size-5" />
                   Abmelden
@@ -56,7 +56,7 @@ export function AppHeader({ desktopOnly = false }: { desktopOnly?: boolean }) {
           <button
             type="button"
             onClick={handleSignOut}
-            className="text-link hover:bg-fill min-h-11 rounded-lg px-3 text-[15px]"
+            className="min-h-11 rounded-lg px-3 text-[15px] text-link hover:bg-fill"
           >
             Abmelden
           </button>

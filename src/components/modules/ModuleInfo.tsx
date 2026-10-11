@@ -42,14 +42,14 @@ export function ModuleInfo({ module }: { module: ModuleRow }) {
         {module.name}
       </h1>
       {rows.length > 0 && (
-        <dl className="card divide-separator divide-y-[0.5px]">
+        <dl className="divide-y-[0.5px] divide-separator card">
           {rows.map((row) => (
             <div
               key={row.term}
               className="flex min-h-11 items-baseline justify-between gap-4 px-4 py-2.5"
             >
-              <dt className="text-label shrink-0 text-base">{row.term}</dt>
-              <dd className="text-label-2 min-w-0 text-right text-base break-words">{row.value}</dd>
+              <dt className="shrink-0 text-base text-label">{row.term}</dt>
+              <dd className="min-w-0 text-right text-base break-words text-label-2">{row.value}</dd>
             </div>
           ))}
         </dl>

@@ -18,7 +18,7 @@ export function ThemePicker() {
   const { preference, setPreference } = useTheme();
   return (
     <div className="flex flex-col gap-2 px-2 pt-1.5 pb-2">
-      <span className="text-label-2 text-[13px] font-medium">Darstellung</span>
+      <span className="text-[13px] font-medium text-label-2">Darstellung</span>
       <SegmentedControl
         label="Darstellung"
         options={OPTIONS}
