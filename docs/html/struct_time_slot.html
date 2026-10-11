@@ -18,7 +18,7 @@
   <td id="projectalign">
    <div id="projectname">Uni-App
    </div>
-   <div id="projectbrief">Persönliche Studien-PWA: Aufgaben, Module, Habittracker</div>
+   <div id="projectbrief">Persönliche Studien-PWA: Aufgaben, Module, Stundenplan, Aktivität</div>
   </td>
  </tr>
  </tbody>
@@ -65,30 +65,22 @@
 <tr class="memitem:a707dbda3689f921541a71c783c2daa82" id="r_a707dbda3689f921541a71c783c2daa82"><td class="memItemLeft"><a id="a707dbda3689f921541a71c783c2daa82" name="a707dbda3689f921541a71c783c2daa82"></a>
 string&#160;</td><td class="memItemRight"><b>room</b></td></tr>
 <tr class="memdesc:a707dbda3689f921541a71c783c2daa82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Room, may be empty. <br /></td></tr>
-<tr class="memitem:affa982dd64630605a79b18d4b29df831" id="r_affa982dd64630605a79b18d4b29df831"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#affa982dd64630605a79b18d4b29df831">time</a></td></tr>
-<tr class="memdesc:affa982dd64630605a79b18d4b29df831"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free-text time, e.g.  <br /></td></tr>
+<tr class="memitem:aae3efcbba6acb2950f5f6a7fdf9a1f19" id="r_aae3efcbba6acb2950f5f6a7fdf9a1f19"><td class="memItemLeft"><a id="aae3efcbba6acb2950f5f6a7fdf9a1f19" name="aae3efcbba6acb2950f5f6a7fdf9a1f19"></a>
+<a class="el" href="database_8ts.html#a18f63ccdf96aac74e9b0353239754eea">Weekday</a>&#160;</td><td class="memItemRight"><b>weekday</b></td></tr>
+<tr class="memitem:a3768f2bd60ecb11942f3e3af3ab5a43d" id="r_a3768f2bd60ecb11942f3e3af3ab5a43d"><td class="memItemLeft"><a id="a3768f2bd60ecb11942f3e3af3ab5a43d" name="a3768f2bd60ecb11942f3e3af3ab5a43d"></a>
+string&#160;</td><td class="memItemRight"><b>start_time</b></td></tr>
+<tr class="memdesc:a3768f2bd60ecb11942f3e3af3ab5a43d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start as <span class="tt">HH:MM</span>. <br /></td></tr>
+<tr class="memitem:a4537e7ea798cc1383c7134e2a0b48e02" id="r_a4537e7ea798cc1383c7134e2a0b48e02"><td class="memItemLeft"><a id="a4537e7ea798cc1383c7134e2a0b48e02" name="a4537e7ea798cc1383c7134e2a0b48e02"></a>
+string&#160;</td><td class="memItemRight"><b>end_time</b></td></tr>
+<tr class="memdesc:a4537e7ea798cc1383c7134e2a0b48e02"><td class="mdescLeft">&#160;</td><td class="mdescRight">End as <span class="tt">HH:MM</span>, later than the start. <br /></td></tr>
+<tr class="memitem:affa982dd64630605a79b18d4b29df831" id="r_affa982dd64630605a79b18d4b29df831"><td class="memItemLeft"><a id="affa982dd64630605a79b18d4b29df831" name="affa982dd64630605a79b18d4b29df831"></a>
+string&#160;</td><td class="memItemRight"><b>time</b></td></tr>
+<tr class="memdesc:affa982dd64630605a79b18d4b29df831"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free-text time of version 0.2.0; only present until the cleanup migration ran. <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Ausführliche Beschreibung</h2>
 <div class="textblock"><p>One lecture or exercise appointment (stored as JSON in <span class="tt">modules</span>). </p>
-</div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Dokumentation der Datenelemente</h2>
-<a id="affa982dd64630605a79b18d4b29df831" name="affa982dd64630605a79b18d4b29df831"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#affa982dd64630605a79b18d4b29df831">&#9670;&#160;</a></span>time</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">string TimeSlot::time</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Free-text time, e.g. </p>
-<p>"Di 10:00–11:30". </p>
-
-</div>
-</div>
-</div><!-- contents -->
+<p><a class="el" href="database_8ts.html#a18f63ccdf96aac74e9b0353239754eea" title="ISO weekday: 1 = Monday … 7 = Sunday.">Weekday</a>, start and end are either all set or – for entries from version 0.2.0 that could not be converted – all null. The database enforces this (see <span class="tt">time_slots_valid</span>). </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Erzeugt von&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0

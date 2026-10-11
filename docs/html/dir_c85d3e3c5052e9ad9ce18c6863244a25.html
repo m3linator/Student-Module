@@ -18,7 +18,7 @@
   <td id="projectalign">
    <div id="projectname">Uni-App
    </div>
-   <div id="projectbrief">Persönliche Studien-PWA: Aufgaben, Module, Habittracker</div>
+   <div id="projectbrief">Persönliche Studien-PWA: Aufgaben, Module, Stundenplan, Aktivität</div>
   </td>
  </tr>
  </tbody>
@@ -63,14 +63,14 @@ Dateien</h2></td></tr>
 <tr class="memitem:berlinDate_2Ets" id="r_berlinDate_2Ets"><td class="memItemLeft"><span class="icondoc"><div class="doc-icon"></div></span>&#160;</td><td class="memItemRight"><a class="el" href="berlin_date_8ts.html">berlinDate.ts</a></td></tr>
 <tr class="memdesc:berlin_date_8ts"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calendar-day helpers pinned to the Europe/Berlin time zone. <br /></td></tr>
 <tr class="memitem:calendar_2Ets" id="r_calendar_2Ets"><td class="memItemLeft"><span class="icondoc"><div class="doc-icon"></div></span>&#160;</td><td class="memItemRight"><a class="el" href="calendar_8ts.html">calendar.ts</a></td></tr>
-<tr class="memdesc:calendar_8ts"><td class="mdescLeft">&#160;</td><td class="mdescRight">Month grid helpers shared by the date picker and the habit tracker. <br /></td></tr>
+<tr class="memdesc:calendar_8ts"><td class="mdescLeft">&#160;</td><td class="mdescRight">Month grid helpers shared by the date picker and the activity grid. <br /></td></tr>
 <tr class="memitem:cn_2Ets" id="r_cn_2Ets"><td class="memItemLeft"><span class="icondoc"><div class="doc-icon"></div></span>&#160;</td><td class="memItemRight"><a class="el" href="cn_8ts.html">cn.ts</a></td></tr>
 <tr class="memitem:deadline_2Ets" id="r_deadline_2Ets"><td class="memItemLeft"><span class="icondoc"><div class="doc-icon"></div></span>&#160;</td><td class="memItemRight"><a class="el" href="deadline_8ts.html">deadline.ts</a></td></tr>
 <tr class="memdesc:deadline_8ts"><td class="mdescLeft">&#160;</td><td class="mdescRight">"Remaining days" logic for tasks. <br /></td></tr>
 <tr class="memitem:errors_2Ets" id="r_errors_2Ets"><td class="memItemLeft"><span class="icondoc"><div class="doc-icon"></div></span>&#160;</td><td class="memItemRight"><a class="el" href="errors_8ts.html">errors.ts</a></td></tr>
 <tr class="memdesc:errors_8ts"><td class="mdescLeft">&#160;</td><td class="mdescRight">Translates technical errors (Supabase, network) into short German UI messages. <br /></td></tr>
 <tr class="memitem:habit_2Ets" id="r_habit_2Ets"><td class="memItemLeft"><span class="icondoc"><div class="doc-icon"></div></span>&#160;</td><td class="memItemRight"><a class="el" href="habit_8ts.html">habit.ts</a></td></tr>
-<tr class="memdesc:habit_8ts"><td class="mdescLeft">&#160;</td><td class="mdescRight">Streak calculation for the habit tracker. <br /></td></tr>
+<tr class="memdesc:habit_8ts"><td class="mdescLeft">&#160;</td><td class="mdescRight">Streak calculation for the activity section. <br /></td></tr>
 <tr class="memitem:id_2Ets" id="r_id_2Ets"><td class="memItemLeft"><span class="icondoc"><div class="doc-icon"></div></span>&#160;</td><td class="memItemRight"><a class="el" href="id_8ts.html">id.ts</a></td></tr>
 <tr class="memdesc:id_8ts"><td class="mdescLeft">&#160;</td><td class="mdescRight">Client-side UUID generation for optimistic inserts. <br /></td></tr>
 <tr class="memitem:module_2Ets" id="r_module_2Ets"><td class="memItemLeft"><span class="icondoc"><div class="doc-icon"></div></span>&#160;</td><td class="memItemRight"><a class="el" href="module_8ts.html">module.ts</a></td></tr>
@@ -80,7 +80,7 @@ Dateien</h2></td></tr>
 <tr class="memitem:reorder_2Ets" id="r_reorder_2Ets"><td class="memItemLeft"><span class="icondoc"><div class="doc-icon"></div></span>&#160;</td><td class="memItemRight"><a class="el" href="reorder_8ts.html">reorder.ts</a></td></tr>
 <tr class="memdesc:reorder_8ts"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure helpers for drag &amp; drop reordering. <br /></td></tr>
 <tr class="memitem:slots_2Ets" id="r_slots_2Ets"><td class="memItemLeft"><span class="icondoc"><div class="doc-icon"></div></span>&#160;</td><td class="memItemRight"><a class="el" href="slots_8ts.html">slots.ts</a></td></tr>
-<tr class="memdesc:slots_8ts"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lecture/exercise time slots of a module (room + free-text time). <br /></td></tr>
+<tr class="memdesc:slots_8ts"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lecture/exercise appointments of a module: weekday, start, end and room. <br /></td></tr>
 <tr class="memitem:sort_2Ets" id="r_sort_2Ets"><td class="memItemLeft"><span class="icondoc"><div class="doc-icon"></div></span>&#160;</td><td class="memItemRight"><a class="el" href="sort_8ts.html">sort.ts</a></td></tr>
 <tr class="memdesc:sort_8ts"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ordering rules for task lists. <br /></td></tr>
 <tr class="memitem:supabase_2Ets" id="r_supabase_2Ets"><td class="memItemLeft"><span class="icondoc"><div class="doc-icon"></div></span>&#160;</td><td class="memItemRight"><a class="el" href="supabase_8ts.html">supabase.ts</a></td></tr>
@@ -89,6 +89,8 @@ Dateien</h2></td></tr>
 <tr class="memdesc:task_description_8ts"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessible (screen reader) description of a task row. <br /></td></tr>
 <tr class="memitem:theme_2Ets" id="r_theme_2Ets"><td class="memItemLeft"><span class="icondoc"><div class="doc-icon"></div></span>&#160;</td><td class="memItemRight"><a class="el" href="theme_8ts.html">theme.ts</a></td></tr>
 <tr class="memdesc:theme_8ts"><td class="mdescLeft">&#160;</td><td class="mdescRight">Light/dark appearance: preference storage, resolution and application to the page. <br /></td></tr>
+<tr class="memitem:timetable_2Ets" id="r_timetable_2Ets"><td class="memItemLeft"><span class="icondoc"><div class="doc-icon"></div></span>&#160;</td><td class="memItemRight"><a class="el" href="timetable_8ts.html">timetable.ts</a></td></tr>
+<tr class="memdesc:timetable_8ts"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure layout logic of the weekly timetable (positions, visible range, overlaps). <br /></td></tr>
 <tr class="memitem:url_2Ets" id="r_url_2Ets"><td class="memItemLeft"><span class="icondoc"><div class="doc-icon"></div></span>&#160;</td><td class="memItemRight"><a class="el" href="url_8ts.html">url.ts</a></td></tr>
 <tr class="memdesc:url_8ts"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalisation and validation of user-entered link URLs. <br /></td></tr>
 </table>

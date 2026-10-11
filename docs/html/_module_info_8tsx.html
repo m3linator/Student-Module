@@ -18,7 +18,7 @@
   <td id="projectalign">
    <div id="projectname">Uni-App
    </div>
-   <div id="projectbrief">Persönliche Studien-PWA: Aufgaben, Module, Habittracker</div>
+   <div id="projectbrief">Persönliche Studien-PWA: Aufgaben, Module, Stundenplan, Aktivität</div>
   </td>
  </tr>
  </tbody>
@@ -55,25 +55,52 @@
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Klassen</a> &#124;
-<a href="#func-members">Funktionen</a>  </div>
+<a href="#func-members">Funktionen</a> &#124;
+<a href="#var-members">Variablen</a>  </div>
   <div class="headertitle"><div class="title">ModuleInfo.tsx-Dateireferenz</div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Klassen</h2></td></tr>
-<tr class="memitem:InfoRow" id="r_InfoRow"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_info_row.html">InfoRow</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">One row of the info card.  <a href="struct_info_row.html#details">Mehr ...</a><br /></td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Funktionen</h2></td></tr>
-<tr class="memitem:a021eb510ab9394c73135807571c38d0e" id="r_a021eb510ab9394c73135807571c38d0e"><td class="memItemLeft">std::vector&lt; <a class="el" href="struct_info_row.html">InfoRow</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a021eb510ab9394c73135807571c38d0e">slotRows</a> (string kind, unknown value)</td></tr>
-<tr class="memdesc:a021eb510ab9394c73135807571c38d0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds the rows for a list of appointments ("Vorlesung 1", "Vorlesung 2", …).  <br /></td></tr>
+<tr class="memitem:af09246bf78629002dac499ab0b8af65c" id="r_af09246bf78629002dac499ab0b8af65c"><td class="memItemLeft">JSX::Element&#160;</td><td class="memItemRight"><a class="el" href="#af09246bf78629002dac499ab0b8af65c">AppointmentRow</a> (auto props)</td></tr>
+<tr class="memdesc:af09246bf78629002dac499ab0b8af65c"><td class="mdescLeft">&#160;</td><td class="mdescRight">One appointment line: "Vorlesung · Di 10:00–11:30 · 📍 Raum".  <br /></td></tr>
 <tr class="memitem:aa37d5cf6f57457d89f6f23dafd14d5cd" id="r_aa37d5cf6f57457d89f6f23dafd14d5cd"><td class="memItemLeft">JSX::Element&#160;</td><td class="memItemRight"><a class="el" href="#aa37d5cf6f57457d89f6f23dafd14d5cd">ModuleInfo</a> (auto props)</td></tr>
-<tr class="memdesc:aa37d5cf6f57457d89f6f23dafd14d5cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module facts as an iOS-style card: professor, ECTS, all lectures and exercises.  <br /></td></tr>
+<tr class="memdesc:aa37d5cf6f57457d89f6f23dafd14d5cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module facts as an iOS-style card: professor, ECTS and all appointments sorted by weekday and start.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variablen</h2></td></tr>
+<tr class="memitem:a2c8aaa0973837d3b7434fbf5158812a3" id="r_a2c8aaa0973837d3b7434fbf5158812a3"><td class="memItemLeft"><a id="a2c8aaa0973837d3b7434fbf5158812a3" name="a2c8aaa0973837d3b7434fbf5158812a3"></a>
+const auto&#160;</td><td class="memItemRight"><b>ROW</b></td></tr>
+<tr class="memdesc:a2c8aaa0973837d3b7434fbf5158812a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shared classes of one card row. <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentation der Funktionen</h2>
+<a id="af09246bf78629002dac499ab0b8af65c" name="af09246bf78629002dac499ab0b8af65c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af09246bf78629002dac499ab0b8af65c">&#9670;&#160;</a></span>AppointmentRow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">JSX::Element AppointmentRow </td>
+          <td>(</td>
+          <td class="paramtype">auto</td>          <td class="paramname"><span class="paramname"><em>props</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>One appointment line: "Vorlesung · Di 10:00–11:30 · 📍 Raum". </p>
+<p>Entries that were not converted yet show their old text and a hint instead of a time. </p><dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">props.appointment</td><td><a class="el" href="struct_appointment.html" title="One appointment of a module together with its kind.">Appointment</a> with its kind. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>A term/description pair of the info card. </dd></dl>
+
+</div>
+</div>
 <a id="aa37d5cf6f57457d89f6f23dafd14d5cd" name="aa37d5cf6f57457d89f6f23dafd14d5cd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa37d5cf6f57457d89f6f23dafd14d5cd">&#9670;&#160;</a></span>ModuleInfo()</h2>
 
@@ -89,7 +116,7 @@ Funktionen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Module facts as an iOS-style card: professor, ECTS, all lectures and exercises. </p>
+<p>Module facts as an iOS-style card: professor, ECTS and all appointments sorted by weekday and start. </p>
 <p>Empty fields are hidden. </p><dl class="params"><dt>Parameter</dt><dd>
   <table class="params">
     <tr><td class="paramname">props.module</td><td>Module to describe. </td></tr>
@@ -97,37 +124,6 @@ Funktionen</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Rückgabe</dt><dd>Large title plus info card. </dd></dl>
-
-</div>
-</div>
-<a id="a021eb510ab9394c73135807571c38d0e" name="a021eb510ab9394c73135807571c38d0e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a021eb510ab9394c73135807571c38d0e">&#9670;&#160;</a></span>slotRows()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt; <a class="el" href="struct_info_row.html">InfoRow</a> &gt; slotRows </td>
-          <td>(</td>
-          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>kind</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unknown</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Builds the rows for a list of appointments ("Vorlesung 1", "Vorlesung 2", …). </p>
-<dl class="params"><dt>Parameter</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">kind</td><td>Label base, e.g. "Vorlesung". </td></tr>
-    <tr><td class="paramname">value</td><td>Stored slot list. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Rückgabe</dt><dd>Info rows. </dd></dl>
 
 </div>
 </div>

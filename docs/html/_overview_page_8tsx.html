@@ -18,7 +18,7 @@
   <td id="projectalign">
    <div id="projectname">Uni-App
    </div>
-   <div id="projectbrief">Persönliche Studien-PWA: Aufgaben, Module, Habittracker</div>
+   <div id="projectbrief">Persönliche Studien-PWA: Aufgaben, Module, Stundenplan, Aktivität</div>
   </td>
  </tr>
  </tbody>
@@ -63,7 +63,7 @@
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Funktionen</h2></td></tr>
 <tr class="memitem:adb119c176cb46f3e1d279206c894827f" id="r_adb119c176cb46f3e1d279206c894827f"><td class="memItemLeft">JSX::Element&#160;</td><td class="memItemRight"><a class="el" href="#adb119c176cb46f3e1d279206c894827f">OverviewPage</a> ()</td></tr>
-<tr class="memdesc:adb119c176cb46f3e1d279206c894827f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overview: tasks + completed tasks (left on desktop), modules + habit tracker (right).  <br /></td></tr>
+<tr class="memdesc:adb119c176cb46f3e1d279206c894827f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overview with tasks, modules, timetable and activity.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentation der Funktionen</h2>
 <a id="adb119c176cb46f3e1d279206c894827f" name="adb119c176cb46f3e1d279206c894827f"></a>
@@ -81,8 +81,8 @@ Funktionen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Overview: tasks + completed tasks (left on desktop), modules + habit tracker (right). </p>
-<p>One column below 1024 px; two columns (≈40/60) from 1024 px. </p><dl class="section return"><dt>Rückgabe</dt><dd>The overview page. </dd></dl>
+<p>Overview with tasks, modules, timetable and activity. </p>
+<p>Below 1024 px one column: tasks (incl. completed) → modules → timetable → activity. From 1024 px two columns (≈40/60): tasks and activity on the left, modules and timetable on the right. The DOM order is the phone order (also the keyboard order); on desktop a grid places the sections. The timetable spans a flexible last row, so the activity card sits directly below the tasks instead of below the taller right column. </p><dl class="section return"><dt>Rückgabe</dt><dd>The overview page. </dd></dl>
 
 </div>
 </div>

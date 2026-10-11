@@ -18,7 +18,7 @@
   <td id="projectalign">
    <div id="projectname">Uni-App
    </div>
-   <div id="projectbrief">Persönliche Studien-PWA: Aufgaben, Module, Habittracker</div>
+   <div id="projectbrief">Persönliche Studien-PWA: Aufgaben, Module, Stundenplan, Aktivität</div>
   </td>
  </tr>
  </tbody>
@@ -55,30 +55,90 @@
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#func-members">Funktionen</a>  </div>
+<a href="#nested-classes">Klassen</a> &#124;
+<a href="#typedef-members">Typdefinitionen</a> &#124;
+<a href="#func-members">Funktionen</a> &#124;
+<a href="#var-members">Variablen</a>  </div>
   <div class="headertitle"><div class="title">slots.ts-Dateireferenz</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Lecture/exercise time slots of a module (room + free-text time).  
+<p>Lecture/exercise appointments of a module: weekday, start, end and room.  
 <a href="#details">Mehr ...</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Klassen</h2></td></tr>
+<tr class="memitem:SlotDraft" id="r_SlotDraft"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_slot_draft.html">SlotDraft</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Editable appointment in the module form (all values as strings, "" = not set).  <a href="struct_slot_draft.html#details">Mehr ...</a><br /></td></tr>
+<tr class="memitem:Appointment" id="r_Appointment"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_appointment.html">Appointment</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">One appointment of a module together with its kind.  <a href="struct_appointment.html#details">Mehr ...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typdefinitionen</h2></td></tr>
+<tr class="memitem:a830802ec6da21aa16a4c452a0adbc1fe" id="r_a830802ec6da21aa16a4c452a0adbc1fe"><td class="memItemLeft"><a id="a830802ec6da21aa16a4c452a0adbc1fe" name="a830802ec6da21aa16a4c452a0adbc1fe"></a>
+using&#160;</td><td class="memItemRight"><b>CompleteSlot</b> = auto</td></tr>
+<tr class="memdesc:a830802ec6da21aa16a4c452a0adbc1fe"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="struct_appointment.html" title="One appointment of a module together with its kind.">Appointment</a> whose weekday, start and end are all set. <br /></td></tr>
+<tr class="memitem:af8a6d11dce43abf66aeced3c7fa93871" id="r_af8a6d11dce43abf66aeced3c7fa93871"><td class="memItemLeft"><a id="af8a6d11dce43abf66aeced3c7fa93871" name="af8a6d11dce43abf66aeced3c7fa93871"></a>
+using&#160;</td><td class="memItemRight"><b>SlotKind</b> = auto</td></tr>
+<tr class="memdesc:af8a6d11dce43abf66aeced3c7fa93871"><td class="mdescLeft">&#160;</td><td class="mdescRight">Kind of an appointment. <br /></td></tr>
+<tr class="memitem:a9990c88c536a835843bcfe7548c59ec9" id="r_a9990c88c536a835843bcfe7548c59ec9"><td class="memItemLeft"><a id="a9990c88c536a835843bcfe7548c59ec9" name="a9990c88c536a835843bcfe7548c59ec9"></a>
+using&#160;</td><td class="memItemRight"><b>DraftStatus</b> = auto</td></tr>
+<tr class="memdesc:a9990c88c536a835843bcfe7548c59ec9"><td class="mdescLeft">&#160;</td><td class="mdescRight">State of one form entry. <br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Funktionen</h2></td></tr>
+<tr class="memitem:a6c62556a12100e4a13a1b72ba7db706f" id="r_a6c62556a12100e4a13a1b72ba7db706f"><td class="memItemLeft"><a class="el" href="database_8ts.html#a18f63ccdf96aac74e9b0353239754eea">Weekday</a>&#160;</td><td class="memItemRight"><a class="el" href="#a6c62556a12100e4a13a1b72ba7db706f">parseWeekday</a> (unknown value)</td></tr>
+<tr class="memdesc:a6c62556a12100e4a13a1b72ba7db706f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a weekday from untrusted data.  <br /></td></tr>
+<tr class="memitem:ae57db3338b7a692965d945e5a5d09240" id="r_ae57db3338b7a692965d945e5a5d09240"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#ae57db3338b7a692965d945e5a5d09240">parseTime</a> (unknown value)</td></tr>
+<tr class="memdesc:ae57db3338b7a692965d945e5a5d09240"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a <span class="tt">HH:MM</span> time from untrusted data (seconds are cut off).  <br /></td></tr>
 <tr class="memitem:afc1870b1b090b62fa8fe845b72a54d99" id="r_afc1870b1b090b62fa8fe845b72a54d99"><td class="memItemLeft">std::vector&lt; <a class="el" href="struct_time_slot.html">TimeSlot</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#afc1870b1b090b62fa8fe845b72a54d99">normalizeSlots</a> (unknown value)</td></tr>
 <tr class="memdesc:afc1870b1b090b62fa8fe845b72a54d99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a slot list coming from the database defensively.  <br /></td></tr>
-<tr class="memitem:a4350e8d16aa962401eb3e080f11a102b" id="r_a4350e8d16aa962401eb3e080f11a102b"><td class="memItemLeft">std::vector&lt; <a class="el" href="struct_time_slot.html">TimeSlot</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a4350e8d16aa962401eb3e080f11a102b">cleanSlots</a> (auto slots)</td></tr>
-<tr class="memdesc:a4350e8d16aa962401eb3e080f11a102b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares slots for saving: trims values and drops entries whose time is empty.  <br /></td></tr>
-<tr class="memitem:af07fff0e9b35584266a166d69573630c" id="r_af07fff0e9b35584266a166d69573630c"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#af07fff0e9b35584266a166d69573630c">formatSlot</a> (<a class="el" href="struct_time_slot.html">TimeSlot</a> slot)</td></tr>
-<tr class="memdesc:af07fff0e9b35584266a166d69573630c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats a slot for display.  <br /></td></tr>
+<tr class="memitem:af4f6fc95a9719917cbe48d1b544658c6" id="r_af4f6fc95a9719917cbe48d1b544658c6"><td class="memItemLeft">auto&#160;</td><td class="memItemRight"><a class="el" href="#af4f6fc95a9719917cbe48d1b544658c6">isCompleteSlot</a> (<a class="el" href="struct_time_slot.html">TimeSlot</a> slot)</td></tr>
+<tr class="memdesc:af4f6fc95a9719917cbe48d1b544658c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether weekday, start and end are set.  <br /></td></tr>
+<tr class="memitem:afd9f9a487091dfdf000112e56b371b52" id="r_afd9f9a487091dfdf000112e56b371b52"><td class="memItemLeft">number&#160;</td><td class="memItemRight"><a class="el" href="#afd9f9a487091dfdf000112e56b371b52">compareSlots</a> (<a class="el" href="#a830802ec6da21aa16a4c452a0adbc1fe">CompleteSlot</a> a, <a class="el" href="#a830802ec6da21aa16a4c452a0adbc1fe">CompleteSlot</a> b)</td></tr>
+<tr class="memdesc:afd9f9a487091dfdf000112e56b371b52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Orders appointments by weekday, then start, then end.  <br /></td></tr>
+<tr class="memitem:a8a1929c5d4278d5c61c34c41bf32d2d1" id="r_a8a1929c5d4278d5c61c34c41bf32d2d1"><td class="memItemLeft"><a class="el" href="struct_slot_draft.html">SlotDraft</a>&#160;</td><td class="memItemRight"><a class="el" href="#a8a1929c5d4278d5c61c34c41bf32d2d1">toDraft</a> (<a class="el" href="struct_time_slot.html">TimeSlot</a> slot)</td></tr>
+<tr class="memdesc:a8a1929c5d4278d5c61c34c41bf32d2d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a stored slot into a form entry.  <br /></td></tr>
+<tr class="memitem:ae4462f95e0ab097d8cadd96bcb7811ca" id="r_ae4462f95e0ab097d8cadd96bcb7811ca"><td class="memItemLeft"><a class="el" href="#a9990c88c536a835843bcfe7548c59ec9">DraftStatus</a>&#160;</td><td class="memItemRight"><a class="el" href="#ae4462f95e0ab097d8cadd96bcb7811ca">draftStatus</a> (<a class="el" href="struct_slot_draft.html">SlotDraft</a> draft)</td></tr>
+<tr class="memdesc:ae4462f95e0ab097d8cadd96bcb7811ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Classifies a form entry.  <br /></td></tr>
+<tr class="memitem:ad1dcfcc38b564b3850c3f7a64e2ae69c" id="r_ad1dcfcc38b564b3850c3f7a64e2ae69c"><td class="memItemLeft">std::vector&lt; string &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ad1dcfcc38b564b3850c3f7a64e2ae69c">missingFields</a> (<a class="el" href="struct_slot_draft.html">SlotDraft</a> draft)</td></tr>
+<tr class="memdesc:ad1dcfcc38b564b3850c3f7a64e2ae69c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Names the missing time fields of an entry.  <br /></td></tr>
+<tr class="memitem:a16d1a987a6fe5347ef3333946e95ffe9" id="r_a16d1a987a6fe5347ef3333946e95ffe9"><td class="memItemLeft">boolean&#160;</td><td class="memItemRight"><a class="el" href="#a16d1a987a6fe5347ef3333946e95ffe9">draftsValid</a> (auto drafts)</td></tr>
+<tr class="memdesc:a16d1a987a6fe5347ef3333946e95ffe9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether a list of form entries can be saved.  <br /></td></tr>
+<tr class="memitem:ace7aa781763dc69b87d72ffba475e17f" id="r_ace7aa781763dc69b87d72ffba475e17f"><td class="memItemLeft">std::vector&lt; <a class="el" href="struct_time_slot.html">TimeSlot</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ace7aa781763dc69b87d72ffba475e17f">cleanSlots</a> (auto drafts)</td></tr>
+<tr class="memdesc:ace7aa781763dc69b87d72ffba475e17f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares form entries for saving: trims the room and drops empty entries.  <br /></td></tr>
+<tr class="memitem:a9b8f211b887e19b84376e46bd78f04b2" id="r_a9b8f211b887e19b84376e46bd78f04b2"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#a9b8f211b887e19b84376e46bd78f04b2">formatTime</a> (string time)</td></tr>
+<tr class="memdesc:a9b8f211b887e19b84376e46bd78f04b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats a <span class="tt">HH:MM</span> time without leading zero.  <br /></td></tr>
+<tr class="memitem:adf06bbda066213c290911a28d9487728" id="r_adf06bbda066213c290911a28d9487728"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#adf06bbda066213c290911a28d9487728">formatTimeRange</a> (string start, string end)</td></tr>
+<tr class="memdesc:adf06bbda066213c290911a28d9487728"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats a time range.  <br /></td></tr>
+<tr class="memitem:ade8567ffe601a59cc1d50ed7d026004b" id="r_ade8567ffe601a59cc1d50ed7d026004b"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#ade8567ffe601a59cc1d50ed7d026004b">formatSlotTime</a> (<a class="el" href="#a830802ec6da21aa16a4c452a0adbc1fe">CompleteSlot</a> slot)</td></tr>
+<tr class="memdesc:ade8567ffe601a59cc1d50ed7d026004b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats weekday and time of an appointment.  <br /></td></tr>
 <tr class="memitem:a70ea85d124023c281bd2b7426991421f" id="r_a70ea85d124023c281bd2b7426991421f"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#a70ea85d124023c281bd2b7426991421f">slotLabel</a> (string base, number index, number count)</td></tr>
-<tr class="memdesc:a70ea85d124023c281bd2b7426991421f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Label of one slot, numbered only if there are several.  <br /></td></tr>
+<tr class="memdesc:a70ea85d124023c281bd2b7426991421f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Label of one form entry, numbered only if there are several.  <br /></td></tr>
+<tr class="memitem:a4840b383fa44eae547ac9a88af7cfc83" id="r_a4840b383fa44eae547ac9a88af7cfc83"><td class="memItemLeft">std::vector&lt; <a class="el" href="struct_appointment.html">Appointment</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a4840b383fa44eae547ac9a88af7cfc83">moduleAppointments</a> (Pick module)</td></tr>
+<tr class="memdesc:a4840b383fa44eae547ac9a88af7cfc83"><td class="mdescLeft">&#160;</td><td class="mdescRight">All lectures and exercises of a module, sorted by weekday and start.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variablen</h2></td></tr>
+<tr class="memitem:a71f23b65a78d15dfe722d8a4d976a5dd" id="r_a71f23b65a78d15dfe722d8a4d976a5dd"><td class="memItemLeft"><a id="a71f23b65a78d15dfe722d8a4d976a5dd" name="a71f23b65a78d15dfe722d8a4d976a5dd"></a>
+const Record&#160;</td><td class="memItemRight"><b>SLOT_KIND_LABELS</b></td></tr>
+<tr class="memdesc:a71f23b65a78d15dfe722d8a4d976a5dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">German label per kind. <br /></td></tr>
+<tr class="memitem:adfe4e0a1dfb5b10c5423d40336790762" id="r_adfe4e0a1dfb5b10c5423d40336790762"><td class="memItemLeft"><a id="adfe4e0a1dfb5b10c5423d40336790762" name="adfe4e0a1dfb5b10c5423d40336790762"></a>
+const auto&#160;</td><td class="memItemRight"><b>WEEKDAY_NAMES</b></td></tr>
+<tr class="memdesc:adfe4e0a1dfb5b10c5423d40336790762"><td class="mdescLeft">&#160;</td><td class="mdescRight">Full German weekday names, Monday first (index = weekday − 1). <br /></td></tr>
+<tr class="memitem:aef525d3f782cfad31b4caa3a98711ac7" id="r_aef525d3f782cfad31b4caa3a98711ac7"><td class="memItemLeft"><a id="aef525d3f782cfad31b4caa3a98711ac7" name="aef525d3f782cfad31b4caa3a98711ac7"></a>
+const auto&#160;</td><td class="memItemRight"><b>TIME_PATTERN</b></td></tr>
+<tr class="memdesc:aef525d3f782cfad31b4caa3a98711ac7"><td class="mdescLeft">&#160;</td><td class="mdescRight"><span class="tt">HH:MM</span> with a two-digit hour (the format of <span class="tt">&lt;input type="time"&gt;</span>). <br /></td></tr>
+<tr class="memitem:a9963ba10a62fdc3e6ed65ec696c61e75" id="r_a9963ba10a62fdc3e6ed65ec696c61e75"><td class="memItemLeft"><a id="a9963ba10a62fdc3e6ed65ec696c61e75" name="a9963ba10a62fdc3e6ed65ec696c61e75"></a>
+const <a class="el" href="struct_slot_draft.html">SlotDraft</a>&#160;</td><td class="memItemRight"><b>EMPTY_DRAFT</b></td></tr>
+<tr class="memdesc:a9963ba10a62fdc3e6ed65ec696c61e75"><td class="mdescLeft">&#160;</td><td class="mdescRight">A new, empty form entry. <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Ausführliche Beschreibung</h2>
-<div class="textblock"><p>Lecture/exercise time slots of a module (room + free-text time). </p>
+<div class="textblock"><p>Lecture/exercise appointments of a module: weekday, start, end and room. </p>
+<p>Contains reading from the database, the form model with validation, and display helpers. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentation der Funktionen</h2>
-<a id="a4350e8d16aa962401eb3e080f11a102b" name="a4350e8d16aa962401eb3e080f11a102b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4350e8d16aa962401eb3e080f11a102b">&#9670;&#160;</a></span>cleanSlots()</h2>
+<a id="ace7aa781763dc69b87d72ffba475e17f" name="ace7aa781763dc69b87d72ffba475e17f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace7aa781763dc69b87d72ffba475e17f">&#9670;&#160;</a></span>cleanSlots()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -86,16 +146,16 @@ Funktionen</h2></td></tr>
         <tr>
           <td class="memname">std::vector&lt; <a class="el" href="struct_time_slot.html">TimeSlot</a> &gt; cleanSlots </td>
           <td>(</td>
-          <td class="paramtype">auto</td>          <td class="paramname"><span class="paramname"><em>slots</em></span></td><td>)</td>
+          <td class="paramtype">auto</td>          <td class="paramname"><span class="paramname"><em>drafts</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Prepares slots for saving: trims values and drops entries whose time is empty. </p>
-<p>Clearing the time of a lecture is how the user deletes it. </p><dl class="params"><dt>Parameter</dt><dd>
+<p>Prepares form entries for saving: trims the room and drops empty entries. </p>
+<p>Clearing weekday, start and end of an appointment is how the user deletes it. </p><dl class="params"><dt>Parameter</dt><dd>
   <table class="params">
-    <tr><td class="paramname">slots</td><td>Slots from the form. </td></tr>
+    <tr><td class="paramname">drafts</td><td>Form entries (validated with <a class="el" href="#a16d1a987a6fe5347ef3333946e95ffe9" title="Tells whether a list of form entries can be saved.">draftsValid()</a>). </td></tr>
   </table>
   </dd>
 </dl>
@@ -103,14 +163,180 @@ Funktionen</h2></td></tr>
 
 </div>
 </div>
-<a id="af07fff0e9b35584266a166d69573630c" name="af07fff0e9b35584266a166d69573630c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af07fff0e9b35584266a166d69573630c">&#9670;&#160;</a></span>formatSlot()</h2>
+<a id="afd9f9a487091dfdf000112e56b371b52" name="afd9f9a487091dfdf000112e56b371b52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd9f9a487091dfdf000112e56b371b52">&#9670;&#160;</a></span>compareSlots()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">string formatSlot </td>
+          <td class="memname">number compareSlots </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a830802ec6da21aa16a4c452a0adbc1fe">CompleteSlot</a></td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a830802ec6da21aa16a4c452a0adbc1fe">CompleteSlot</a></td>          <td class="paramname"><span class="paramname"><em>b</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Orders appointments by weekday, then start, then end. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>First slot. </td></tr>
+    <tr><td class="paramname">b</td><td>Second slot. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Negative, zero or positive like Array.prototype.sort expects. </dd></dl>
+
+</div>
+</div>
+<a id="ae4462f95e0ab097d8cadd96bcb7811ca" name="ae4462f95e0ab097d8cadd96bcb7811ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4462f95e0ab097d8cadd96bcb7811ca">&#9670;&#160;</a></span>draftStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a9990c88c536a835843bcfe7548c59ec9">DraftStatus</a> draftStatus </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_slot_draft.html">SlotDraft</a></td>          <td class="paramname"><span class="paramname"><em>draft</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Classifies a form entry. </p>
+<p>An entry without weekday, start and end counts as empty – even if it has a room – and is removed on save. If only some of the three are set, it is incomplete and blocks saving. </p><dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">draft</td><td>Form entry. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Its status. </dd></dl>
+
+</div>
+</div>
+<a id="a16d1a987a6fe5347ef3333946e95ffe9" name="a16d1a987a6fe5347ef3333946e95ffe9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16d1a987a6fe5347ef3333946e95ffe9">&#9670;&#160;</a></span>draftsValid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boolean draftsValid </td>
+          <td>(</td>
+          <td class="paramtype">auto</td>          <td class="paramname"><span class="paramname"><em>drafts</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tells whether a list of form entries can be saved. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">drafts</td><td>Form entries. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>True if no entry is incomplete or ends before it starts. </dd></dl>
+
+</div>
+</div>
+<a id="ade8567ffe601a59cc1d50ed7d026004b" name="ade8567ffe601a59cc1d50ed7d026004b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade8567ffe601a59cc1d50ed7d026004b">&#9670;&#160;</a></span>formatSlotTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string formatSlotTime </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a830802ec6da21aa16a4c452a0adbc1fe">CompleteSlot</a></td>          <td class="paramname"><span class="paramname"><em>slot</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Formats weekday and time of an appointment. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">slot</td><td>Complete slot. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>E.g. "Di 10:00–11:30". </dd></dl>
+
+</div>
+</div>
+<a id="a9b8f211b887e19b84376e46bd78f04b2" name="a9b8f211b887e19b84376e46bd78f04b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b8f211b887e19b84376e46bd78f04b2">&#9670;&#160;</a></span>formatTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string formatTime </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>time</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Formats a <span class="tt">HH:MM</span> time without leading zero. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">time</td><td>Time as <span class="tt">HH:MM</span>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>E.g. "8:15". </dd></dl>
+
+</div>
+</div>
+<a id="adf06bbda066213c290911a28d9487728" name="adf06bbda066213c290911a28d9487728"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf06bbda066213c290911a28d9487728">&#9670;&#160;</a></span>formatTimeRange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string formatTimeRange </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>end</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Formats a time range. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start</td><td>Start as <span class="tt">HH:MM</span>. </td></tr>
+    <tr><td class="paramname">end</td><td>End as <span class="tt">HH:MM</span>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>E.g. "10:00–11:30". </dd></dl>
+
+</div>
+</div>
+<a id="af4f6fc95a9719917cbe48d1b544658c6" name="af4f6fc95a9719917cbe48d1b544658c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4f6fc95a9719917cbe48d1b544658c6">&#9670;&#160;</a></span>isCompleteSlot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto isCompleteSlot </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_time_slot.html">TimeSlot</a></td>          <td class="paramname"><span class="paramname"><em>slot</em></span></td><td>)</td>
           <td></td>
@@ -118,14 +344,66 @@ Funktionen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Formats a slot for display. </p>
+<p>Tells whether weekday, start and end are set. </p>
 <dl class="params"><dt>Parameter</dt><dd>
   <table class="params">
-    <tr><td class="paramname">slot</td><td>Slot to format. </td></tr>
+    <tr><td class="paramname">slot</td><td>Slot to check. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Rückgabe</dt><dd>E.g. "H-1.10 · Di 10:00–11:30" (empty parts are skipped). </dd></dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>True for a complete slot. </dd></dl>
+
+</div>
+</div>
+<a id="ad1dcfcc38b564b3850c3f7a64e2ae69c" name="ad1dcfcc38b564b3850c3f7a64e2ae69c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1dcfcc38b564b3850c3f7a64e2ae69c">&#9670;&#160;</a></span>missingFields()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; string &gt; missingFields </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_slot_draft.html">SlotDraft</a></td>          <td class="paramname"><span class="paramname"><em>draft</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Names the missing time fields of an entry. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">draft</td><td>Form entry. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>German field names, e.g. ["Beginn", "Ende"]. </dd></dl>
+
+</div>
+</div>
+<a id="a4840b383fa44eae547ac9a88af7cfc83" name="a4840b383fa44eae547ac9a88af7cfc83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4840b383fa44eae547ac9a88af7cfc83">&#9670;&#160;</a></span>moduleAppointments()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="struct_appointment.html">Appointment</a> &gt; moduleAppointments </td>
+          <td>(</td>
+          <td class="paramtype">Pick</td>          <td class="paramname"><span class="paramname"><em>module</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>All lectures and exercises of a module, sorted by weekday and start. </p>
+<p>Entries without a time (not yet converted) come last, lectures before exercises. </p><dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">module</td><td>Module row. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Sorted appointments. </dd></dl>
 
 </div>
 </div>
@@ -145,13 +423,65 @@ Funktionen</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Reads a slot list coming from the database defensively. </p>
-<dl class="params"><dt>Parameter</dt><dd>
+<p>An entry with an incomplete or invalid time keeps only its room (and the old text), so it is shown as "to be fixed" instead of breaking the timetable. </p><dl class="params"><dt>Parameter</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>Raw JSON value (should be an array of { room, time }). </td></tr>
+    <tr><td class="paramname">value</td><td>Raw JSON value (should be an array of slots). </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Rückgabe</dt><dd>Valid slots; non-object entries are skipped, missing fields become "". </dd></dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Valid slots; non-object entries are skipped. </dd></dl>
+
+</div>
+</div>
+<a id="ae57db3338b7a692965d945e5a5d09240" name="ae57db3338b7a692965d945e5a5d09240"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae57db3338b7a692965d945e5a5d09240">&#9670;&#160;</a></span>parseTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string parseTime </td>
+          <td>(</td>
+          <td class="paramtype">unknown</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reads a <span class="tt">HH:MM</span> time from untrusted data (seconds are cut off). </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>Raw value. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Time as <span class="tt">HH:MM</span>, or null. </dd></dl>
+
+</div>
+</div>
+<a id="a6c62556a12100e4a13a1b72ba7db706f" name="a6c62556a12100e4a13a1b72ba7db706f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c62556a12100e4a13a1b72ba7db706f">&#9670;&#160;</a></span>parseWeekday()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="database_8ts.html#a18f63ccdf96aac74e9b0353239754eea">Weekday</a> parseWeekday </td>
+          <td>(</td>
+          <td class="paramtype">unknown</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reads a weekday from untrusted data. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>Raw value. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd><a class="el" href="database_8ts.html#a18f63ccdf96aac74e9b0353239754eea" title="ISO weekday: 1 = Monday … 7 = Sunday.">Weekday</a> 1–7, or null. </dd></dl>
 
 </div>
 </div>
@@ -179,16 +509,42 @@ Funktionen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Label of one slot, numbered only if there are several. </p>
+<p>Label of one form entry, numbered only if there are several. </p>
 <dl class="params"><dt>Parameter</dt><dd>
   <table class="params">
     <tr><td class="paramname">base</td><td>Kind, e.g. "Vorlesung". </td></tr>
     <tr><td class="paramname">index</td><td>Zero-based position. </td></tr>
-    <tr><td class="paramname">count</td><td>Number of slots of this kind. </td></tr>
+    <tr><td class="paramname">count</td><td>Number of entries of this kind. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Rückgabe</dt><dd>"Vorlesung" or "Vorlesung 2". </dd></dl>
+
+</div>
+</div>
+<a id="a8a1929c5d4278d5c61c34c41bf32d2d1" name="a8a1929c5d4278d5c61c34c41bf32d2d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a1929c5d4278d5c61c34c41bf32d2d1">&#9670;&#160;</a></span>toDraft()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_slot_draft.html">SlotDraft</a> toDraft </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_time_slot.html">TimeSlot</a></td>          <td class="paramname"><span class="paramname"><em>slot</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts a stored slot into a form entry. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">slot</td><td>Stored slot. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Form entry. </dd></dl>
 
 </div>
 </div>

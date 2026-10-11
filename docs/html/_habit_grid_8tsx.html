@@ -18,7 +18,7 @@
   <td id="projectalign">
    <div id="projectname">Uni-App
    </div>
-   <div id="projectbrief">Persönliche Studien-PWA: Aufgaben, Module, Habittracker</div>
+   <div id="projectbrief">Persönliche Studien-PWA: Aufgaben, Module, Stundenplan, Aktivität</div>
   </td>
  </tr>
  </tbody>
@@ -56,7 +56,8 @@
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Klassen</a> &#124;
-<a href="#func-members">Funktionen</a>  </div>
+<a href="#func-members">Funktionen</a> &#124;
+<a href="#var-members">Variablen</a>  </div>
   <div class="headertitle"><div class="title">HabitGrid.tsx-Dateireferenz</div></div>
 </div><!--header-->
 <div class="contents">
@@ -69,7 +70,13 @@ Klassen</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Funktionen</h2></td></tr>
 <tr class="memitem:ad8ee27b7f44175cbc67b61f95a5a6fa9" id="r_ad8ee27b7f44175cbc67b61f95a5a6fa9"><td class="memItemLeft">JSX::Element&#160;</td><td class="memItemRight"><a class="el" href="#ad8ee27b7f44175cbc67b61f95a5a6fa9">HabitGrid</a> (<a class="el" href="struct_habit_grid_props.html">HabitGridProps</a> props)</td></tr>
-<tr class="memdesc:ad8ee27b7f44175cbc67b61f95a5a6fa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Anki-style month heatmap: one rounded square per day, Monday first, no day numbers.  <br /></td></tr>
+<tr class="memdesc:ad8ee27b7f44175cbc67b61f95a5a6fa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compact Anki-style month heatmap: one small rounded square per day, Monday first.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variablen</h2></td></tr>
+<tr class="memitem:a21d27397d257b2282b4d7f74b9094df6" id="r_a21d27397d257b2282b4d7f74b9094df6"><td class="memItemLeft"><a id="a21d27397d257b2282b4d7f74b9094df6" name="a21d27397d257b2282b4d7f74b9094df6"></a>
+const auto&#160;</td><td class="memItemRight"><b>CELL</b></td></tr>
+<tr class="memdesc:a21d27397d257b2282b4d7f74b9094df6"><td class="mdescLeft">&#160;</td><td class="mdescRight">One grid cell: 40 px touch target on phones, 24 px on desktop (mouse). <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentation der Funktionen</h2>
 <a id="ad8ee27b7f44175cbc67b61f95a5a6fa9" name="ad8ee27b7f44175cbc67b61f95a5a6fa9"></a>
@@ -87,8 +94,8 @@ Funktionen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Anki-style month heatmap: one rounded square per day, Monday first, no day numbers. </p>
-<p>Checked days are green, today has a strong black outline, future days are pale and disabled. The exact date is available as tooltip and accessible name. </p><dl class="params"><dt>Parameter</dt><dd>
+<p>Compact Anki-style month heatmap: one small rounded square per day, Monday first. </p>
+<p>Checked days are green, today is outlined, future days are pale and disabled. The visible square is smaller than its button, so the touch target stays 40 px on phones. The exact date is available as tooltip and accessible name; weekdays are single letters. </p><dl class="params"><dt>Parameter</dt><dd>
   <table class="params">
     <tr><td class="paramname">props</td><td>See <a class="el" href="struct_habit_grid_props.html" title="Props of HabitGrid.">HabitGridProps</a>. </td></tr>
   </table>

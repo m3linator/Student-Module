@@ -18,7 +18,7 @@
   <td id="projectalign">
    <div id="projectname">Uni-App
    </div>
-   <div id="projectbrief">Persönliche Studien-PWA: Aufgaben, Module, Habittracker</div>
+   <div id="projectbrief">Persönliche Studien-PWA: Aufgaben, Module, Stundenplan, Aktivität</div>
   </td>
  </tr>
  </tbody>
@@ -65,13 +65,45 @@
 Klassen</h2></td></tr>
 <tr class="memitem:SlotListFieldProps" id="r_SlotListFieldProps"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_slot_list_field_props.html">SlotListFieldProps</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Props of SlotListField.  <a href="struct_slot_list_field_props.html#details">Mehr ...</a><br /></td></tr>
+<tr class="memitem:SlotRowProps" id="r_SlotRowProps"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_slot_row_props.html">SlotRowProps</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Props of SlotRow.  <a href="struct_slot_row_props.html#details">Mehr ...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Funktionen</h2></td></tr>
+<tr class="memitem:a3265452bd3694cfc40d684c785ffdf96" id="r_a3265452bd3694cfc40d684c785ffdf96"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#a3265452bd3694cfc40d684c785ffdf96">hintFor</a> (<a class="el" href="struct_slot_draft.html">SlotDraft</a> draft)</td></tr>
+<tr class="memdesc:a3265452bd3694cfc40d684c785ffdf96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hint below an entry: old free text, missing fields or an end before the start.  <br /></td></tr>
+<tr class="memitem:a1eeba7bd97b7983d88f58886da472e29" id="r_a1eeba7bd97b7983d88f58886da472e29"><td class="memItemLeft">JSX::Element&#160;</td><td class="memItemRight"><a class="el" href="#a1eeba7bd97b7983d88f58886da472e29">SlotRow</a> (<a class="el" href="struct_slot_row_props.html">SlotRowProps</a> props)</td></tr>
+<tr class="memdesc:a1eeba7bd97b7983d88f58886da472e29"><td class="mdescLeft">&#160;</td><td class="mdescRight">One appointment: weekday, start and end in the first line, room in the second.  <br /></td></tr>
 <tr class="memitem:aa29b3cd283431b0049ffe3ecfb73890c" id="r_aa29b3cd283431b0049ffe3ecfb73890c"><td class="memItemLeft">JSX::Element&#160;</td><td class="memItemRight"><a class="el" href="#aa29b3cd283431b0049ffe3ecfb73890c">SlotListField</a> (<a class="el" href="struct_slot_list_field_props.html">SlotListFieldProps</a> props)</td></tr>
-<tr class="memdesc:aa29b3cd283431b0049ffe3ecfb73890c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Editable list of appointments (room + time) with a full-width "+" button below.  <br /></td></tr>
+<tr class="memdesc:aa29b3cd283431b0049ffe3ecfb73890c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Editable list of appointments (weekday, start, end, room) with a full-width "+" button.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentation der Funktionen</h2>
+<a id="a3265452bd3694cfc40d684c785ffdf96" name="a3265452bd3694cfc40d684c785ffdf96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3265452bd3694cfc40d684c785ffdf96">&#9670;&#160;</a></span>hintFor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string hintFor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_slot_draft.html">SlotDraft</a></td>          <td class="paramname"><span class="paramname"><em>draft</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Hint below an entry: old free text, missing fields or an end before the start. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">draft</td><td>Form entry. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Hint text, or null when nothing needs to be said. </dd></dl>
+
+</div>
+</div>
 <a id="aa29b3cd283431b0049ffe3ecfb73890c" name="aa29b3cd283431b0049ffe3ecfb73890c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa29b3cd283431b0049ffe3ecfb73890c">&#9670;&#160;</a></span>SlotListField()</h2>
 
@@ -87,10 +119,36 @@ Funktionen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Editable list of appointments (room + time) with a full-width "+" button below. </p>
-<p>Entries are never removed while typing; an entry whose time is empty is dropped when the form is saved (see <a class="el" href="slots_8ts.html#a4350e8d16aa962401eb3e080f11a102b" title="Prepares slots for saving: trims values and drops entries whose time is empty.">cleanSlots()</a>). </p><dl class="params"><dt>Parameter</dt><dd>
+<p>Editable list of appointments (weekday, start, end, room) with a full-width "+" button. </p>
+<p>Entries are never removed while typing; an entry without weekday, start and end is dropped when the form is saved (see <a class="el" href="slots_8ts.html#ace7aa781763dc69b87d72ffba475e17f" title="Prepares form entries for saving: trims the room and drops empty entries.">cleanSlots()</a>). Half-filled entries show a hint. </p><dl class="params"><dt>Parameter</dt><dd>
   <table class="params">
     <tr><td class="paramname">props</td><td>See <a class="el" href="struct_slot_list_field_props.html" title="Props of SlotListField.">SlotListFieldProps</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>The field group. </dd></dl>
+
+</div>
+</div>
+<a id="a1eeba7bd97b7983d88f58886da472e29" name="a1eeba7bd97b7983d88f58886da472e29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1eeba7bd97b7983d88f58886da472e29">&#9670;&#160;</a></span>SlotRow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">JSX::Element SlotRow </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_slot_row_props.html">SlotRowProps</a></td>          <td class="paramname"><span class="paramname"><em>props</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>One appointment: weekday, start and end in the first line, room in the second. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">props</td><td>See <a class="el" href="struct_slot_row_props.html" title="Props of SlotRow.">SlotRowProps</a>. </td></tr>
   </table>
   </dd>
 </dl>

@@ -18,7 +18,7 @@
   <td id="projectalign">
    <div id="projectname">Uni-App
    </div>
-   <div id="projectbrief">Persönliche Studien-PWA: Aufgaben, Module, Habittracker</div>
+   <div id="projectbrief">Persönliche Studien-PWA: Aufgaben, Module, Stundenplan, Aktivität</div>
   </td>
  </tr>
  </tbody>
@@ -55,6 +55,7 @@
 <div id="doc-content">
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Klassen</a> &#124;
 <a href="#typedef-members">Typdefinitionen</a> &#124;
 <a href="#func-members">Funktionen</a>  </div>
   <div class="headertitle"><div class="title">berlinDate.ts-Dateireferenz</div></div>
@@ -64,6 +65,11 @@
 <p>Calendar-day helpers pinned to the Europe/Berlin time zone.  
 <a href="#details">Mehr ...</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Klassen</h2></td></tr>
+<tr class="memitem:BerlinClock" id="r_BerlinClock"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_berlin_clock.html">BerlinClock</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="database_8ts.html#a18f63ccdf96aac74e9b0353239754eea" title="ISO weekday: 1 = Monday … 7 = Sunday.">Weekday</a> and time of day in Berlin.  <a href="struct_berlin_clock.html#details">Mehr ...</a><br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typdefinitionen</h2></td></tr>
 <tr class="memitem:a4a0b6a1b9a9bc7faff756bdaca4baea6" id="r_a4a0b6a1b9a9bc7faff756bdaca4baea6"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a4a0b6a1b9a9bc7faff756bdaca4baea6">IsoDate</a> = string</td></tr>
@@ -75,6 +81,8 @@ Funktionen</h2></td></tr>
 <tr class="memdesc:a907ec7fb6f7ce417daf767006deb9d8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current calendar day in Berlin.  <br /></td></tr>
 <tr class="memitem:a1fa56b3910a2ecbf00730b4b9b6fdf8b" id="r_a1fa56b3910a2ecbf00730b4b9b6fdf8b"><td class="memItemLeft">number&#160;</td><td class="memItemRight"><a class="el" href="#a1fa56b3910a2ecbf00730b4b9b6fdf8b">msUntilNextBerlinMidnight</a> (Date now)</td></tr>
 <tr class="memdesc:a1fa56b3910a2ecbf00730b4b9b6fdf8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Milliseconds until the next midnight in Berlin (DST-aware: days can have 23 or 25 h).  <br /></td></tr>
+<tr class="memitem:a8c5a26a559b065ee92210bbb16dbdf7a" id="r_a8c5a26a559b065ee92210bbb16dbdf7a"><td class="memItemLeft"><a class="el" href="struct_berlin_clock.html">BerlinClock</a>&#160;</td><td class="memItemRight"><a class="el" href="#a8c5a26a559b065ee92210bbb16dbdf7a">clockInBerlin</a> (Date now)</td></tr>
+<tr class="memdesc:a8c5a26a559b065ee92210bbb16dbdf7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current weekday and time of day in Berlin.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Ausführliche Beschreibung</h2>
 <div class="textblock"><p>Calendar-day helpers pinned to the Europe/Berlin time zone. </p>
@@ -98,6 +106,32 @@ Funktionen</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentation der Funktionen</h2>
+<a id="a8c5a26a559b065ee92210bbb16dbdf7a" name="a8c5a26a559b065ee92210bbb16dbdf7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c5a26a559b065ee92210bbb16dbdf7a">&#9670;&#160;</a></span>clockInBerlin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_berlin_clock.html">BerlinClock</a> clockInBerlin </td>
+          <td>(</td>
+          <td class="paramtype">Date</td>          <td class="paramname"><span class="paramname"><em>now</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the current weekday and time of day in Berlin. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">now</td><td>Instant to evaluate (defaults to the current time). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>ISO weekday (1 = Monday) and minutes since midnight. </dd></dl>
+
+</div>
+</div>
 <a id="a1fa56b3910a2ecbf00730b4b9b6fdf8b" name="a1fa56b3910a2ecbf00730b4b9b6fdf8b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1fa56b3910a2ecbf00730b4b9b6fdf8b">&#9670;&#160;</a></span>msUntilNextBerlinMidnight()</h2>
 

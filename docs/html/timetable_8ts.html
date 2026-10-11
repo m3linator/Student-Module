@@ -1,0 +1,387 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Uni-App: lib/timetable.ts-Dateireferenz</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Uni-App
+   </div>
+   <div id="projectbrief">Persönliche Studien-PWA: Aufgaben, Module, Stundenplan, Aktivität</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.18.0 -->
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": false,
+  "searchEngine": false,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+    </li>
+  </ul>
+</div><!-- main-nav -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><b>lib</b></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Klassen</a> &#124;
+<a href="#func-members">Funktionen</a> &#124;
+<a href="#var-members">Variablen</a>  </div>
+  <div class="headertitle"><div class="title">timetable.ts-Dateireferenz</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Pure layout logic of the weekly timetable (positions, visible range, overlaps).  
+<a href="#details">Mehr ...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Klassen</h2></td></tr>
+<tr class="memitem:TimetableEvent" id="r_TimetableEvent"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_timetable_event.html">TimetableEvent</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">One appointment as shown in the timetable.  <a href="struct_timetable_event.html#details">Mehr ...</a><br /></td></tr>
+<tr class="memitem:OverlapSlot" id="r_OverlapSlot"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_overlap_slot.html">OverlapSlot</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Placement of an event among overlapping events of the same day.  <a href="struct_overlap_slot.html#details">Mehr ...</a><br /></td></tr>
+<tr class="memitem:HourRange" id="r_HourRange"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_hour_range.html">HourRange</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visible hour range: from <span class="tt">startHour:00</span> to <span class="tt">endHour:00</span>.  <a href="struct_hour_range.html#details">Mehr ...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Funktionen</h2></td></tr>
+<tr class="memitem:a58e21da4458d32f7df5d74888e161989" id="r_a58e21da4458d32f7df5d74888e161989"><td class="memItemLeft">number&#160;</td><td class="memItemRight"><a class="el" href="#a58e21da4458d32f7df5d74888e161989">timeToMinutes</a> (string time)</td></tr>
+<tr class="memdesc:a58e21da4458d32f7df5d74888e161989"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts <span class="tt">HH:MM</span> into minutes since midnight.  <br /></td></tr>
+<tr class="memitem:ad1dc9532c29b80ddd72682be2cb4a1c5" id="r_ad1dc9532c29b80ddd72682be2cb4a1c5"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#ad1dc9532c29b80ddd72682be2cb4a1c5">eventTitle</a> (string moduleName, <a class="el" href="slots_8ts.html#af8a6d11dce43abf66aeced3c7fa93871">SlotKind</a> kind)</td></tr>
+<tr class="memdesc:ad1dc9532c29b80ddd72682be2cb4a1c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Title of an appointment block.  <br /></td></tr>
+<tr class="memitem:aaf9b935dc491e7e67e4c06404aac2873" id="r_aaf9b935dc491e7e67e4c06404aac2873"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#aaf9b935dc491e7e67e4c06404aac2873">entryLabel</a> (<a class="el" href="struct_timetable_event.html">TimetableEvent</a> event)</td></tr>
+<tr class="memdesc:aaf9b935dc491e7e67e4c06404aac2873"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessible name of a timetable entry.  <br /></td></tr>
+<tr class="memitem:a61a8febbb87123447d064dde0751089b" id="r_a61a8febbb87123447d064dde0751089b"><td class="memItemLeft">std::vector&lt; <a class="el" href="struct_timetable_event.html">TimetableEvent</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a61a8febbb87123447d064dde0751089b">buildTimetableEvents</a> (auto modules)</td></tr>
+<tr class="memdesc:a61a8febbb87123447d064dde0751089b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collects all complete appointments of all modules.  <br /></td></tr>
+<tr class="memitem:a7d6eafb762755b47ba6c56dbff46269a" id="r_a7d6eafb762755b47ba6c56dbff46269a"><td class="memItemLeft"><a class="el" href="struct_hour_range.html">HourRange</a>&#160;</td><td class="memItemRight"><a class="el" href="#a7d6eafb762755b47ba6c56dbff46269a">visibleHours</a> (auto events, <a class="el" href="struct_hour_range.html">HourRange</a> defaults)</td></tr>
+<tr class="memdesc:a7d6eafb762755b47ba6c56dbff46269a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visible hours: the default range, widened to full hours around earlier/later events.  <br /></td></tr>
+<tr class="memitem:adcb38f3a37223e13d817f316afee8e2d" id="r_adcb38f3a37223e13d817f316afee8e2d"><td class="memItemLeft">std::vector&lt; <a class="el" href="database_8ts.html#a18f63ccdf96aac74e9b0353239754eea">Weekday</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#adcb38f3a37223e13d817f316afee8e2d">visibleWeekdays</a> (auto events)</td></tr>
+<tr class="memdesc:adcb38f3a37223e13d817f316afee8e2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visible weekdays: Monday–Friday, plus Saturday/Sunday only if they have events.  <br /></td></tr>
+<tr class="memitem:afd5707e2c4574b108f727e4d949a8e18" id="r_afd5707e2c4574b108f727e4d949a8e18"><td class="memItemLeft">auto&#160;</td><td class="memItemRight"><a class="el" href="#afd5707e2c4574b108f727e4d949a8e18">eventBox</a> (number start, number end, number startHour, number hourHeight)</td></tr>
+<tr class="memdesc:afd5707e2c4574b108f727e4d949a8e18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vertical position and height of an event, exact to the minute.  <br /></td></tr>
+<tr class="memitem:a6b4f53f2f0933261b073bbbc00ee3df1" id="r_a6b4f53f2f0933261b073bbbc00ee3df1"><td class="memItemLeft">number&#160;</td><td class="memItemRight"><a class="el" href="#a6b4f53f2f0933261b073bbbc00ee3df1">nowLineTop</a> (number minutes, <a class="el" href="struct_hour_range.html">HourRange</a> range, number hourHeight)</td></tr>
+<tr class="memdesc:a6b4f53f2f0933261b073bbbc00ee3df1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Position of the "now" line, or null when the time is outside the visible range.  <br /></td></tr>
+<tr class="memitem:a534464518954a2db4359f60ebac20f58" id="r_a534464518954a2db4359f60ebac20f58"><td class="memItemLeft">std::vector&lt; <a class="el" href="struct_overlap_slot.html">OverlapSlot</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a534464518954a2db4359f60ebac20f58">layoutOverlaps</a> (auto events)</td></tr>
+<tr class="memdesc:a534464518954a2db4359f60ebac20f58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Side-by-side layout of overlapping events of one day (like Google Calendar).  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variablen</h2></td></tr>
+<tr class="memitem:a00ee76eb35be83290e8b848121c7b4d2" id="r_a00ee76eb35be83290e8b848121c7b4d2"><td class="memItemLeft"><a id="a00ee76eb35be83290e8b848121c7b4d2" name="a00ee76eb35be83290e8b848121c7b4d2"></a>
+const auto&#160;</td><td class="memItemRight"><b>WORKDAYS</b></td></tr>
+<tr class="memdesc:a00ee76eb35be83290e8b848121c7b4d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Monday to Friday – always shown. <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Ausführliche Beschreibung</h2>
+<div class="textblock"><p>Pure layout logic of the weekly timetable (positions, visible range, overlaps). </p>
+<p>Times are handled as minutes since midnight; the component turns them into pixels with the hour height of the current screen size. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentation der Funktionen</h2>
+<a id="a61a8febbb87123447d064dde0751089b" name="a61a8febbb87123447d064dde0751089b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61a8febbb87123447d064dde0751089b">&#9670;&#160;</a></span>buildTimetableEvents()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="struct_timetable_event.html">TimetableEvent</a> &gt; buildTimetableEvents </td>
+          <td>(</td>
+          <td class="paramtype">auto</td>          <td class="paramname"><span class="paramname"><em>modules</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Collects all complete appointments of all modules. </p>
+<p>Entries without weekday/time (not yet converted) are skipped. </p><dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">modules</td><td>Module rows. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Events, unsorted. </dd></dl>
+
+</div>
+</div>
+<a id="aaf9b935dc491e7e67e4c06404aac2873" name="aaf9b935dc491e7e67e4c06404aac2873"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf9b935dc491e7e67e4c06404aac2873">&#9670;&#160;</a></span>entryLabel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string entryLabel </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_timetable_event.html">TimetableEvent</a></td>          <td class="paramname"><span class="paramname"><em>event</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Accessible name of a timetable entry. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td>Timetable event. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>E.g. "Übung Mathe 1, Mittwoch 14:00 bis 15:30, Raum A 1.04" (room part only if set). </dd></dl>
+
+</div>
+</div>
+<a id="afd5707e2c4574b108f727e4d949a8e18" name="afd5707e2c4574b108f727e4d949a8e18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd5707e2c4574b108f727e4d949a8e18">&#9670;&#160;</a></span>eventBox()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto eventBox </td>
+          <td>(</td>
+          <td class="paramtype">number</td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">number</td>          <td class="paramname"><span class="paramname"><em>end</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">number</td>          <td class="paramname"><span class="paramname"><em>startHour</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">number</td>          <td class="paramname"><span class="paramname"><em>hourHeight</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vertical position and height of an event, exact to the minute. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start</td><td>Start in minutes since midnight. </td></tr>
+    <tr><td class="paramname">end</td><td>End in minutes since midnight. </td></tr>
+    <tr><td class="paramname">startHour</td><td>First visible hour. </td></tr>
+    <tr><td class="paramname">hourHeight</td><td>Pixels per hour. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Top offset and height in pixels. </dd></dl>
+
+</div>
+</div>
+<a id="ad1dc9532c29b80ddd72682be2cb4a1c5" name="ad1dc9532c29b80ddd72682be2cb4a1c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1dc9532c29b80ddd72682be2cb4a1c5">&#9670;&#160;</a></span>eventTitle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string eventTitle </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>moduleName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="slots_8ts.html#af8a6d11dce43abf66aeced3c7fa93871">SlotKind</a></td>          <td class="paramname"><span class="paramname"><em>kind</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Title of an appointment block. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">moduleName</td><td>Name of the module. </td></tr>
+    <tr><td class="paramname">kind</td><td>Lecture or exercise. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>"Name" for lectures, "Name-Ü" for exercises. </dd></dl>
+
+</div>
+</div>
+<a id="a534464518954a2db4359f60ebac20f58" name="a534464518954a2db4359f60ebac20f58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a534464518954a2db4359f60ebac20f58">&#9670;&#160;</a></span>layoutOverlaps()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="struct_overlap_slot.html">OverlapSlot</a> &gt; layoutOverlaps </td>
+          <td>(</td>
+          <td class="paramtype">auto</td>          <td class="paramname"><span class="paramname"><em>events</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Side-by-side layout of overlapping events of one day (like Google Calendar). </p>
+<p>Events are grouped into clusters of transitively overlapping events. Inside a cluster each event takes the first column that is free at its start; all events of the cluster share the cluster's column count. Events that only touch (end = next start) do not overlap. </p><dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">events</td><td>Events of one day with start and end in minutes. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Column and column count per event, in the order of the input. </dd></dl>
+
+</div>
+</div>
+<a id="a6b4f53f2f0933261b073bbbc00ee3df1" name="a6b4f53f2f0933261b073bbbc00ee3df1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b4f53f2f0933261b073bbbc00ee3df1">&#9670;&#160;</a></span>nowLineTop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">number nowLineTop </td>
+          <td>(</td>
+          <td class="paramtype">number</td>          <td class="paramname"><span class="paramname"><em>minutes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_hour_range.html">HourRange</a></td>          <td class="paramname"><span class="paramname"><em>range</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">number</td>          <td class="paramname"><span class="paramname"><em>hourHeight</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Position of the "now" line, or null when the time is outside the visible range. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">minutes</td><td>Current time in minutes since midnight. </td></tr>
+    <tr><td class="paramname">range</td><td>Visible hours. </td></tr>
+    <tr><td class="paramname">hourHeight</td><td>Pixels per hour. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Top offset in pixels, or null. </dd></dl>
+
+</div>
+</div>
+<a id="a58e21da4458d32f7df5d74888e161989" name="a58e21da4458d32f7df5d74888e161989"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58e21da4458d32f7df5d74888e161989">&#9670;&#160;</a></span>timeToMinutes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">number timeToMinutes </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>time</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts <span class="tt">HH:MM</span> into minutes since midnight. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">time</td><td>Time as <span class="tt">HH:MM</span>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Minutes, e.g. 630 for "10:30". </dd></dl>
+
+</div>
+</div>
+<a id="a7d6eafb762755b47ba6c56dbff46269a" name="a7d6eafb762755b47ba6c56dbff46269a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d6eafb762755b47ba6c56dbff46269a">&#9670;&#160;</a></span>visibleHours()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_hour_range.html">HourRange</a> visibleHours </td>
+          <td>(</td>
+          <td class="paramtype">auto</td>          <td class="paramname"><span class="paramname"><em>events</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_hour_range.html">HourRange</a></td>          <td class="paramname"><span class="paramname"><em>defaults</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Visible hours: the default range, widened to full hours around earlier/later events. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">events</td><td>Events with start and end in minutes. </td></tr>
+    <tr><td class="paramname">defaults</td><td>Default range (8–18 from the app config). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Start and end hour. </dd></dl>
+
+</div>
+</div>
+<a id="adcb38f3a37223e13d817f316afee8e2d" name="adcb38f3a37223e13d817f316afee8e2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcb38f3a37223e13d817f316afee8e2d">&#9670;&#160;</a></span>visibleWeekdays()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="database_8ts.html#a18f63ccdf96aac74e9b0353239754eea">Weekday</a> &gt; visibleWeekdays </td>
+          <td>(</td>
+          <td class="paramtype">auto</td>          <td class="paramname"><span class="paramname"><em>events</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Visible weekdays: Monday–Friday, plus Saturday/Sunday only if they have events. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">events</td><td>Events with a weekday. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Ascending weekdays. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

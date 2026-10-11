@@ -18,7 +18,7 @@
   <td id="projectalign">
    <div id="projectname">Uni-App
    </div>
-   <div id="projectbrief">Persönliche Studien-PWA: Aufgaben, Module, Habittracker</div>
+   <div id="projectbrief">Persönliche Studien-PWA: Aufgaben, Module, Stundenplan, Aktivität</div>
   </td>
  </tr>
  </tbody>
@@ -62,13 +62,13 @@ Einstieg</h1>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Bereich  </th><th class="markdownTableHeadNone">Dateien  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Konfiguration  </td><td class="markdownTableBodyNone"><span class="tt"><a class="el" href="app_8ts.html" title="Central app-wide constants (name, time zone, breakpoints, timings).">config/app.ts</a></span> – App-Name, Zeitzone, Breakpoint, Timings  </td></tr>
+<td class="markdownTableBodyNone">Konfiguration  </td><td class="markdownTableBodyNone"><span class="tt"><a class="el" href="app_8ts.html" title="Central app-wide constants (name, time zone, breakpoints, timings).">config/app.ts</a></span> – App-Name, Zeitzone, Breakpoint, Timings, Stundenplan  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Geschäftslogik  </td><td class="markdownTableBodyNone"><span class="tt"><a class="el" href="deadline_8ts.html" title="&quot;Remaining days&quot; logic for tasks.">lib/deadline.ts</a></span>, <span class="tt"><a class="el" href="sort_8ts.html" title="Ordering rules for task lists.">lib/sort.ts</a></span>, <span class="tt"><a class="el" href="habit_8ts.html" title="Streak calculation for the habit tracker.">lib/habit.ts</a></span>, <span class="tt"><a class="el" href="calendar_8ts.html" title="Month grid helpers shared by the date picker and the habit tracker.">lib/calendar.ts</a></span>  </td></tr>
+<td class="markdownTableBodyNone">Geschäftslogik  </td><td class="markdownTableBodyNone"><span class="tt"><a class="el" href="deadline_8ts.html" title="&quot;Remaining days&quot; logic for tasks.">lib/deadline.ts</a></span>, <span class="tt"><a class="el" href="sort_8ts.html" title="Ordering rules for task lists.">lib/sort.ts</a></span>, <span class="tt"><a class="el" href="slots_8ts.html" title="Lecture/exercise appointments of a module: weekday, start, end and room.">lib/slots.ts</a></span>, <span class="tt"><a class="el" href="timetable_8ts.html" title="Pure layout logic of the weekly timetable (positions, visible range, overlaps).">lib/timetable.ts</a></span>, <span class="tt"><a class="el" href="habit_8ts.html" title="Streak calculation for the activity section.">lib/habit.ts</a></span>, <span class="tt"><a class="el" href="calendar_8ts.html" title="Month grid helpers shared by the date picker and the activity grid.">lib/calendar.ts</a></span>  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">Daten &amp; Sync  </td><td class="markdownTableBodyNone"><span class="tt"><a class="el" href="store_8ts.html" title="Minimal immutable in-memory store holding all synced tables.">data/store.ts</a></span>, <span class="tt"><a class="el" href="actions_8ts.html" title="All data changes of the app as optimistic mutations against Supabase.">data/actions.ts</a></span>, <span class="tt"><a class="el" href="realtime_8ts.html" title="Live sync: Supabase Realtime (postgres_changes) → store actions.">data/realtime.ts</a></span>  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Hooks  </td><td class="markdownTableBodyNone"><span class="tt"><a class="el" href="use_data_8ts.html" title="Hooks reading derived data from the store and exposing the actions.">hooks/useData.ts</a></span>, <span class="tt"><a class="el" href="use_today_8ts.html" title="Shared &quot;today in Berlin&quot; value that flips at midnight and when the app is reopened.">hooks/useToday.ts</a></span>, <span class="tt"><a class="el" href="use_autosave_draft_8ts.html">hooks/useAutosaveDraft.ts</a></span>  </td></tr>
+<td class="markdownTableBodyNone">Hooks  </td><td class="markdownTableBodyNone"><span class="tt"><a class="el" href="use_data_8ts.html" title="Hooks reading derived data from the store and exposing the actions.">hooks/useData.ts</a></span>, <span class="tt"><a class="el" href="use_timetable_8ts.html" title="Timetable events derived from the modules in the store.">hooks/useTimetable.ts</a></span>, <span class="tt"><a class="el" href="use_today_8ts.html" title="Shared &quot;today in Berlin&quot; value that flips at midnight and when the app is reopened.">hooks/useToday.ts</a></span>, <span class="tt"><a class="el" href="use_berlin_clock_8ts.html" title="Current Berlin weekday and time of day, updated every minute.">hooks/useBerlinClock.ts</a></span>, <span class="tt"><a class="el" href="use_autosave_draft_8ts.html">hooks/useAutosaveDraft.ts</a></span>  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">Oberfläche  </td><td class="markdownTableBodyNone"><span class="tt">components/**</span>, <span class="tt">pages/**</span>  </td></tr>
 </table>

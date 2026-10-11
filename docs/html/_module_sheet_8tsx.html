@@ -18,7 +18,7 @@
   <td id="projectalign">
    <div id="projectname">Uni-App
    </div>
-   <div id="projectbrief">Persönliche Studien-PWA: Aufgaben, Module, Habittracker</div>
+   <div id="projectbrief">Persönliche Studien-PWA: Aufgaben, Module, Stundenplan, Aktivität</div>
   </td>
  </tr>
  </tbody>
@@ -68,20 +68,20 @@ Klassen</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Funktionen</h2></td></tr>
-<tr class="memitem:a5dd1f8ba1f42533ff5f8947552e9d443" id="r_a5dd1f8ba1f42533ff5f8947552e9d443"><td class="memItemLeft">std::vector&lt; <a class="el" href="struct_time_slot.html">TimeSlot</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a5dd1f8ba1f42533ff5f8947552e9d443">initialSlots</a> (unknown value)</td></tr>
-<tr class="memdesc:a5dd1f8ba1f42533ff5f8947552e9d443"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slots shown in the form: the stored ones, or one empty entry to start typing.  <br /></td></tr>
+<tr class="memitem:a9a759015c73e1710e83157acb11fc969" id="r_a9a759015c73e1710e83157acb11fc969"><td class="memItemLeft">std::vector&lt; <a class="el" href="struct_slot_draft.html">SlotDraft</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a9a759015c73e1710e83157acb11fc969">initialSlots</a> (unknown value)</td></tr>
+<tr class="memdesc:a9a759015c73e1710e83157acb11fc969"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slots shown in the form: the stored ones, or one empty entry to start typing.  <br /></td></tr>
 <tr class="memitem:a3086b413142b68d8e840cbd42b70f739" id="r_a3086b413142b68d8e840cbd42b70f739"><td class="memItemLeft">JSX::Element&#160;</td><td class="memItemRight"><a class="el" href="#a3086b413142b68d8e840cbd42b70f739">ModuleSheet</a> (<a class="el" href="struct_module_sheet_props.html">ModuleSheetProps</a> props)</td></tr>
 <tr class="memdesc:a3086b413142b68d8e840cbd42b70f739"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pop-up for creating or editing a module.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentation der Funktionen</h2>
-<a id="a5dd1f8ba1f42533ff5f8947552e9d443" name="a5dd1f8ba1f42533ff5f8947552e9d443"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5dd1f8ba1f42533ff5f8947552e9d443">&#9670;&#160;</a></span>initialSlots()</h2>
+<a id="a9a759015c73e1710e83157acb11fc969" name="a9a759015c73e1710e83157acb11fc969"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a759015c73e1710e83157acb11fc969">&#9670;&#160;</a></span>initialSlots()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; <a class="el" href="struct_time_slot.html">TimeSlot</a> &gt; initialSlots </td>
+          <td class="memname">std::vector&lt; <a class="el" href="struct_slot_draft.html">SlotDraft</a> &gt; initialSlots </td>
           <td>(</td>
           <td class="paramtype">unknown</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
           <td></td>
@@ -117,7 +117,7 @@ Funktionen</h2></td></tr>
 
 <p>Pop-up for creating or editing a module. </p>
 <p>Only the name is required.</p>
-<p>Any number of lectures and exercises can be added; entries without a time are removed on save. Mount with a fresh <span class="tt">key</span> per opening so the form starts from the given module. </p><dl class="params"><dt>Parameter</dt><dd>
+<p>Any number of lectures and exercises can be added; entries without weekday and time are removed on save, half-filled entries or an end before the start block saving. Mount with a fresh <span class="tt">key</span> per opening so the form starts from the given module. </p><dl class="params"><dt>Parameter</dt><dd>
   <table class="params">
     <tr><td class="paramname">props</td><td>See <a class="el" href="struct_module_sheet_props.html" title="Props of ModuleSheet.">ModuleSheetProps</a>. </td></tr>
   </table>
