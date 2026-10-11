@@ -6,7 +6,8 @@ import { defineConfig, type Plugin } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 import { APP_NAME } from './src/config/app.ts';
 
-const THEME_COLOR = '#ffffff';
+/** @brief Splash / title bar colour (light page background, see src/index.css). */
+const THEME_COLOR = '#f2f2f7';
 
 /**
  * @brief Replaces the `%APP_NAME%` placeholder in index.html with the central app name.
