@@ -2,7 +2,7 @@
 
 Persönliche Studien-App als **Progressive Web App** – eine Codebasis für Mac (als Dock-App),
 iPhone (als Home-Bildschirm-App) und jeden Browser. Aufgaben mit Abgabe-Countdown, Module mit
-Links und Markdown-Notizen sowie ein Habittracker. Alle Daten liegen in Supabase und werden
+Links und Markdown-Notizen, ein Wochenstundenplan und ein Aktivitäts-Raster. Alle Daten liegen in Supabase und werden
 in Echtzeit zwischen allen geöffneten Geräten synchronisiert.
 
 ---
@@ -49,9 +49,13 @@ in Echtzeit zwischen allen geöffneten Geräten synchronisiert.
 
 - Kachel-Raster mit Name, ECTS, Prof und Anzahl offener Aufgaben.
 - Eigene Modulseite (`/module/:id`) mit Infos-Karte.
-- **Beliebig viele Vorlesungen und Übungen** pro Modul (Raum + Uhrzeit). Ein schmaler
-  „+ Vorlesung“-/„+ Übung“-Button fügt weitere hinzu. Ein Eintrag ohne Uhrzeit wird beim
-  Speichern entfernt.
+- **Beliebig viele Vorlesungen und Übungen** pro Modul mit **Wochentag, Beginn, Ende** und
+  optionalem Raum. Ein schmaler „+ Vorlesung“-/„+ Übung“-Button fügt weitere hinzu.
+  - Ende vor Beginn wird markiert, halb ausgefüllte Einträge zeigen einen Hinweis. In beiden
+    Fällen ist Speichern gesperrt.
+  - Ein Eintrag ohne Tag und Uhrzeit wird beim Speichern entfernt.
+  - Die Infos-Karte listet alle Termine sortiert nach Wochentag und Beginn
+    („**Vorlesung** · Di 10:00–11:30 · 📍 Raum“).
 - **Wichtige Links**: angezeigt wird nur der Name. `https://` wird automatisch ergänzt. Die
   Links lassen sich per Wischen bearbeiten oder löschen und per Drag & Drop (oder Pfeiltasten)
   sortieren.
@@ -61,12 +65,25 @@ in Echtzeit zwischen allen geöffneten Geräten synchronisiert.
 - Beim Löschen eines Moduls fragt die App nach. Links und Notizen werden mitgelöscht, Aufgaben
   bleiben erhalten, aber ohne Modul.
 
-### Habittracker
+### Stundenplan
+
+- Wochenansicht im Stil von Google Calendar mit allen Vorlesungen und Übungen aller Module –
+  **nur zum Anschauen**. Bearbeitet wird im Modul-Pop-up, Änderungen erscheinen per Realtime.
+- Oben nur Wochentage (kein Datum), links volle Stunden. Standard **Mo–Fr** und **8–18 Uhr**.
+  Sa/So und frühere bzw. spätere Stunden erscheinen automatisch, sobald dort ein Termin liegt.
+- Termine sind minutengenau platziert: **Vorlesungen blau**, **Übungen gelb** mit Titel
+  „Modulname-Ü“. Jeder Block zeigt Uhrzeit (🕒) und Raum (📍), soweit Platz ist.
+- Überlappende Termine stehen nebeneinander. Heute ist hervorgehoben, eine rote Linie zeigt die
+  aktuelle Uhrzeit.
+- Ein Tipp auf einen Termin öffnet die Modulseite. Am Desktop zeigt ein Tooltip alle Details.
+
+### Aktivität
 
 - Ein Habit (Standard „Fokus“), der per Tipp umbenannt werden kann.
-- Monatsraster im Stil der Anki-Heatmap (Mo–So). Grün heißt erledigt. **Heute** ist schwarz
+- Kompaktes Monatsraster im Stil der Anki-Heatmap (Mo–So). Grün heißt erledigt. **Heute** ist
   umrandet, zukünftige Tage sind gesperrt.
-- **Serie** („🔥 N Tage in Folge“) und Blättern durch vergangene Monate.
+- Name, Monat mit Pfeilen und **Serie** (🔥 N) stehen in einer Kopfzeile. Mit den Pfeilen
+  blätterst du durch vergangene Monate.
 
 ### Design
 
@@ -78,8 +95,11 @@ in Echtzeit zwischen allen geöffneten Geräten synchronisiert.
 
 ### Plattform & Qualität
 
-- Responsives Layout nach Bildschirmbreite: einspaltig unter 1024 px (ab 768 px zentriert, max.
-  640 px breit), ab 1024 px zweispaltig (max. 1200 px breit).
+- Responsives Layout nach Bildschirmbreite:
+  - unter 1024 px einspaltig (ab 768 px zentriert, max. 640 px breit) in der Reihenfolge
+    Aufgaben → Module → Stundenplan → Aktivität
+  - ab 1024 px zweispaltig (max. 1200 px breit): links Aufgaben und Aktivität, rechts Module
+    und Stundenplan
 - Pop-ups erscheinen auf dem Handy als Bottom-Sheet und auf dem Desktop als zentriertes Modal.
   Esc schließt, Enter speichert.
 - iOS-Details: Safe Areas (Notch, Home-Indicator), Touch-Ziele ≥ 44 px, 16-px-Eingabefelder
@@ -196,7 +216,7 @@ Die vollständige Ersteinrichtung (Datenbank, Benutzer, Vercel, Installation) st
 │   ├── mainpage.md              # Startseite der Code-Doku
 │   └── html/                    # generierte, verschlankte HTML-Doku (index.html öffnen)
 ├── src/
-│   ├── config/app.ts            # ⚙️ App-Name, Zeitzone, Breakpoint, Timings
+│   ├── config/app.ts            # ⚙️ App-Name, Zeitzone, Breakpoint, Timings, Stundenplan
 │   ├── index.css                # 🎨 Farb-Variablen (hell/dunkel), Schrift, Utilities, Markdown-Stile
 │   ├── main.tsx / App.tsx       # Einstieg, Provider, Routen
 │   ├── pages/                   # Login, Übersicht, Modulseite, Einrichtungshinweis
@@ -204,12 +224,13 @@ Die vollständige Ersteinrichtung (Datenbank, Benutzer, Vercel, Installation) st
 │   │   ├── ui/                  # Bausteine: Sheet, SwipeRow, Calendar, Switch, Toast …
 │   │   ├── layout/              # Kopfzeile, Routen-Schutz, Offline-/Update-Hinweis
 │   │   ├── tasks/               # Aufgabenliste, Pop-up, erledigte Aufgaben
-│   │   ├── modules/             # Kacheln, Modul-Pop-up, Links, Notizen
-│   │   └── habit/               # Monatsraster, Umbenennen
+│   │   ├── modules/             # Kacheln, Modul-Pop-up (Termine), Links, Notizen
+│   │   ├── timetable/           # Wochenstundenplan: Raster, Termin-Blöcke
+│   │   └── habit/               # Aktivität: Monatsraster, Umbenennen
 │   ├── context/                 # Auth-, Daten- und Toast-Provider
 │   ├── data/                    # Store (Reducer), Aktionen, Selektoren, Realtime
-│   ├── hooks/                   # useTasks, useToday, useAutosaveDraft, useShortcut …
-│   ├── lib/                     # reine Logik (Deadline, Sortierung, Kalender, URL …)
+│   ├── hooks/                   # useTasks, useToday, useTimetable, useBerlinClock …
+│   ├── lib/                     # reine Logik (Deadline, Sortierung, Termine, Stundenplan …)
 │   ├── types/database.ts        # Typen des Datenbankschemas
 │   └── test/                    # Test-Setup und -Helfer
 ├── index.html                   # iOS-Meta-Tags, Manifest-Link
@@ -221,17 +242,19 @@ Die vollständige Ersteinrichtung (Datenbank, Benutzer, Vercel, Installation) st
 
 ### Wo ändere ich was?
 
-| Ich möchte …                            | Datei                                                                                                                                             |
-| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| den **App-Namen** ändern                | `APP_NAME` in [`src/config/app.ts`](src/config/app.ts) (Manifest, Titel, Kopfzeile)                                                               |
-| den **Desktop-Breakpoint** ändern       | `DESKTOP_MIN_WIDTH` in `src/config/app.ts` **und** die `lg:`-Klassen bzw. `64rem` in `src/index.css`                                              |
-| die **Farben** anpassen                 | Farb-Variablen in [`src/index.css`](src/index.css) – oben Hell, im `.dark`-Block Dunkel (`--color-accent`, `--color-danger`, `--color-success` …) |
-| den **Standard der Darstellung** ändern | Fallback `'system'` in `readThemePreference()` in [`src/lib/theme.ts`](src/lib/theme.ts)                                                          |
-| die **Schrift** ändern                  | `--font-sans` in [`src/index.css`](src/index.css)                                                                                                 |
-| **Texte** ändern                        | direkt in der jeweiligen Komponente (alle UI-Texte sind deutsch, z. B. `TasksSection.tsx`)                                                        |
-| die **Rot-Schwelle** ändern             | `URGENT_DAYS` in [`src/lib/deadline.ts`](src/lib/deadline.ts)                                                                                     |
-| **Autosave-/Toast-Dauer** ändern        | `NOTES_SAVE_DEBOUNCE_MS`, `UNDO_TOAST_MS`, `TOAST_MS` in `src/config/app.ts`                                                                      |
-| das **Icon** ändern                     | `public/icon.svg` bearbeiten → `npm run icons`                                                                                                    |
+| Ich möchte …                            | Datei                                                                                                                                                                  |
+| --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| den **App-Namen** ändern                | `APP_NAME` in [`src/config/app.ts`](src/config/app.ts) (Manifest, Titel, Kopfzeile)                                                                                    |
+| den **Desktop-Breakpoint** ändern       | `DESKTOP_MIN_WIDTH` in `src/config/app.ts` **und** die `lg:`-Klassen bzw. `64rem` in `src/index.css`                                                                   |
+| die **Farben** anpassen                 | Farb-Variablen in [`src/index.css`](src/index.css) – oben Hell, im `.dark`-Block Dunkel (`--color-accent`, `--color-danger`, `--color-success` …)                      |
+| den **Standard der Darstellung** ändern | Fallback `'system'` in `readThemePreference()` in [`src/lib/theme.ts`](src/lib/theme.ts)                                                                               |
+| die **Schrift** ändern                  | `--font-sans` in [`src/index.css`](src/index.css)                                                                                                                      |
+| **Texte** ändern                        | direkt in der jeweiligen Komponente (alle UI-Texte sind deutsch, z. B. `TasksSection.tsx`)                                                                             |
+| die **Rot-Schwelle** ändern             | `URGENT_DAYS` in [`src/lib/deadline.ts`](src/lib/deadline.ts)                                                                                                          |
+| die **Termin-Farben** ändern            | `--color-lecture` / `--color-exercise` (Block) und `--color-on-lecture` / `--color-on-exercise` (Schrift) in [`src/index.css`](src/index.css), Dunkel im `.dark`-Block |
+| den **Stundenplan-Zeitraum** ändern     | `TIMETABLE_START_HOUR` / `TIMETABLE_END_HOUR` (Standard 8–18) und die Stundenhöhen `TIMETABLE_HOUR_HEIGHT_*` in [`src/config/app.ts`](src/config/app.ts)               |
+| **Autosave-/Toast-Dauer** ändern        | `NOTES_SAVE_DEBOUNCE_MS`, `UNDO_TOAST_MS`, `TOAST_MS` in `src/config/app.ts`                                                                                           |
+| das **Icon** ändern                     | `public/icon.svg` bearbeiten → `npm run icons`                                                                                                                         |
 
 ---
 
@@ -273,9 +296,17 @@ Die Unit- und Komponententests decken unter anderem ab:
 - `deadline.ts`: Vorabend an/aus, Monats-/Jahreswechsel, Zeitumstellung März/Oktober,
   überfällig, ohne Datum
 - `sort.ts`: Sortierung und Gleichstand
+- `slots.ts`: Termine lesen, Validierung im Formular (halb ausgefüllt, Ende vor Beginn), Sortierung
+- `timetable.ts`: halbe und Viertelstunden, Termine außerhalb von 8–18, drei überlappende
+  Termine, Wochenendtermin, keine Termine
 - Store, Mutationen (Rollback), Aktionen, Selektoren, Realtime-Mapping
-- Komponenten: Wisch-Zeile, Pop-ups, Kalender, Aufgabenbereich, Modulseite, Habittracker,
+- Komponenten: Wisch-Zeile, Pop-ups, Kalender, Aufgabenbereich, Modulseite, Modul-Pop-up,
+  Stundenplan (Eintrag, Navigation, Jetzt-Linie), Aktivität, Reihenfolge der Übersicht,
   Autosave mit Tipp-Schutz
+
+Die SQL-Migrationen wurden zusätzlich gegen eine lokale Postgres-Instanz (PGlite) geprüft:
+Übernahme der Altdaten, Ablehnung ungültiger Termine und Abbruch der Aufräum-Migration, solange
+noch Einträge unvollständig sind.
 
 ---
 
@@ -316,10 +347,11 @@ _Platzhalter – noch keine Lizenz gewählt._ Ohne Lizenzdatei gilt: Alle Rechte
 
 ## Releases
 
-| Version | Datum      | Inhalt                                                                                                                                                              |
-| ------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0.2.0   | 2026-10-11 | Apple-Look, Dark Mode (Hell/Dunkel/Auto), mehrere Vorlesungen & Übungen, Tastatur-Fix für Pop-ups auf dem iPhone – **neue Migration nötig** (SETUP.md, Abschnitt 7) |
-| 0.1.0   | 2026-10-10 | Erste Version: Aufgaben, Module mit Links und Notizen, Habittracker, Realtime-Sync, PWA                                                                             |
+| Version | Datum      | Inhalt                                                                                                                                                                     |
+| ------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0.3.0   | 2026-10-11 | Wochenstundenplan, Termine mit Wochentag/Beginn/Ende, „Habittracker“ heißt jetzt „Aktivität“ (kompakter), neues Layout – **zwei neue Migrationen** (SETUP.md, Abschnitt 7) |
+| 0.2.0   | 2026-10-11 | Apple-Look, Dark Mode (Hell/Dunkel/Auto), mehrere Vorlesungen & Übungen, Tastatur-Fix für Pop-ups auf dem iPhone – **neue Migration nötig** (SETUP.md, Abschnitt 7)        |
+| 0.1.0   | 2026-10-10 | Erste Version: Aufgaben, Module mit Links und Notizen, Habittracker, Realtime-Sync, PWA                                                                                    |
 
 Neue Versionen: `version` in `package.json` erhöhen, Zeile hier ergänzen, dann
 `git tag vX.Y.Z && git push --tags`.

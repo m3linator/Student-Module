@@ -39,10 +39,16 @@ Du brauchst dafür etwa 30 Minuten, ein GitHub-Konto und einen Rechner mit **Nod
 Im Ordner [`supabase/migrations/`](supabase/migrations/) liegen die Migrationen. Führe **alle**
 nacheinander aus, in der Reihenfolge ihrer Dateinamen (das Datum am Anfang):
 
-| Reihenfolge | Datei                             | Inhalt                                 |
-| ----------- | --------------------------------- | -------------------------------------- |
-| 1           | `20261010000000_init.sql`         | Tabellen, Row Level Security, Realtime |
-| 2           | `20261011000000_module_slots.sql` | mehrere Vorlesungen/Übungen pro Modul  |
+| Reihenfolge | Datei                                   | Inhalt                                                 |
+| ----------- | --------------------------------------- | ------------------------------------------------------ |
+| 1           | `20261010000000_init.sql`               | Tabellen, Row Level Security, Realtime                 |
+| 2           | `20261011000000_module_slots.sql`       | mehrere Vorlesungen/Übungen pro Modul                  |
+| 3           | `20261012000000_slot_times.sql`         | Termine mit Wochentag, Beginn und Ende                 |
+| 4           | `20261013000000_slot_times_cleanup.sql` | alte Freitext-Uhrzeit entfernen, Felder werden Pflicht |
+
+Bei einer **Neueinrichtung** (noch keine Daten) kannst du alle vier direkt nacheinander
+ausführen. Bei einem bestehenden Projekt gilt die Reihenfolge aus
+[Abschnitt 7](#7-datenbank-updates-neue-migrationen).
 
 Für jede Datei:
 
@@ -272,14 +278,31 @@ Siehe Abschnitt **Projektstruktur** in der [README](README.md#projektstruktur).
 - [ ] Notiz schreiben → „Speichert…“ → „Gespeichert“; App schließen und neu öffnen → Notiz ist da.
 - [ ] Notiz auf zwei Geräten: Während du auf Gerät A tippst, überschreibt Gerät B deinen Text nicht.
 - [ ] Modul löschen → Bestätigungsdialog; danach sind Links/Notizen weg, die Aufgaben bleiben ohne Modul.
-- [ ] Modul bearbeiten → „+ Vorlesung“ fügt eine weitere Vorlesung hinzu; nach dem Speichern zeigt
-      die Modulseite „Vorlesung 1“, „Vorlesung 2“. Uhrzeit leeren und speichern entfernt den Eintrag.
+- [ ] Modul bearbeiten → „+ Vorlesung“ fügt eine weitere Vorlesung hinzu. Tag, Beginn und Ende
+      leeren und speichern entfernt den Eintrag.
+- [ ] Nur den Tag wählen → Hinweis „Es fehlt: Beginn, Ende.“, Speichern ist gesperrt. Ende vor
+      Beginn → das Ende-Feld ist rot markiert, Speichern ist gesperrt.
+- [ ] Modul mit Vorlesung Di 10:00–11:30 und Übung Mi 14:15–15:45 anlegen → beide erscheinen im
+      Stundenplan, blau bzw. gelb, und enden exakt an der halben bzw. Dreiviertelstunde. Die
+      Modulseite listet sie sortiert („**Vorlesung** · Di 10:00–11:30 · 📍 Raum“).
+- [ ] Der Übungstitel lautet „Name-Ü“. Uhr- und Stecknadel-Icon sind sichtbar, ohne Raum entfällt
+      die Zeile.
+- [ ] Im Stundenplan stehen oben nur Wochentage ohne Datum, links Stunden im 1-h-Abstand.
+- [ ] Ein Samstagstermin blendet die Sa-Spalte ein, ein Termin um 19 Uhr erweitert die Zeitachse.
+- [ ] Zwei überlappende Termine stehen nebeneinander.
+- [ ] Heute ist im Kopf blau hervorgehoben, die rote Linie steht auf der aktuellen Uhrzeit.
+- [ ] Ein Klick auf einen Termin öffnet die Modulseite, im Stundenplan lässt sich nichts bearbeiten.
+- [ ] Eine Terminänderung auf dem Mac erscheint ohne Neuladen auf dem iPhone.
+- [ ] Desktop: links Aufgaben, Erledigte und Aktivität, rechts Module und Stundenplan. Handy:
+      Aufgaben → Erledigte → Module → Stundenplan → Aktivität, kein horizontales Scrollen.
 - [ ] iPhone: Pop-up „Neue Aufgabe“ öffnen, ins Feld tippen → das Pop-up bleibt über der Tastatur,
       lässt sich scrollen, und „Speichern“ oben ist erreichbar.
 - [ ] Konto-Menü (iPhone) bzw. Darstellungs-Symbol (Mac) → Hell / Dunkel / Auto wechselt sofort;
       „Auto“ folgt der Systemeinstellung.
-- [ ] Habit-Tag antippen → grün; erneut tippen → wieder leer. Zukünftige Tage sind gesperrt.
-- [ ] Heute ist schwarz umrandet, die Serie („🔥 N Tage in Folge“) stimmt.
+- [ ] Aktivität: Tag antippen → grün; erneut tippen → wieder leer. Zukünftige Tage sind gesperrt.
+- [ ] Heute ist umrandet, die Serie (🔥 N) stimmt, mit den Pfeilen blätterst du durch vergangene
+      Monate, ein Tipp auf den Namen benennt das Habit um.
+- [ ] Die Datumsauswahl im Pop-up „Neue Aufgabe“ funktioniert wie bisher.
 - [ ] WLAN aus → dezenter Offline-Hinweis oben; WLAN an → Hinweis verschwindet.
 - [ ] RLS-Test: Eine Abfrage ohne Login liefert keine Daten (Ergebnis `[]`). URL und Key aus
       deiner `.env` einsetzen:
@@ -318,3 +341,45 @@ Deine bisherigen Vorlesungs- und Übungsangaben werden dabei automatisch überno
 
 > Solange die Migration nicht ausgeführt ist, zeigt die App Module zwar an, kann sie aber nicht
 > speichern (Fehlermeldung „Das Modul konnte nicht gespeichert werden.“).
+
+### Update auf Version 0.3.0 (Stundenplan, Termine mit Wochentag/Beginn/Ende)
+
+Version 0.3.0 bringt **zwei** Migrationen. Die zweite führst du erst aus, wenn du die
+Übernahme geprüft hast.
+
+1. Code aktualisieren: `git pull`, danach `npm install`.
+2. Supabase → linke Seitenleiste **SQL Editor** → oben links **+ New query**.
+3. Inhalt von
+   [`supabase/migrations/20261012000000_slot_times.sql`](supabase/migrations/20261012000000_slot_times.sql)
+   einfügen → **Run** → **Success. No rows returned**.
+   - Bestehende Uhrzeiten im Format `Di 10:00–11:30` werden in Wochentag, Beginn und Ende
+     übernommen (Mo–So, Binde- oder Gedankenstrich, mit oder ohne Leerzeichen, auch `9.00` oder
+     ein angehängtes „Uhr“).
+4. **Übernahme prüfen:** neue Query mit folgendem Inhalt → **Run**:
+
+   ```sql
+   select m.name as modul, s.art, s.e ->> 'room' as raum, s.e ->> 'time' as bisher
+   from public.modules m
+   cross join lateral (
+     select 'Vorlesung' as art, e from jsonb_array_elements(m.lectures) e
+     union all
+     select 'Übung', e from jsonb_array_elements(m.exercises) e
+   ) s
+   where s.e ->> 'weekday' is null
+   order by m.name;
+   ```
+
+   - **Keine Zeilen** → alles wurde übernommen, weiter mit Schritt 5.
+   - **Zeilen** → diese Termine konnten nicht gelesen werden. Öffne in der App das jeweilige
+     Modul → **Bearbeiten**. Der Eintrag zeigt „Bisher: …“. Trag Tag, Beginn und Ende ein (oder
+     lass ihn leer, dann wird er gelöscht) → **Speichern**. Danach die Abfrage erneut ausführen.
+
+5. **Aufräumen:** neue Query mit dem Inhalt von
+   [`supabase/migrations/20261013000000_slot_times_cleanup.sql`](supabase/migrations/20261013000000_slot_times_cleanup.sql)
+   → **Run** → **Success. No rows returned**. Die Migration entfernt den alten Freitext und macht
+   Wochentag, Beginn und Ende zur Pflicht.
+   - Bricht sie mit „… Termin(e) ohne Wochentag, Beginn oder Ende …“ ab, ist noch ein Eintrag
+     offen (zurück zu Schritt 4). Es wurde dabei nichts verändert.
+6. Dev-Server neu starten bzw. nach dem `git push` auf Vercel in der App **„Neue Version
+   verfügbar – Neu laden“** antippen – auf **jedem** Gerät. Eine alte, noch geöffnete App-Version
+   kann Termine nach Schritt 5 nicht mehr speichern.

@@ -9,10 +9,10 @@ TypeScript-Signaturen sind dabei vereinfacht als C++-ähnliche Deklarationen dar
 
 | Bereich        | Dateien                                                           |
 | -------------- | ----------------------------------------------------------------- |
-| Konfiguration  | `config/app.ts` – App-Name, Zeitzone, Breakpoint, Timings         |
-| Geschäftslogik | `lib/deadline.ts`, `lib/sort.ts`, `lib/habit.ts`, `lib/calendar.ts` |
+| Konfiguration  | `config/app.ts` – App-Name, Zeitzone, Breakpoint, Timings, Stundenplan |
+| Geschäftslogik | `lib/deadline.ts`, `lib/sort.ts`, `lib/slots.ts`, `lib/timetable.ts`, `lib/habit.ts`, `lib/calendar.ts` |
 | Daten & Sync   | `data/store.ts`, `data/actions.ts`, `data/realtime.ts`            |
-| Hooks          | `hooks/useData.ts`, `hooks/useToday.ts`, `hooks/useAutosaveDraft.ts` |
+| Hooks          | `hooks/useData.ts`, `hooks/useTimetable.ts`, `hooks/useToday.ts`, `hooks/useBerlinClock.ts`, `hooks/useAutosaveDraft.ts` |
 | Oberfläche     | `components/**`, `pages/**`                                       |
 
 Unter **Dateien** sind alle Module mit ihren Funktionen, Komponenten und Typen aufgelistet,

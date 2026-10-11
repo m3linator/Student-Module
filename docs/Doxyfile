@@ -2,7 +2,7 @@
 # Paths are relative to the repository root (the generator runs Doxygen from there).
 
 PROJECT_NAME           = "Uni-App"
-PROJECT_BRIEF          = "Persönliche Studien-PWA: Aufgaben, Module, Habittracker"
+PROJECT_BRIEF          = "Persönliche Studien-PWA: Aufgaben, Module, Stundenplan, Aktivität"
 OUTPUT_DIRECTORY       = docs
 OUTPUT_LANGUAGE        = German
 CREATE_SUBDIRS         = NO
