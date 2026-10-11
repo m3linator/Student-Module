@@ -33,8 +33,8 @@ describe('TasksSection', () => {
       .getAllByRole('button', { name: /,/ })
       .map((row) => row.getAttribute('aria-label')?.split(',')[0]);
     expect(titles).toEqual(['Blatt 3', 'Referat', 'Bibliothek']);
-    expect(screen.getByText('1 Tag')).toHaveClass('text-red-700');
-    expect(screen.getByText('19 Tage')).not.toHaveClass('text-red-700');
+    expect(screen.getByText('1 Tag')).toHaveClass('text-danger-ink');
+    expect(screen.getByText('19 Tage')).not.toHaveClass('text-danger-ink');
     expect(screen.getByText('Abgabe: Mo, 12.10.')).toBeInTheDocument();
   });
 

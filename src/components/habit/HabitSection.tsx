@@ -34,15 +34,15 @@ export function HabitSection() {
           <Skeleton className="aspect-square w-full max-w-xs" />
         </div>
       ) : (
-        <div className="flex flex-col gap-3">
+        <div className="card flex flex-col gap-3 p-4">
           <button
             type="button"
             onClick={() => setSheet((s) => ({ open: true, key: s.key + 1 }))}
             aria-label={`Habit „${habit.name}“ umbenennen`}
-            className="group -mx-2 flex min-h-11 items-center gap-2 self-start rounded-lg px-2 text-lg font-medium hover:bg-gray-100"
+            className="group hover:bg-fill -mx-2 flex min-h-11 items-center gap-2 self-start rounded-lg px-2 text-[17px] font-semibold"
           >
             {habit.name}
-            <PencilIcon className="size-4 text-gray-500 group-hover:text-gray-700" />
+            <PencilIcon className="text-link size-4" />
           </button>
 
           <div className="flex max-w-xs items-center justify-between">
@@ -73,7 +73,7 @@ export function HabitSection() {
             onToggle={(date) => void actions.toggleHabitCheck(habit.id, date)}
           />
 
-          <p className="text-[15px] text-gray-600">{formatStreak(streak)}</p>
+          <p className="text-label-2 text-[15px] font-medium">{formatStreak(streak)}</p>
 
           <HabitNameSheet
             key={sheet.key}

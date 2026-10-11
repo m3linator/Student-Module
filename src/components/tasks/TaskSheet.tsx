@@ -1,5 +1,6 @@
 import { useId, useState } from 'react';
 import { Calendar } from '@/components/ui/Calendar';
+import { FIELD_LABEL } from '@/components/ui/fieldStyles';
 import { CalendarIcon, CloseIcon } from '@/components/ui/icons';
 import { IconButton } from '@/components/ui/IconButton';
 import { SelectField } from '@/components/ui/SelectField';
@@ -69,7 +70,7 @@ export function TaskSheet({ open, task, modules, today, onClose, onSave }: TaskS
         />
 
         <div className="flex flex-col gap-1.5">
-          <span id={dueLabelId} className="text-sm font-medium text-gray-700">
+          <span id={dueLabelId} className={FIELD_LABEL}>
             Abgabetag
           </span>
           <div className="flex items-center gap-2">
@@ -79,10 +80,10 @@ export function TaskSheet({ open, task, modules, today, onClose, onSave }: TaskS
               aria-expanded={calendarOpen}
               aria-describedby={`${dueLabelId}-value`}
               onClick={() => setCalendarOpen((value) => !value)}
-              className="flex min-h-11 flex-1 items-center gap-2 rounded-lg border border-gray-200 px-3 text-left text-base hover:bg-gray-50"
+              className="bg-fill text-label hover:bg-fill-strong flex min-h-11 flex-1 items-center gap-2 rounded-xl px-3.5 text-left text-base"
             >
-              <CalendarIcon className="size-5 text-gray-500" />
-              <span id={`${dueLabelId}-value`} className={dueDate ? '' : 'text-gray-500'}>
+              <CalendarIcon className="text-link size-5" />
+              <span id={`${dueLabelId}-value`} className={dueDate ? '' : 'text-label-2'}>
                 {dueDate ? formatDueDateLong(dueDate) : 'Kein Datum'}
               </span>
             </button>
@@ -99,7 +100,7 @@ export function TaskSheet({ open, task, modules, today, onClose, onSave }: TaskS
             )}
           </div>
           {calendarOpen && (
-            <div className="animate-row-in flex justify-center rounded-xl border border-gray-200 p-2">
+            <div className="animate-row-in bg-fill flex justify-center rounded-xl p-2">
               <Calendar
                 value={dueDate}
                 today={today}

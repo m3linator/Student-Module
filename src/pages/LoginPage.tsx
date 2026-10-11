@@ -37,8 +37,8 @@ export function LoginPage() {
     <main className="safe-area safe-x flex min-h-dvh items-center justify-center">
       <form onSubmit={handleSubmit} className="flex w-full max-w-sm flex-col gap-5" noValidate>
         <div className="flex flex-col items-center gap-3 pb-2">
-          <img src="/icon.svg" alt="" className="size-16 rounded-2xl border border-gray-200" />
-          <h1 className="text-2xl font-semibold">{APP_NAME}</h1>
+          <img src="/icon.svg" alt="" className="size-20 rounded-[22px] shadow-lg" />
+          <h1 className="text-[28px] font-bold tracking-tight">{APP_NAME}</h1>
         </div>
         <TextField
           label="E-Mail"
@@ -59,7 +59,7 @@ export function LoginPage() {
           onChange={(event) => setPassword(event.target.value)}
         />
         {error && (
-          <p role="alert" className="text-sm text-red-700">
+          <p role="alert" className="text-danger-ink text-[15px]">
             {error}
           </p>
         )}

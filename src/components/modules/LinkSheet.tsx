@@ -68,7 +68,7 @@ export function LinkSheet({ open, link, onClose, onSave }: LinkSheetProps) {
           required
         />
         {touched && urlInvalid && (
-          <p role="alert" className="-mt-2 text-sm text-red-700">
+          <p role="alert" className="text-danger-ink -mt-2 text-[13px]">
             Bitte eine gültige Adresse eingeben.
           </p>
         )}

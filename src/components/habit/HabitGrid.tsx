@@ -24,7 +24,7 @@ export function HabitGrid({ month, checked, today, onToggle }: HabitGridProps) {
   return (
     <div className="w-full max-w-xs">
       <div
-        className="mb-1 grid grid-cols-7 gap-1.5 text-center text-xs text-gray-500"
+        className="text-label-2 mb-1 grid grid-cols-7 gap-1.5 text-center text-xs font-medium"
         aria-hidden="true"
       >
         {WEEKDAY_LABELS.map((label) => (
@@ -49,13 +49,10 @@ export function HabitGrid({ month, checked, today, onToggle }: HabitGridProps) {
               title={label}
               onClick={() => onToggle(date)}
               className={cn(
-                'aspect-square w-full rounded-md border transition-colors duration-150',
-                isChecked
-                  ? 'border-green-600 bg-green-500 hover:bg-green-600'
-                  : 'border-gray-200 bg-white hover:bg-gray-100',
-                isFuture &&
-                  'cursor-not-allowed border-gray-100 bg-gray-50 opacity-60 hover:bg-gray-50',
-                isToday && 'ring-2 ring-gray-900 ring-offset-2',
+                'aspect-square w-full rounded-[7px] transition duration-150',
+                isChecked ? 'bg-success hover:brightness-110' : 'bg-fill hover:bg-fill-strong',
+                isFuture && 'hover:bg-fill cursor-not-allowed opacity-35',
+                isToday && 'ring-label ring-offset-surface ring-2 ring-offset-2',
               )}
             />
           );

@@ -104,7 +104,7 @@ export function ModuleSheet({ open, module, onClose, onSave }: ModuleSheetProps)
           />
         </div>
         {ectsInvalid && (
-          <p id={ectsErrorId} className="-mt-2 text-sm text-red-700">
+          <p id={ectsErrorId} className="text-danger-ink -mt-2 text-[13px]">
             Bitte eine Zahl eingeben, z. B. 5 oder 7,5.
           </p>
         )}

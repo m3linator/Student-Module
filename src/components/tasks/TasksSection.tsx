@@ -90,9 +90,7 @@ export function TasksSection() {
             today={today}
             onOpen={openSheet}
             empty={
-              <p className="rounded-xl border border-dashed border-gray-200 px-4 py-6 text-center text-gray-500">
-                Keine offenen Aufgaben 🎉
-              </p>
+              <p className="card text-label-2 px-4 py-6 text-center">Keine offenen Aufgaben 🎉</p>
             }
             actionsFor={(task) => [
               deleteAction(task),
@@ -113,7 +111,7 @@ export function TasksSection() {
               done
               showHeader={false}
               onOpen={openSheet}
-              empty={<p className="px-1 text-sm text-gray-500">Noch nichts erledigt.</p>}
+              empty={<p className="text-label-2 px-1 text-sm">Noch nichts erledigt.</p>}
               actionsFor={(task) => [
                 deleteAction(task),
                 {

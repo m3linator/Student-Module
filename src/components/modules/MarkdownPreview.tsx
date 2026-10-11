@@ -16,7 +16,7 @@ const COMPONENTS: Components = {
  */
 export function MarkdownPreview({ source }: { source: string }) {
   if (!source.trim()) {
-    return <p className="text-gray-500">Noch keine Notizen.</p>;
+    return <p className="text-label-2">Noch keine Notizen.</p>;
   }
   return (
     <div className="markdown">

@@ -118,19 +118,14 @@ export function LinksSection({ moduleId, links }: { moduleId: string; links: Mod
   return (
     <Section title="Wichtige Links" onAdd={() => openSheet(null)} addLabel="Neuer Link">
       {links.length === 0 ? (
-        <p className="rounded-xl border border-dashed border-gray-200 px-4 py-5 text-center text-gray-500">
-          Noch keine Links – tippe auf +
-        </p>
+        <p className="card text-label-2 px-4 py-5 text-center">Noch keine Links – tippe auf +</p>
       ) : (
-        <ul
-          ref={listRef}
-          className="divide-y divide-gray-200 overflow-hidden rounded-xl border border-gray-200"
-        >
+        <ul ref={listRef} className="card divide-separator divide-y-[0.5px] overflow-hidden">
           {ordered.map((link, index) => (
             <li
               key={link.id}
               data-link-id={link.id}
-              className={cn(drag?.id === link.id && 'relative z-10 bg-gray-50 shadow-sm')}
+              className={cn(drag?.id === link.id && 'relative z-10 shadow-lg')}
             >
               <SwipeRow
                 id={link.id}
@@ -147,7 +142,7 @@ export function LinksSection({ moduleId, links }: { moduleId: string; links: Mod
                       onPointerUp={endDrag}
                       onPointerCancel={endDrag}
                       onKeyDown={(event) => handleHandleKey(event, index)}
-                      className="flex w-9 shrink-0 cursor-grab touch-none items-center justify-center text-gray-500 hover:text-gray-700 active:cursor-grabbing"
+                      className="text-label-3 hover:text-label-2 flex w-9 shrink-0 cursor-grab touch-none items-center justify-center active:cursor-grabbing"
                     >
                       <GripIcon className="size-4" />
                     </button>
@@ -171,14 +166,12 @@ export function LinksSection({ moduleId, links }: { moduleId: string; links: Mod
               >
                 <span
                   className={cn(
-                    'flex min-h-12 items-center gap-2 py-2 pr-3 text-[15px] text-gray-900',
-                    links.length > 1 ? 'pl-1' : 'pl-3',
+                    'text-link flex min-h-12 items-center gap-2 py-2 pr-4 text-base',
+                    links.length > 1 ? 'pl-1' : 'pl-4',
                   )}
                 >
-                  <span className="min-w-0 flex-1 truncate underline decoration-gray-300 underline-offset-4">
-                    {link.title}
-                  </span>
-                  <ExternalIcon className="size-4 shrink-0 text-gray-500" />
+                  <span className="min-w-0 flex-1 truncate">{link.title}</span>
+                  <ExternalIcon className="text-label-3 size-4 shrink-0" />
                 </span>
               </SwipeRow>
             </li>

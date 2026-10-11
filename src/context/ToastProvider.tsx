@@ -64,10 +64,10 @@ export function ToastProvider({ children }: { children: ReactNode }) {
           <div
             key={toast.id}
             role={toast.tone === 'error' ? 'alert' : 'status'}
-            className="animate-toast-in pointer-events-auto flex w-full max-w-sm items-center gap-3 rounded-xl bg-gray-900 py-2 pr-2 pl-4 text-sm text-white shadow-lg"
+            className="animate-toast-in pointer-events-auto flex w-full max-w-sm items-center gap-3 rounded-2xl bg-[#1c1c1e] py-1.5 pr-1.5 pl-4 text-[15px] text-white shadow-xl dark:bg-[#2c2c2e]"
           >
             {toast.tone === 'error' && (
-              <span className="size-2 shrink-0 rounded-full bg-red-400" aria-hidden="true" />
+              <span className="size-2 shrink-0 rounded-full bg-[#ff453a]" aria-hidden="true" />
             )}
             <span className="min-h-11 flex-1 content-center">{toast.message}</span>
             {toast.action && (
@@ -77,7 +77,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
                   toast.action?.onAction();
                   dismiss(toast.id);
                 }}
-                className="min-h-11 rounded-lg px-3 font-semibold text-white underline-offset-2 hover:bg-white/10 hover:underline"
+                className="min-h-11 rounded-xl px-3 font-semibold text-[#409cff] hover:bg-white/10"
               >
                 {toast.action.label}
               </button>

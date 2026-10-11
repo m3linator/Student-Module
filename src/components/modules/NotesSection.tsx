@@ -3,6 +3,7 @@ import { NOTES_SAVE_DEBOUNCE_MS } from '@/config/app';
 import { useAutosaveDraft, type SaveStatus } from '@/hooks/useAutosaveDraft';
 import { useActions } from '@/hooks/useData';
 import { usePersistentFlag } from '@/hooks/usePersistentState';
+import { SegmentedControl, type Segment } from '@/components/ui/SegmentedControl';
 import { cn } from '@/lib/cn';
 import type { ModuleRow } from '@/types/database';
 import { MarkdownPreview } from './MarkdownPreview';
@@ -14,6 +15,12 @@ const STATUS_TEXT: Record<SaveStatus, string> = {
   saved: 'Gespeichert',
   error: 'Nicht gespeichert',
 };
+
+/** @brief Options of the edit/preview toggle. */
+const VIEW_OPTIONS: readonly Segment<'edit' | 'preview'>[] = [
+  { value: 'edit', label: 'Bearbeiten' },
+  { value: 'preview', label: 'Vorschau' },
+];
 
 /**
  * @brief Markdown notes of a module with edit/preview toggle and autosave (~800 ms).
@@ -36,47 +43,28 @@ export function NotesSection({ module }: { module: ModuleRow }) {
   );
 
   return (
-    <section aria-label="Notizen" className="flex min-h-[60dvh] flex-1 flex-col gap-2 lg:min-h-0">
+    <section aria-label="Notizen" className="flex min-h-[60dvh] flex-1 flex-col gap-2.5 lg:min-h-0">
       <div className="flex min-h-11 flex-wrap items-center justify-between gap-2">
         <div className="flex items-baseline gap-3">
-          <h2 className="text-xl font-semibold tracking-tight">
+          <h2 className="text-[22px] font-bold tracking-tight">
             <label htmlFor={textareaId}>Notizen</label>
           </h2>
           <span
             aria-live="polite"
-            className={cn('text-sm', status === 'error' ? 'text-red-700' : 'text-gray-500')}
+            className={cn('text-[13px]', status === 'error' ? 'text-danger-ink' : 'text-label-2')}
           >
             {STATUS_TEXT[status]}
           </span>
         </div>
-        <div
-          className="flex rounded-lg bg-gray-100 p-0.5 text-sm"
-          role="group"
-          aria-label="Ansicht"
-        >
-          {[
-            { label: 'Bearbeiten', active: !preview, value: false },
-            { label: 'Vorschau', active: preview, value: true },
-          ].map((option) => (
-            <button
-              key={option.label}
-              type="button"
-              aria-pressed={option.active}
-              onClick={() => setPreview(option.value)}
-              className={cn(
-                'min-h-9 rounded-md px-3 transition-colors duration-150',
-                option.active
-                  ? 'bg-white font-medium text-gray-900 shadow-sm'
-                  : 'text-gray-600 hover:text-gray-900',
-              )}
-            >
-              {option.label}
-            </button>
-          ))}
-        </div>
+        <SegmentedControl
+          label="Ansicht"
+          options={VIEW_OPTIONS}
+          value={preview ? 'preview' : 'edit'}
+          onChange={(view) => setPreview(view === 'preview')}
+        />
       </div>
       {preview ? (
-        <div className="flex-1 overflow-y-auto rounded-xl border border-gray-200 p-4">
+        <div className="card flex-1 overflow-y-auto p-4">
           <MarkdownPreview source={draft} />
         </div>
       ) : (
@@ -88,7 +76,7 @@ export function NotesSection({ module }: { module: ModuleRow }) {
           onBlur={onBlur}
           placeholder={'# Überschrift\n- Stichpunkt\n- [ ] Aufgabe\n\n**fett**, [Link](https://…)'}
           spellCheck
-          className="min-h-[50dvh] w-full flex-1 resize-none rounded-xl border border-gray-200 p-4 text-base leading-relaxed text-gray-900 placeholder:text-gray-500 focus:border-gray-900 focus:outline-none lg:min-h-0"
+          className="card text-label placeholder:text-label-2 focus:ring-link min-h-[50dvh] w-full flex-1 resize-none p-4 text-base leading-relaxed focus:ring-2 focus-visible:outline-none lg:min-h-0"
         />
       )}
     </section>

@@ -44,9 +44,7 @@ export function ModulesSection() {
             <Skeleton className="h-28" />
           </div>
         ) : modules.length === 0 ? (
-          <p className="rounded-xl border border-dashed border-gray-200 px-4 py-6 text-center text-gray-500">
-            Noch keine Module – tippe auf +
-          </p>
+          <p className="card text-label-2 px-4 py-6 text-center">Noch keine Module – tippe auf +</p>
         ) : (
           <div className={GRID}>
             {modules.map((module) => (

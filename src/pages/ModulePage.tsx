@@ -45,16 +45,16 @@ export function ModulePage() {
     <SwipeGroup>
       <div className="flex min-h-dvh flex-col">
         <AppHeader desktopOnly />
-        <div className="sticky top-0 z-20 border-b border-gray-200 bg-white/95 pt-[env(safe-area-inset-top)] backdrop-blur lg:static lg:border-0 lg:bg-transparent lg:pt-0">
+        <div className="material border-separator sticky top-0 z-20 border-b-[0.5px] pt-[env(safe-area-inset-top)] lg:static lg:border-0 lg:bg-transparent lg:pt-0 lg:backdrop-filter-none">
           <nav
             aria-label="Modulaktionen"
             className="page-width safe-x flex h-14 items-center justify-between lg:h-16"
           >
             <Link
               to="/"
-              className="-ml-2 inline-flex min-h-11 items-center gap-1 rounded-lg pr-3 pl-1 text-[15px] text-gray-700 hover:bg-gray-100"
+              className="text-link hover:bg-fill -ml-2 inline-flex min-h-11 items-center gap-0.5 rounded-lg pr-3 pl-0.5 text-[17px]"
             >
-              <ChevronLeftIcon />
+              <ChevronLeftIcon className="size-6" strokeWidth={2.5} />
               <span className="lg:hidden">Zurück</span>
               <span className="hidden lg:inline">Übersicht</span>
             </Link>
@@ -69,7 +69,7 @@ export function ModulePage() {
                 <IconButton
                   label="Modul löschen"
                   onClick={() => setConfirmOpen(true)}
-                  className="text-red-600 hover:bg-red-50"
+                  className="text-danger hover:bg-danger-tint"
                 >
                   <TrashIcon />
                 </IconButton>
@@ -91,8 +91,8 @@ export function ModulePage() {
         ) : !module ? (
           <div className="page-width safe-x flex flex-col items-start gap-3 pt-10">
             <h1 className="text-xl font-semibold">Modul nicht gefunden</h1>
-            <p className="text-gray-600">Es wurde vielleicht auf einem anderen Gerät gelöscht.</p>
-            <Link to="/" className="font-medium underline underline-offset-4">
+            <p className="text-label-2">Es wurde vielleicht auf einem anderen Gerät gelöscht.</p>
+            <Link to="/" className="text-link font-medium">
               Zur Übersicht
             </Link>
           </div>
