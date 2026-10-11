@@ -22,3 +22,15 @@ export const UNDO_TOAST_MS = 5000;
 
 /** @brief Default display duration (ms) for regular toasts. */
 export const TOAST_MS = 4000;
+
+/** @brief First hour shown in the timetable unless an appointment starts earlier. */
+export const TIMETABLE_START_HOUR = 8;
+
+/** @brief Last hour shown in the timetable unless an appointment ends later. */
+export const TIMETABLE_END_HOUR = 18;
+
+/** @brief Height (px) of one hour in the timetable on desktop (≥ DESKTOP_MIN_WIDTH). */
+export const TIMETABLE_HOUR_HEIGHT_DESKTOP = 48;
+
+/** @brief Height (px) of one hour in the timetable on phones. */
+export const TIMETABLE_HOUR_HEIGHT_MOBILE = 44;
