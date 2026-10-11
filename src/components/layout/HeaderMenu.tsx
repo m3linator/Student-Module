@@ -51,7 +51,7 @@ export function HeaderMenu({ label, icon, children }: HeaderMenuProps) {
         <div
           role="menu"
           aria-label={label}
-          className="animate-toast-in bg-elevated ring-separator absolute top-full right-0 z-30 mt-1 w-64 rounded-[14px] p-1.5 shadow-xl ring-1"
+          className="absolute top-full right-0 z-30 mt-1 w-[19rem] animate-toast-in rounded-[14px] bg-elevated p-1.5 shadow-xl ring-1 ring-separator"
         >
           {children(() => setOpen(false))}
         </div>
