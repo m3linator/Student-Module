@@ -106,6 +106,8 @@ in Echtzeit zwischen allen geöffneten Geräten synchronisiert.
   (kein Auto-Zoom). Pop-ups folgen dem sichtbaren Bereich (`visualViewport`) und bleiben so über
   der Bildschirmtastatur bedienbar.
 - Optimistische Updates mit Rollback und verständlichen deutschen Fehlermeldungen.
+- Mehrere Nutzer möglich: Jedes Konto sieht nur seine eigenen Daten (Konten legst du in
+  Supabase an, siehe [SETUP.md](SETUP.md#weitere-nutzer-z-b-freunde)).
 - Echtzeit-Sync über Supabase Realtime. Nach einem Verbindungsabbruch oder längerer Zeit im
   Hintergrund lädt die App automatisch nach.
 - Dezenter Offline-Hinweis und Update-Hinweis **„Neue Version verfügbar – Neu laden“**.
@@ -178,7 +180,8 @@ Die vollständige Ersteinrichtung (Datenbank, Benutzer, Vercel, Installation) st
 
 - Vorlage: [`.env.example`](.env.example). Die echte `.env` ist per `.gitignore` ausgeschlossen.
 - Der **service_role/secret**-Key wird nie im Frontend verwendet.
-- Ohne Variablen baut die App trotzdem und zeigt einen Einrichtungshinweis an.
+- Fehlen die Variablen oder sind sie ungültig (z. B. URL mit `/rest/v1/`), baut die App trotzdem
+  und zeigt einen Einrichtungshinweis statt einer leeren Seite.
 
 ---
 

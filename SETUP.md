@@ -184,26 +184,52 @@ npm run preview    # Produktions-Build lokal ansehen
 
 ### 3.2 Umgebungsvariablen eintragen
 
-Noch auf derselben Seite **Environment Variables** aufklappen und zwei Einträge hinzufügen:
+Noch auf derselben Seite **Environment Variables** aufklappen und zwei Einträge hinzufügen.
+Kopiere die Werte **1:1 aus deiner `.env`**, jeweils nur den Teil nach dem `=` (ohne
+Anführungszeichen, ohne Leerzeichen):
 
-| Key                      | Value                                     |
-| ------------------------ | ----------------------------------------- |
-| `VITE_SUPABASE_URL`      | deine Project URL aus Schritt 1.6         |
-| `VITE_SUPABASE_ANON_KEY` | dein Publishable/anon Key aus Schritt 1.6 |
+| Key                      | Value (Beispiel – deine echten Werte stehen in der `.env`) |
+| ------------------------ | ---------------------------------------------------------- |
+| `VITE_SUPABASE_URL`      | `https://abcd1234.supabase.co`                             |
+| `VITE_SUPABASE_ANON_KEY` | `sb_publishable_…`                                         |
+
+- **Type:** **Config** (bzw. Schalter **Sensitive** aus). Als _Secret_ oder _Sensitive_ lässt
+  Vercel Variablen mit dem Präfix `VITE_` nicht zu bzw. später nicht mehr bearbeiten. Das ist
+  unbedenklich: URL und Publishable-Key sind öffentlich, deine Daten schützt RLS. Der
+  `service_role`-/Secret-Key gehört **nie** hierher.
+- **Environments:** Production, Preview und Development anhaken.
+
+> Steht nach dem Deployen nur „Supabase ist nicht konfiguriert“ auf der Seite, fehlt ein Wert
+> oder er ist falsch: Werte korrigieren, dann neu deployen (siehe unten).
 
 ### 3.3 Deployen
 
-1. **Deploy** klicken → nach ca. 1 Minute erscheint **Congratulations!**.
-2. Die URL notieren, z. B. `https://student-module.vercel.app`.
+1. **Deploy** klicken → nach ca. 1 Minute erscheint **Congratulations!** mit einem Vorschaubild.
+   Ein Klick darauf öffnet deine App.
+2. Unter **Settings → Domains** steht die **feste Adresse** deiner App, z. B.
+   `https://student-module.vercel.app` (ist der Name vergeben, hängt Vercel ein Kürzel an, z. B.
+   `student-module-ldlc.vercel.app`). Diese Adresse notieren.
 
-Später geänderte Umgebungsvariablen (**Project → Settings → Environment Variables**) wirken
-erst nach einem neuen Deployment (**Deployments → … → Redeploy**).
+> Adressen wie `student-module-ldlc-n4zhis5v1-melih24.vercel.app` gehören nur zu **einem**
+> Deployment und ändern sich bei jedem Push. Für Supabase und die Installation immer die feste
+> Adresse verwenden.
+
+**Eigenen Namen vergeben (optional, kostenlos):** **Settings → Domains → Add Domain** → z. B.
+`melih-uni.vercel.app` eingeben (muss weltweit frei sein) → Environment **Production** → **Save**.
+Mach das **vor** Schritt 3.4 und 4, weil Supabase und die installierten Apps an die Adresse
+gebunden sind.
+
+**Umgebungsvariablen später ändern:** Sie wirken erst nach einem neuen Build. **Deployments** →
+oberster Eintrag → **⋯** → **Redeploy** → Environment **Production**, Haken bei **Use existing
+Build Cache** entfernen → **Redeploy**.
 
 ### 3.4 Vercel-URL in Supabase eintragen
 
 1. Supabase → **Authentication** → **URL Configuration**.
-2. **Site URL:** deine Vercel-URL eintragen, z. B. `https://student-module.vercel.app`.
-3. **Redirect URLs** → **Add URL** → `https://student-module.vercel.app/**` → **Save**.
+2. **Site URL:** deine feste Vercel-Adresse aus 3.3 eintragen, ohne `/login` und ohne `/` am
+   Ende, z. B. `https://student-module.vercel.app` → **Save**.
+3. **Redirect URLs** → **Add URL** → dieselbe Adresse mit `/**`, z. B.
+   `https://student-module.vercel.app/**` → **Save URLs**.
 
 ---
 
@@ -252,6 +278,34 @@ Bei regelmäßiger Nutzung passiert das nicht.
 2. Vercel baut und deployt automatisch (ca. 1 Minute).
 3. Die geöffnete App prüft beim Zurückkehren in den Vordergrund und stündlich auf Updates und
    zeigt dann oben **„Neue Version verfügbar – Neu laden“**. Ein Tipp auf **Neu laden** genügt.
+
+### Weitere Nutzer (z. B. Freunde)
+
+Die App ist mehrbenutzerfähig: Jede Person sieht dank Row Level Security **nur ihre eigenen**
+Aufgaben, Module, Termine und ihre Aktivität. Da Neuregistrierungen deaktiviert sind (1.5),
+legst du Konten selbst an:
+
+1. Supabase → **Authentication** → **Users** → **Add user** → **Create new user**.
+2. E-Mail der Person und ein Start-Passwort eintragen, **Auto Confirm User** anhaken →
+   **Create user**.
+3. Der Person die App-Adresse, E-Mail und Passwort geben. Beim ersten Login legt die App für sie
+   automatisch eine eigene Aktivität („Fokus“) an.
+
+Gut zu wissen:
+
+- Als Projekt-Besitzer kannst du im Supabase-Dashboard (Table Editor) alle Daten sehen. Sag das
+  deinen Freunden.
+- Die App hat noch keine Funktion „Passwort ändern/vergessen“. Ein neues Passwort setzt du im
+  **SQL Editor** (E-Mail und Passwort ersetzen):
+
+  ```sql
+  update auth.users
+  set encrypted_password = extensions.crypt('NEUES-PASSWORT', extensions.gen_salt('bf'))
+  where email = 'freund@example.com';
+  ```
+
+- Konto entfernen: **Authentication → Users → ⋯ → Delete user**. Alle Daten dieser Person
+  werden automatisch mitgelöscht.
 
 ### App-Name, Farben, Texte ändern
 
