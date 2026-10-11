@@ -67,7 +67,7 @@
 Variablen</h2></td></tr>
 <tr class="memitem:afb50d4124eb8c38556d7cf466e8288cb" id="r_afb50d4124eb8c38556d7cf466e8288cb"><td class="memItemLeft"><a id="afb50d4124eb8c38556d7cf466e8288cb" name="afb50d4124eb8c38556d7cf466e8288cb"></a>
 const auto&#160;</td><td class="memItemRight"><b>isSupabaseConfigured</b></td></tr>
-<tr class="memdesc:afb50d4124eb8c38556d7cf466e8288cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">True when both Supabase environment variables are present. <br /></td></tr>
+<tr class="memdesc:afb50d4124eb8c38556d7cf466e8288cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">True when both Supabase environment variables are present and well-formed. <br /></td></tr>
 <tr class="memitem:a45f0f510feafa2a027aa99b714bbd7ab" id="r_a45f0f510feafa2a027aa99b714bbd7ab"><td class="memItemLeft">const auto&#160;</td><td class="memItemRight"><a class="el" href="#a45f0f510feafa2a027aa99b714bbd7ab">supabase</a></td></tr>
 <tr class="memdesc:a45f0f510feafa2a027aa99b714bbd7ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Typed Supabase client.  <br /></td></tr>
 </table>
@@ -88,7 +88,7 @@ const auto&#160;</td><td class="memItemRight"><b>isSupabaseConfigured</b></td></
 </div><div class="memdoc">
 
 <p>Typed Supabase client. </p>
-<p>Falls back to a harmless placeholder when the env variables are missing, so the app still builds and can show a setup hint instead of crashing. </p>
+<p>Falls back to a harmless placeholder when the env variables are missing or invalid, so the app still builds and shows a setup hint instead of crashing. </p>
 
 </div>
 </div>
