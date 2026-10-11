@@ -15,15 +15,15 @@ export interface SectionProps {
 }
 
 /**
- * @brief Page section with a heading and an optional "+" action on the right.
+ * @brief Page section with a bold heading and an optional blue "+" action on the right.
  * @param props See SectionProps.
  * @returns The section.
  */
 export function Section({ title, onAdd, addLabel, aside, children }: SectionProps) {
   return (
-    <section className="flex flex-col gap-2" aria-label={title}>
+    <section className="flex flex-col gap-2.5" aria-label={title}>
       <div className="flex min-h-11 items-center justify-between gap-2">
-        <h2 className="text-xl font-semibold tracking-tight">{title}</h2>
+        <h2 className="text-[22px] font-bold tracking-tight">{title}</h2>
         <div className="flex items-center gap-1">
           {aside}
           {onAdd && (
@@ -32,7 +32,7 @@ export function Section({ title, onAdd, addLabel, aside, children }: SectionProp
               onClick={onAdd}
               className="-mr-2"
             >
-              <PlusIcon className="size-6" />
+              <PlusIcon className="size-6" strokeWidth={2.25} />
             </IconButton>
           )}
         </div>

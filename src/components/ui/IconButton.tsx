@@ -8,7 +8,7 @@ export interface IconButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonEle
 }
 
 /**
- * @brief Square icon-only button with a 44 px touch target and an aria-label.
+ * @brief Square icon-only button (44 px touch target, iOS blue by default) with an aria-label.
  * @param props Accessible label, icon and native button props.
  * @returns The rendered button.
  */
@@ -25,7 +25,7 @@ export function IconButton({
       aria-label={label}
       title={label}
       className={cn(
-        'inline-flex size-11 shrink-0 items-center justify-center rounded-lg text-gray-700 transition-colors duration-150 hover:bg-gray-100 disabled:opacity-40',
+        'text-link hover:bg-fill inline-flex size-11 shrink-0 items-center justify-center rounded-full transition-colors duration-150 disabled:opacity-30',
         className,
       )}
       {...props}

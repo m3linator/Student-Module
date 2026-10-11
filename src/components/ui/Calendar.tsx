@@ -86,14 +86,17 @@ export function Calendar({ value, onChange, today }: CalendarProps) {
         <IconButton label="Vorheriger Monat" onClick={() => setView((v) => shiftMonth(v, -1))}>
           <ChevronLeftIcon />
         </IconButton>
-        <p className="text-[15px] font-medium" aria-live="polite">
+        <p className="text-[17px] font-semibold" aria-live="polite">
           {formatMonthYear(view)}
         </p>
         <IconButton label="Nächster Monat" onClick={() => setView((v) => shiftMonth(v, 1))}>
           <ChevronRightIcon />
         </IconButton>
       </div>
-      <div className="grid grid-cols-7 text-center text-xs text-gray-500" aria-hidden="true">
+      <div
+        className="text-label-2 grid grid-cols-7 text-center text-[13px] font-medium"
+        aria-hidden="true"
+      >
         {WEEKDAY_LABELS.map((label) => (
           <span key={label} className="py-1">
             {label}
@@ -124,8 +127,8 @@ export function Calendar({ value, onChange, today }: CalendarProps) {
               onFocus={() => setFocused(date)}
               className={cn(
                 'mx-auto flex size-10 items-center justify-center rounded-full text-[15px] tabular-nums transition-colors duration-150',
-                selected ? 'bg-gray-900 font-semibold text-white' : 'hover:bg-gray-100',
-                !selected && isToday && 'font-semibold ring-1 ring-gray-900',
+                selected ? 'bg-accent font-semibold text-white' : 'text-label hover:bg-fill',
+                !selected && isToday && 'text-link font-semibold',
               )}
             >
               {Number(date.slice(8))}

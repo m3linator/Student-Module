@@ -25,9 +25,9 @@ const CONTENT_CLASSES = 'block min-w-0 flex-1 touch-pan-y text-left select-none'
 export type SwipeTone = 'green' | 'red' | 'gray';
 
 const TONE_CLASSES: Record<SwipeTone, string> = {
-  green: 'bg-green-600 hover:bg-green-700',
-  red: 'bg-red-600 hover:bg-red-700',
-  gray: 'bg-gray-500 hover:bg-gray-600',
+  green: 'bg-success-solid',
+  red: 'bg-danger',
+  gray: 'bg-neutral-solid',
 };
 
 /** @brief One action revealed by swiping or hovering. */
@@ -222,7 +222,7 @@ export function SwipeRow({ id, actions, onTap, label, href, leading, children }:
               onClick={() => runAction(action)}
               style={{ width: ACTION_WIDTH }}
               className={cn(
-                'flex h-full items-center justify-center text-white transition-colors duration-150',
+                'flex h-full items-center justify-center text-white transition duration-150 hover:brightness-110',
                 TONE_CLASSES[action.tone],
               )}
             >
@@ -233,7 +233,7 @@ export function SwipeRow({ id, actions, onTap, label, href, leading, children }:
         <div
           style={{ transform: `translateX(${offset}px)` }}
           className={cn(
-            'can-hover:hover:bg-gray-50 relative z-10 flex bg-white',
+            'can-hover:hover:bg-surface-hover bg-surface relative z-10 flex',
             dragOffset === null && 'transition-transform duration-200 ease-out',
           )}
         >

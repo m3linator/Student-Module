@@ -1,5 +1,6 @@
 import { useId, type SelectHTMLAttributes } from 'react';
 import { cn } from '@/lib/cn';
+import { FIELD_CONTROL, FIELD_LABEL } from './fieldStyles';
 
 /** @brief Props of SelectField: native select props plus a visible label. */
 export interface SelectFieldProps extends SelectHTMLAttributes<HTMLSelectElement> {
@@ -16,16 +17,13 @@ export function SelectField({ label, className, id, children, ...props }: Select
   const selectId = id ?? generatedId;
   return (
     <div className="flex flex-col gap-1.5">
-      <label htmlFor={selectId} className="text-sm font-medium text-gray-700">
+      <label htmlFor={selectId} className={FIELD_LABEL}>
         {label}
       </label>
       <div className="relative">
         <select
           id={selectId}
-          className={cn(
-            'min-h-11 w-full appearance-none rounded-lg border border-gray-200 bg-white pr-9 pl-3 text-base text-gray-900 focus:border-gray-900 focus:outline-none',
-            className,
-          )}
+          className={cn(FIELD_CONTROL, 'appearance-none pr-9', className)}
           {...props}
         >
           {children}
@@ -33,12 +31,12 @@ export function SelectField({ label, className, id, children, ...props }: Select
         <svg
           viewBox="0 0 24 24"
           aria-hidden="true"
-          className="pointer-events-none absolute top-1/2 right-3 size-4 -translate-y-1/2 text-gray-500"
+          className="text-label-3 pointer-events-none absolute top-1/2 right-3.5 size-4 -translate-y-1/2"
           fill="none"
           stroke="currentColor"
-          strokeWidth={2}
+          strokeWidth={2.5}
         >
-          <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M7 10l5 5 5-5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </div>
     </div>

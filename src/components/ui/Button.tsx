@@ -5,10 +5,10 @@ import { cn } from '@/lib/cn';
 export type ButtonVariant = 'primary' | 'secondary' | 'danger' | 'ghost';
 
 const VARIANT_CLASSES: Record<ButtonVariant, string> = {
-  primary: 'bg-gray-900 text-white hover:bg-gray-700 disabled:bg-gray-400',
-  secondary: 'border border-gray-200 bg-white text-gray-900 hover:bg-gray-50',
-  danger: 'bg-red-600 text-white hover:bg-red-700 disabled:bg-red-300',
-  ghost: 'text-gray-700 hover:bg-gray-100',
+  primary: 'bg-accent text-white hover:brightness-110 active:brightness-95',
+  secondary: 'bg-fill text-link hover:bg-fill-strong',
+  danger: 'bg-danger-solid text-white hover:brightness-110 active:brightness-95',
+  ghost: 'text-link hover:bg-fill',
 };
 
 /** @brief Props of Button: native button props plus a visual variant. */
@@ -17,7 +17,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 /**
- * @brief Text button with a 44 px minimum touch target.
+ * @brief iOS-style text button with a 44 px minimum touch target.
  * @param props Native button props and the visual variant (default: primary).
  * @returns The rendered button.
  */
@@ -26,7 +26,7 @@ export function Button({ variant = 'primary', className, type = 'button', ...pro
     <button
       type={type}
       className={cn(
-        'inline-flex min-h-11 items-center justify-center rounded-lg px-4 text-[15px] font-medium transition-colors duration-150 disabled:cursor-not-allowed',
+        'inline-flex min-h-11 items-center justify-center rounded-xl px-4 text-base font-semibold transition duration-150 disabled:cursor-not-allowed disabled:opacity-40',
         VARIANT_CLASSES[variant],
         className,
       )}

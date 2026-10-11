@@ -1,5 +1,6 @@
 import { useId, type InputHTMLAttributes } from 'react';
 import { cn } from '@/lib/cn';
+import { FIELD_CONTROL, FIELD_LABEL } from './fieldStyles';
 
 /** @brief Props of TextField: native input props plus a visible label. */
 export interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -15,18 +16,11 @@ export function TextField({ label, className, id, ...props }: TextFieldProps) {
   const generatedId = useId();
   const inputId = id ?? generatedId;
   return (
-    <div className="flex flex-col gap-1.5">
-      <label htmlFor={inputId} className="text-sm font-medium text-gray-700">
+    <div className="flex min-w-0 flex-col gap-1.5">
+      <label htmlFor={inputId} className={FIELD_LABEL}>
         {label}
       </label>
-      <input
-        id={inputId}
-        className={cn(
-          'min-h-11 w-full rounded-lg border border-gray-200 bg-white px-3 text-base text-gray-900 placeholder:text-gray-500 focus:border-gray-900 focus:outline-none',
-          className,
-        )}
-        {...props}
-      />
+      <input id={inputId} className={cn(FIELD_CONTROL, className)} {...props} />
     </div>
   );
 }

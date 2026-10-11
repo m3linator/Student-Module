@@ -8,8 +8,8 @@ import {
   type ReactNode,
 } from 'react';
 import { useVisualViewport } from '@/hooks/useVisualViewport';
+import { cn } from '@/lib/cn';
 import { leaveDuration } from '@/lib/motion';
-import { Button, type ButtonVariant } from './Button';
 
 /** @brief Props of Sheet. */
 export interface SheetProps {
@@ -24,8 +24,8 @@ export interface SheetProps {
   onSubmit?: () => void;
   /** Label of the submit button (default "Speichern"). */
   submitLabel?: string;
-  /** Visual variant of the submit button (default primary). */
-  submitVariant?: ButtonVariant;
+  /** "danger" shows the submit action in red (destructive confirmation). */
+  submitVariant?: 'primary' | 'danger';
   /** Disables the submit button and Enter-to-submit. */
   submitDisabled?: boolean;
 }
@@ -34,7 +34,8 @@ export interface SheetProps {
 const ENTER_PASSTHROUGH = new Set(['TEXTAREA', 'BUTTON', 'A']);
 
 /**
- * @brief Pop-up container: bottom sheet on narrow screens, centred modal from 1024 px.
+ * @brief Pop-up container: bottom sheet on narrow screens, centred modal from 1024 px, with an
+ *        iOS navigation bar ("Abbrechen" | title | "Speichern") that stays visible above the keyboard.
  * @details Built on the native `<dialog>` element, which provides focus trapping, an inert
  * background and focus restoration. Enter/leave transitions take ~200 ms and are skipped with
  * `prefers-reduced-motion`.
@@ -133,24 +134,38 @@ export function Sheet({
     event.currentTarget.requestSubmit();
   }
 
-  const body = (
-    <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 pt-1 pb-4">
-      {children}
+  const header = (
+    <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 px-3 pt-1.5 pb-1 lg:pt-2">
+      <button
+        type="button"
+        onClick={onClose}
+        className="text-link hover:bg-fill min-h-11 justify-self-start rounded-lg px-2 text-[17px]"
+      >
+        {onSubmit ? 'Abbrechen' : 'Schließen'}
+      </button>
+      <h2 id={titleId} className="truncate text-center text-[17px] font-semibold">
+        {title}
+      </h2>
+      {onSubmit ? (
+        <button
+          type="submit"
+          disabled={submitDisabled}
+          className={cn(
+            'hover:bg-fill disabled:text-label-3 min-h-11 justify-self-end rounded-lg px-2 text-[17px] font-semibold disabled:cursor-not-allowed disabled:hover:bg-transparent',
+            submitVariant === 'danger' ? 'text-danger-ink' : 'text-link',
+          )}
+        >
+          {submitLabel}
+        </button>
+      ) : (
+        <span />
+      )}
     </div>
   );
-  const footer = onSubmit && (
-    <div className="flex gap-3 border-t border-gray-100 px-5 pt-3 pb-[max(1rem,env(safe-area-inset-bottom))] lg:justify-end lg:pb-4">
-      <Button variant="secondary" onClick={onClose} className="flex-1 lg:flex-none">
-        Abbrechen
-      </Button>
-      <Button
-        type="submit"
-        variant={submitVariant}
-        disabled={submitDisabled}
-        className="flex-1 lg:flex-none"
-      >
-        {submitLabel}
-      </Button>
+
+  const body = (
+    <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 pt-3 pb-[max(1.25rem,env(safe-area-inset-bottom))]">
+      {children}
     </div>
   );
 
@@ -162,12 +177,12 @@ export function Sheet({
         event.preventDefault();
         onClose();
       }}
-      className="fixed inset-0 m-0 h-full max-h-none w-full max-w-none overflow-hidden bg-transparent p-0 backdrop:bg-transparent"
+      className="text-label fixed inset-0 m-0 h-full max-h-none w-full max-w-none overflow-hidden bg-transparent p-0 backdrop:bg-transparent"
     >
       <div
         data-visible={visible}
         onClick={onClose}
-        className="absolute inset-0 bg-black/30 opacity-0 transition-opacity duration-200 data-[visible=true]:opacity-100 motion-reduce:transition-none"
+        className="bg-overlay absolute inset-0 opacity-0 transition-opacity duration-200 data-[visible=true]:opacity-100 motion-reduce:transition-none"
       />
       {/* Follows the visual viewport so the sheet always sits right above the iOS keyboard. */}
       <div
@@ -180,27 +195,27 @@ export function Sheet({
             maxHeight: `min(90dvh, calc(${viewport.height}px - env(safe-area-inset-top) - 0.75rem))`,
           }}
           data-visible={visible}
-          className="pointer-events-auto flex w-full max-w-[640px] translate-y-full flex-col rounded-t-2xl bg-white transition duration-200 ease-out data-[visible=true]:translate-y-0 motion-reduce:transition-none lg:max-w-md lg:translate-y-2 lg:rounded-2xl lg:border lg:border-gray-200 lg:opacity-0 lg:shadow-lg lg:data-[visible=true]:translate-y-0 lg:data-[visible=true]:opacity-100"
+          className="bg-surface pointer-events-auto flex w-full max-w-[640px] translate-y-full flex-col rounded-t-[14px] shadow-2xl transition duration-200 ease-out data-[visible=true]:translate-y-0 motion-reduce:transition-none lg:max-w-md lg:translate-y-2 lg:rounded-[14px] lg:opacity-0 lg:data-[visible=true]:translate-y-0 lg:data-[visible=true]:opacity-100"
         >
           <div
-            className="mx-auto mt-2 h-1 w-10 rounded-full bg-gray-200 lg:hidden"
+            className="bg-fill-strong mx-auto mt-1.5 h-[5px] w-9 shrink-0 rounded-full lg:hidden"
             aria-hidden="true"
           />
-          <h2 id={titleId} className="px-5 pt-3 pb-3 text-lg font-semibold lg:pt-5">
-            {title}
-          </h2>
           {onSubmit ? (
             <form
               onSubmit={handleSubmit}
               onKeyDown={handleKeyDown}
-              className="flex min-h-0 flex-col"
+              className="flex min-h-0 flex-1 flex-col"
               noValidate
             >
+              {header}
               {body}
-              {footer}
             </form>
           ) : (
-            <div className="flex min-h-0 flex-col pb-[env(safe-area-inset-bottom)]">{body}</div>
+            <>
+              {header}
+              {body}
+            </>
           )}
         </div>
       </div>

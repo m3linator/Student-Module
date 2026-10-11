@@ -132,3 +132,26 @@ export const ExternalIcon = (props: IconProps) => (
     <path d="M14 5h5v5M19 5l-8 8M18 14v4a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2h4" />
   </Icon>
 );
+
+/** @brief Sun (light appearance). @param props SVG props. @returns Icon. */
+export const SunIcon = (props: IconProps) => (
+  <Icon {...props}>
+    <circle cx="12" cy="12" r="4" />
+    <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+  </Icon>
+);
+
+/** @brief Moon (dark appearance). @param props SVG props. @returns Icon. */
+export const MoonIcon = (props: IconProps) => (
+  <Icon {...props}>
+    <path d="M20 14.5A8 8 0 019.5 4a8 8 0 1010.5 10.5z" />
+  </Icon>
+);
+
+/** @brief Half-filled circle (automatic appearance). @param props SVG props. @returns Icon. */
+export const AutoThemeIcon = (props: IconProps) => (
+  <Icon {...props}>
+    <circle cx="12" cy="12" r="8.5" />
+    <path d="M12 3.5v17a8.5 8.5 0 000-17z" fill="currentColor" stroke="none" />
+  </Icon>
+);
