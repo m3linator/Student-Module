@@ -1,6 +1,6 @@
 /**
  * @file calendar.ts
- * @brief Month grid helpers shared by the date picker and the habit tracker.
+ * @brief Month grid helpers shared by the date picker and the activity grid.
  */
 import { format, getDaysInMonth, getISODay } from 'date-fns';
 import { de } from 'date-fns/locale';

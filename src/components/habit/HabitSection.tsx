@@ -11,9 +11,11 @@ import { HabitGrid } from './HabitGrid';
 import { HabitNameSheet } from './HabitNameSheet';
 
 /**
- * @brief Habit tracker: renamable habit, month heatmap of the current (or a past) month, streak.
- * @details The view is stored as "months back from now", so it jumps to the new month
- * automatically on the 1st.
+ * @brief "Aktivität": renamable habit, compact month heatmap of the current (or a past) month
+ *        and the current streak.
+ * @details Name, month navigation and streak share one header line ("Fokus · ‹ Oktober 2026 › ·
+ * 🔥 5") that wraps on narrow screens. The view is stored as "months back from now", so it jumps
+ * to the new month automatically on the 1st.
  * @returns The section.
  */
 export function HabitSection() {
@@ -27,43 +29,53 @@ export function HabitSection() {
   const streak = useMemo(() => currentStreak(checked, today), [checked, today]);
 
   return (
-    <Section title="Habittracker">
+    <Section title="Aktivität">
       {loading || !habit ? (
-        <div className="flex flex-col gap-3" role="status" aria-label="Habittracker wird geladen">
-          <Skeleton className="h-6 w-32" />
-          <Skeleton className="aspect-square w-full max-w-xs" />
+        <div className="flex flex-col gap-3" role="status" aria-label="Aktivität wird geladen">
+          <Skeleton className="h-6 w-48" />
+          <Skeleton className="h-40 w-72 max-w-full lg:w-44" />
         </div>
       ) : (
-        <div className="flex flex-col gap-3 card p-4 lg:w-fit lg:min-w-[22rem] lg:pr-6">
-          <button
-            type="button"
-            onClick={() => setSheet((s) => ({ open: true, key: s.key + 1 }))}
-            aria-label={`Habit „${habit.name}“ umbenennen`}
-            className="group -mx-2 flex min-h-11 items-center gap-2 self-start rounded-lg px-2 text-[17px] font-semibold hover:bg-fill"
-          >
-            {habit.name}
-            <PencilIcon className="size-4 text-link" />
-          </button>
+        <div className="flex flex-col gap-2 card px-4 pt-2 pb-4 lg:w-fit">
+          <div className="flex flex-wrap items-center gap-x-1">
+            <button
+              type="button"
+              onClick={() => setSheet((s) => ({ open: true, key: s.key + 1 }))}
+              aria-label={`Habit „${habit.name}“ umbenennen`}
+              className="-ml-2 flex min-h-11 min-w-0 items-center gap-1.5 rounded-lg px-2 text-[15px] font-semibold hover:bg-fill"
+            >
+              <span className="truncate">{habit.name}</span>
+              <PencilIcon className="size-3.5 shrink-0 text-link" />
+            </button>
 
-          <div className="flex max-w-xs items-center justify-between">
-            <IconButton
-              label="Vorheriger Monat"
-              onClick={() => setMonthsBack((value) => value + 1)}
-              className="-ml-3"
+            <div className="flex items-center">
+              <IconButton
+                label="Vorheriger Monat"
+                onClick={() => setMonthsBack((value) => value + 1)}
+                className="size-10 lg:size-8"
+              >
+                <ChevronLeftIcon className="size-4" />
+              </IconButton>
+              <p className="min-w-[6.5rem] text-center text-[13px] font-medium" aria-live="polite">
+                {formatMonthYear(month)}
+              </p>
+              <IconButton
+                label="Nächster Monat"
+                disabled={monthsBack === 0}
+                onClick={() => setMonthsBack((value) => Math.max(0, value - 1))}
+                className="size-10 lg:size-8"
+              >
+                <ChevronRightIcon className="size-4" />
+              </IconButton>
+            </div>
+
+            <p
+              className="ml-auto text-[15px] font-semibold tabular-nums"
+              title={formatStreak(streak)}
             >
-              <ChevronLeftIcon />
-            </IconButton>
-            <p className="text-[15px] font-medium" aria-live="polite">
-              {formatMonthYear(month)}
+              <span aria-hidden="true">🔥 {streak}</span>
+              <span className="sr-only">{formatStreak(streak)}</span>
             </p>
-            <IconButton
-              label="Nächster Monat"
-              disabled={monthsBack === 0}
-              onClick={() => setMonthsBack((value) => Math.max(0, value - 1))}
-              className="-mr-3"
-            >
-              <ChevronRightIcon />
-            </IconButton>
           </div>
 
           <HabitGrid
@@ -72,8 +84,6 @@ export function HabitSection() {
             today={today}
             onToggle={(date) => void actions.toggleHabitCheck(habit.id, date)}
           />
-
-          <p className="text-[15px] font-medium text-label-2">{formatStreak(streak)}</p>
 
           <HabitNameSheet
             key={sheet.key}

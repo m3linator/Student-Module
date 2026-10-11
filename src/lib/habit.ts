@@ -1,6 +1,6 @@
 /**
  * @file habit.ts
- * @brief Streak calculation for the habit tracker.
+ * @brief Streak calculation for the activity section.
  */
 import { addDays, format, parseISO } from 'date-fns';
 import type { IsoDate } from './berlinDate';

@@ -21,6 +21,7 @@ describe('HabitSection', () => {
     renderWithData(<HabitSection />, rows);
     expect(screen.getByRole('button', { name: 'Habit „Fokus“ umbenennen' })).toBeInTheDocument();
     expect(screen.getByText('Oktober 2026')).toBeInTheDocument();
+    expect(screen.getByRole('region', { name: 'Aktivität' })).toBeInTheDocument();
     expect(screen.getByText('🔥 3 Tage in Folge')).toBeInTheDocument();
   });
 
@@ -28,7 +29,7 @@ describe('HabitSection', () => {
     renderWithData(<HabitSection />, rows);
     const days = screen.getAllByRole('button', { name: /Oktober/ });
     expect(days).toHaveLength(31);
-    days.forEach((day) => expect(day).toBeEmptyDOMElement());
+    days.forEach((day) => expect(day).toHaveTextContent(/^$/));
   });
 
   it('marks today, checked and future days', () => {
