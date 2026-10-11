@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { msUntilNextBerlinMidnight, todayInBerlin } from './berlinDate';
+import { clockInBerlin, msUntilNextBerlinMidnight, todayInBerlin } from './berlinDate';
 
 describe('todayInBerlin', () => {
   it('uses the Berlin calendar day, not UTC', () => {
@@ -38,5 +38,14 @@ describe('msUntilNextBerlinMidnight', () => {
   it('accounts for the 23-hour day in March', () => {
     // 00:00 CET on 29 Mar → next midnight is 23 real hours later.
     expect(msUntilNextBerlinMidnight(new Date('2026-03-28T23:00:00Z'))).toBe(23 * HOUR);
+  });
+});
+
+describe('clockInBerlin', () => {
+  it('returns the Berlin weekday and minutes since midnight', () => {
+    // Wed 14 Oct 2026, 08:15 UTC = 10:15 CEST.
+    expect(clockInBerlin(new Date('2026-10-14T08:15:00Z'))).toEqual({ weekday: 3, minutes: 615 });
+    // Sat 17 Oct, 22:30 UTC = Sun 00:30 CEST.
+    expect(clockInBerlin(new Date('2026-10-17T22:30:00Z'))).toEqual({ weekday: 7, minutes: 30 });
   });
 });
