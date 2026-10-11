@@ -92,4 +92,22 @@ describe('Sheet', () => {
     expect(document.body.style.position).toBe('');
     vi.unstubAllGlobals();
   });
+
+  it('focuses the marked field after opening, otherwise the panel (no focus ring on a button)', () => {
+    const { unmount } = render(
+      <Sheet open onClose={vi.fn()} title="Aufgabe" onSubmit={vi.fn()}>
+        <input aria-label="Titel" data-autofocus="" />
+      </Sheet>,
+    );
+    expect(screen.getByLabelText('Titel')).toHaveFocus();
+    unmount();
+
+    render(
+      <Sheet open onClose={vi.fn()} title="Aufgabe" onSubmit={vi.fn()}>
+        <input aria-label="Titel" />
+      </Sheet>,
+    );
+    expect(screen.getByRole('button', { name: 'Abbrechen' })).not.toHaveFocus();
+    expect(screen.getByLabelText('Titel')).not.toHaveFocus();
+  });
 });

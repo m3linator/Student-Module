@@ -64,7 +64,7 @@ export function TaskSheet({ open, task, modules, today, onClose, onSave }: TaskS
           value={title}
           onChange={(event) => setTitle(event.target.value)}
           placeholder="z. B. Übungsblatt 3"
-          autoFocus={!task}
+          data-autofocus={task ? undefined : ''}
           required
           enterKeyHint="done"
         />
@@ -80,9 +80,9 @@ export function TaskSheet({ open, task, modules, today, onClose, onSave }: TaskS
               aria-expanded={calendarOpen}
               aria-describedby={`${dueLabelId}-value`}
               onClick={() => setCalendarOpen((value) => !value)}
-              className="bg-fill text-label hover:bg-fill-strong flex min-h-11 flex-1 items-center gap-2 rounded-xl px-3.5 text-left text-base"
+              className="flex min-h-11 flex-1 items-center gap-2 rounded-xl bg-fill px-3.5 text-left text-base text-label hover:bg-fill-strong"
             >
-              <CalendarIcon className="text-link size-5" />
+              <CalendarIcon className="size-5 text-link" />
               <span id={`${dueLabelId}-value`} className={dueDate ? '' : 'text-label-2'}>
                 {dueDate ? formatDueDateLong(dueDate) : 'Kein Datum'}
               </span>
@@ -100,7 +100,7 @@ export function TaskSheet({ open, task, modules, today, onClose, onSave }: TaskS
             )}
           </div>
           {calendarOpen && (
-            <div className="animate-row-in bg-fill flex justify-center rounded-xl p-2">
+            <div className="flex animate-row-in justify-center rounded-xl bg-fill p-2">
               <Calendar
                 value={dueDate}
                 today={today}

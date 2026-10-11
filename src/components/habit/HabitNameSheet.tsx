@@ -30,7 +30,7 @@ export function HabitNameSheet({ open, name, onClose, onSave }: HabitNameSheetPr
         label="Name"
         value={value}
         onChange={(event) => setValue(event.target.value)}
-        autoFocus
+        data-autofocus=""
       />
     </Sheet>
   );

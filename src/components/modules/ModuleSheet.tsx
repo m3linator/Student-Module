@@ -74,7 +74,7 @@ export function ModuleSheet({ open, module, onClose, onSave }: ModuleSheetProps)
             placeholder="z. B. Mathematik 1"
             value={name}
             onChange={(event) => setName(event.target.value)}
-            autoFocus={!module}
+            data-autofocus={module ? undefined : ''}
             required
           />
           <div className="grid grid-cols-[1fr_6rem] gap-3">
@@ -94,7 +94,7 @@ export function ModuleSheet({ open, module, onClose, onSave }: ModuleSheetProps)
             />
           </div>
           {ectsInvalid && (
-            <p id={ectsErrorId} className="text-danger-ink -mt-2 text-[13px]">
+            <p id={ectsErrorId} className="-mt-2 text-[13px] text-danger-ink">
               Bitte eine Zahl eingeben, z. B. 5 oder 7,5.
             </p>
           )}
@@ -113,7 +113,7 @@ export function ModuleSheet({ open, module, onClose, onSave }: ModuleSheetProps)
           timePlaceholder="Do 14:00–15:30"
         />
 
-        <p className="text-label-2 -mt-2 text-[13px]">
+        <p className="-mt-2 text-[13px] text-label-2">
           Einträge ohne Uhrzeit werden beim Speichern entfernt.
         </p>
       </div>

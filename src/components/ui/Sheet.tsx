@@ -30,6 +30,17 @@ export interface SheetProps {
   submitDisabled?: boolean;
 }
 
+/**
+ * @brief Sets the initial focus once the dialog is open (React's autoFocus runs too early, while
+ *        the dialog is still closed). Mark the field with `data-autofocus`; otherwise the panel
+ *        itself is focused so no button shows a focus ring.
+ * @param panel Sheet panel element.
+ */
+function focusInitial(panel: HTMLElement | null) {
+  const target = panel?.querySelector<HTMLElement>('[data-autofocus]') ?? panel;
+  target?.focus({ preventScroll: true });
+}
+
 /** @brief Elements in which Enter must keep its native meaning. */
 const ENTER_PASSTHROUGH = new Set(['TEXTAREA', 'BUTTON', 'A']);
 
@@ -66,7 +77,10 @@ export function Sheet({
     const dialog = dialogRef.current;
     if (!dialog) return;
     if (open) {
-      if (!dialog.open) dialog.showModal();
+      if (!dialog.open) {
+        dialog.showModal();
+        focusInitial(panelRef.current);
+      }
       const frame = requestAnimationFrame(() => setVisible(true));
       return () => cancelAnimationFrame(frame);
     }
@@ -139,7 +153,7 @@ export function Sheet({
       <button
         type="button"
         onClick={onClose}
-        className="text-link hover:bg-fill min-h-11 justify-self-start rounded-lg px-2 text-[17px]"
+        className="min-h-11 justify-self-start rounded-lg px-2 text-[17px] text-link hover:bg-fill"
       >
         {onSubmit ? 'Abbrechen' : 'Schließen'}
       </button>
@@ -151,7 +165,7 @@ export function Sheet({
           type="submit"
           disabled={submitDisabled}
           className={cn(
-            'hover:bg-fill disabled:text-label-3 min-h-11 justify-self-end rounded-lg px-2 text-[17px] font-semibold disabled:cursor-not-allowed disabled:hover:bg-transparent',
+            'min-h-11 justify-self-end rounded-lg px-2 text-[17px] font-semibold hover:bg-fill disabled:cursor-not-allowed disabled:text-label-3 disabled:hover:bg-transparent',
             submitVariant === 'danger' ? 'text-danger-ink' : 'text-link',
           )}
         >
@@ -177,12 +191,12 @@ export function Sheet({
         event.preventDefault();
         onClose();
       }}
-      className="text-label fixed inset-0 m-0 h-full max-h-none w-full max-w-none overflow-hidden bg-transparent p-0 backdrop:bg-transparent"
+      className="fixed inset-0 m-0 h-full max-h-none w-full max-w-none overflow-hidden bg-transparent p-0 text-label backdrop:bg-transparent"
     >
       <div
         data-visible={visible}
         onClick={onClose}
-        className="bg-overlay absolute inset-0 opacity-0 transition-opacity duration-200 data-[visible=true]:opacity-100 motion-reduce:transition-none"
+        className="absolute inset-0 bg-overlay opacity-0 transition-opacity duration-200 data-[visible=true]:opacity-100 motion-reduce:transition-none"
       />
       {/* Follows the visual viewport so the sheet always sits right above the iOS keyboard. */}
       <div
@@ -191,14 +205,15 @@ export function Sheet({
       >
         <div
           ref={panelRef}
+          tabIndex={-1}
           style={{
             maxHeight: `min(90dvh, calc(${viewport.height}px - env(safe-area-inset-top) - 0.75rem))`,
           }}
           data-visible={visible}
-          className="bg-surface pointer-events-auto flex w-full max-w-[640px] translate-y-full flex-col rounded-t-[14px] shadow-2xl transition duration-200 ease-out data-[visible=true]:translate-y-0 motion-reduce:transition-none lg:max-w-md lg:translate-y-2 lg:rounded-[14px] lg:opacity-0 lg:data-[visible=true]:translate-y-0 lg:data-[visible=true]:opacity-100"
+          className="pointer-events-auto flex w-full max-w-[640px] translate-y-full flex-col rounded-t-[14px] bg-surface shadow-2xl transition duration-200 ease-out outline-none data-[visible=true]:translate-y-0 motion-reduce:transition-none lg:max-w-md lg:translate-y-2 lg:rounded-[14px] lg:opacity-0 lg:data-[visible=true]:translate-y-0 lg:data-[visible=true]:opacity-100"
         >
           <div
-            className="bg-fill-strong mx-auto mt-1.5 h-[5px] w-9 shrink-0 rounded-full lg:hidden"
+            className="mx-auto mt-1.5 h-[5px] w-9 shrink-0 rounded-full bg-fill-strong lg:hidden"
             aria-hidden="true"
           />
           {onSubmit ? (

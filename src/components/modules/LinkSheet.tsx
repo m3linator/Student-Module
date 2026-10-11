@@ -50,7 +50,7 @@ export function LinkSheet({ open, link, onClose, onSave }: LinkSheetProps) {
           placeholder="z. B. Moodle-Kurs"
           value={title}
           onChange={(event) => setTitle(event.target.value)}
-          autoFocus={!link}
+          data-autofocus={link ? undefined : ''}
           required
         />
         <TextField
@@ -68,7 +68,7 @@ export function LinkSheet({ open, link, onClose, onSave }: LinkSheetProps) {
           required
         />
         {touched && urlInvalid && (
-          <p role="alert" className="text-danger-ink -mt-2 text-[13px]">
+          <p role="alert" className="-mt-2 text-[13px] text-danger-ink">
             Bitte eine gültige Adresse eingeben.
           </p>
         )}
