@@ -6,7 +6,14 @@
  * hour height of the current screen size.
  */
 import { TIMETABLE_END_HOUR, TIMETABLE_START_HOUR } from '@/config/app';
-import { isCompleteSlot, normalizeSlots, type SlotKind } from '@/lib/slots';
+import {
+  formatTimeRange,
+  isCompleteSlot,
+  normalizeSlots,
+  SLOT_KIND_LABELS,
+  WEEKDAY_NAMES,
+  type SlotKind,
+} from '@/lib/slots';
 import type { ModuleRow, Weekday } from '@/types/database';
 
 /** @brief One appointment as shown in the timetable. */
@@ -14,6 +21,7 @@ export type TimetableEvent = {
   /** Stable key: module id, kind and position. */
   id: string;
   moduleId: string;
+  moduleName: string;
   kind: SlotKind;
   /** "Mathe 1" for a lecture, "Mathe 1-Ü" for an exercise. */
   title: string;
@@ -64,6 +72,21 @@ export function eventTitle(moduleName: string, kind: SlotKind): string {
 }
 
 /**
+ * @brief Accessible name of a timetable entry.
+ * @param event Timetable event.
+ * @returns E.g. "Übung Mathe 1, Mittwoch 14:00 bis 15:30, Raum A 1.04" (room part only if set).
+ */
+export function entryLabel(event: TimetableEvent): string {
+  const time = formatTimeRange(event.startTime, event.endTime).replace('–', ' bis ');
+  const parts = [
+    `${SLOT_KIND_LABELS[event.kind]} ${event.moduleName}`,
+    `${WEEKDAY_NAMES[event.weekday - 1]} ${time}`,
+  ];
+  if (event.room) parts.push(`Raum ${event.room}`);
+  return parts.join(', ');
+}
+
+/**
  * @brief Collects all complete appointments of all modules.
  * @details Entries without weekday/time (not yet converted) are skipped.
  * @param modules Module rows.
@@ -81,6 +104,7 @@ export function buildTimetableEvents(
                 {
                   id: `${module.id}-${kind}-${index}`,
                   moduleId: module.id,
+                  moduleName: module.name,
                   kind,
                   title: eventTitle(module.name, kind),
                   weekday: slot.weekday,

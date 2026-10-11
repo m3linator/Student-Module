@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { makeModule, makeSlot } from '@/test/fixtures';
 import {
   buildTimetableEvents,
+  entryLabel,
   eventBox,
   eventTitle,
   layoutOverlaps,
@@ -143,6 +144,10 @@ describe('events from modules', () => {
       expect.objectContaining({ id: 'm1-exercise-0', title: 'Mathe 1-Ü', weekday: 6 }),
     ]);
     expect(visibleWeekdays(events)).toEqual([1, 2, 3, 4, 5, 6]);
+    expect(events.map(entryLabel)).toEqual([
+      'Vorlesung Mathe 1, Dienstag 10:00 bis 11:30, Raum A 1.04',
+      'Übung Mathe 1, Samstag 9:00 bis 10:00',
+    ]);
   });
 
   it('returns no events without appointments', () => {

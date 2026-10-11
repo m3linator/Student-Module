@@ -44,6 +44,12 @@
   --color-success-solid: #248a3d; /* swipe action with white icon */
   --color-neutral-solid: #8e8e93; /* grey swipe action (edit) */
 
+  /* Timetable blocks (text colours keep at least 4.5:1 on the block) */
+  --color-lecture: #1a73e8; /* lecture block (Google Calendar blue) */
+  --color-on-lecture: #ffffff;
+  --color-exercise: #f6bf26; /* exercise block (Google Calendar yellow) */
+  --color-on-exercise: #1f1f1f;
+
   --animate-toast-in: toast-in 200ms ease-out;
   --animate-row-in: row-in 200ms ease-out;
 
@@ -92,6 +98,9 @@
     --color-danger-tint: rgb(255 69 58 / 0.2);
     --color-success: #30d158;
     --color-neutral-solid: #636366;
+
+    --color-lecture: #1967d2;
+    --color-exercise: #e8ac16;
   }
 
   html {
