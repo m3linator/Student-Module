@@ -56,7 +56,6 @@
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Klassen</a> &#124;
-<a href="#typedef-members">Typdefinitionen</a> &#124;
 <a href="#func-members">Funktionen</a>  </div>
   <div class="headertitle"><div class="title">ModuleSheet.tsx-Dateireferenz</div></div>
 </div><!--header-->
@@ -67,20 +66,40 @@ Klassen</h2></td></tr>
 <tr class="memitem:ModuleSheetProps" id="r_ModuleSheetProps"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_module_sheet_props.html">ModuleSheetProps</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Props of ModuleSheet.  <a href="struct_module_sheet_props.html#details">Mehr ...</a><br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
-Typdefinitionen</h2></td></tr>
-<tr class="memitem:a3310854b6530f8cfa7094a5ba6a41fab" id="r_a3310854b6530f8cfa7094a5ba6a41fab"><td class="memItemLeft"><a id="a3310854b6530f8cfa7094a5ba6a41fab" name="a3310854b6530f8cfa7094a5ba6a41fab"></a>
-using&#160;</td><td class="memItemRight"><b>TextKey</b> = auto</td></tr>
-<tr class="memdesc:a3310854b6530f8cfa7094a5ba6a41fab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Text fields of the form (ECTS is handled separately). <br /></td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Funktionen</h2></td></tr>
-<tr class="memitem:a1da53d702ca52e08142ced5232c44920" id="r_a1da53d702ca52e08142ced5232c44920"><td class="memItemLeft">auto&#160;</td><td class="memItemRight"><a class="el" href="#a1da53d702ca52e08142ced5232c44920">optional</a> (string value)</td></tr>
-<tr class="memdesc:a1da53d702ca52e08142ced5232c44920"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an optional text field to its database value.  <br /></td></tr>
+<tr class="memitem:a5dd1f8ba1f42533ff5f8947552e9d443" id="r_a5dd1f8ba1f42533ff5f8947552e9d443"><td class="memItemLeft">std::vector&lt; <a class="el" href="struct_time_slot.html">TimeSlot</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a5dd1f8ba1f42533ff5f8947552e9d443">initialSlots</a> (unknown value)</td></tr>
+<tr class="memdesc:a5dd1f8ba1f42533ff5f8947552e9d443"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slots shown in the form: the stored ones, or one empty entry to start typing.  <br /></td></tr>
 <tr class="memitem:a3086b413142b68d8e840cbd42b70f739" id="r_a3086b413142b68d8e840cbd42b70f739"><td class="memItemLeft">JSX::Element&#160;</td><td class="memItemRight"><a class="el" href="#a3086b413142b68d8e840cbd42b70f739">ModuleSheet</a> (<a class="el" href="struct_module_sheet_props.html">ModuleSheetProps</a> props)</td></tr>
 <tr class="memdesc:a3086b413142b68d8e840cbd42b70f739"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pop-up for creating or editing a module.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentation der Funktionen</h2>
+<a id="a5dd1f8ba1f42533ff5f8947552e9d443" name="a5dd1f8ba1f42533ff5f8947552e9d443"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5dd1f8ba1f42533ff5f8947552e9d443">&#9670;&#160;</a></span>initialSlots()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="struct_time_slot.html">TimeSlot</a> &gt; initialSlots </td>
+          <td>(</td>
+          <td class="paramtype">unknown</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Slots shown in the form: the stored ones, or one empty entry to start typing. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>Stored slot list. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Editable slot list. </dd></dl>
+
+</div>
+</div>
 <a id="a3086b413142b68d8e840cbd42b70f739" name="a3086b413142b68d8e840cbd42b70f739"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3086b413142b68d8e840cbd42b70f739">&#9670;&#160;</a></span>ModuleSheet()</h2>
 
@@ -98,39 +117,13 @@ Funktionen</h2></td></tr>
 
 <p>Pop-up for creating or editing a module. </p>
 <p>Only the name is required.</p>
-<p>Mount with a fresh <span class="tt">key</span> per opening so the form starts from the given module. </p><dl class="params"><dt>Parameter</dt><dd>
+<p>Any number of lectures and exercises can be added; entries without a time are removed on save. Mount with a fresh <span class="tt">key</span> per opening so the form starts from the given module. </p><dl class="params"><dt>Parameter</dt><dd>
   <table class="params">
     <tr><td class="paramname">props</td><td>See <a class="el" href="struct_module_sheet_props.html" title="Props of ModuleSheet.">ModuleSheetProps</a>. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Rückgabe</dt><dd>The sheet. </dd></dl>
-
-</div>
-</div>
-<a id="a1da53d702ca52e08142ced5232c44920" name="a1da53d702ca52e08142ced5232c44920"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1da53d702ca52e08142ced5232c44920">&#9670;&#160;</a></span>optional()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">auto optional </td>
-          <td>(</td>
-          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Converts an optional text field to its database value. </p>
-<dl class="params"><dt>Parameter</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">value</td><td>Raw input. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Rückgabe</dt><dd>Trimmed text, or null when empty. </dd></dl>
 
 </div>
 </div>

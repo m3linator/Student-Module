@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Uni-App: lib/slots.ts-Dateireferenz</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Uni-App
+   </div>
+   <div id="projectbrief">Persönliche Studien-PWA: Aufgaben, Module, Habittracker</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.18.0 -->
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": false,
+  "searchEngine": false,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+    </li>
+  </ul>
+</div><!-- main-nav -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><b>lib</b></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funktionen</a>  </div>
+  <div class="headertitle"><div class="title">slots.ts-Dateireferenz</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Lecture/exercise time slots of a module (room + free-text time).  
+<a href="#details">Mehr ...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Funktionen</h2></td></tr>
+<tr class="memitem:afc1870b1b090b62fa8fe845b72a54d99" id="r_afc1870b1b090b62fa8fe845b72a54d99"><td class="memItemLeft">std::vector&lt; <a class="el" href="struct_time_slot.html">TimeSlot</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#afc1870b1b090b62fa8fe845b72a54d99">normalizeSlots</a> (unknown value)</td></tr>
+<tr class="memdesc:afc1870b1b090b62fa8fe845b72a54d99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a slot list coming from the database defensively.  <br /></td></tr>
+<tr class="memitem:a4350e8d16aa962401eb3e080f11a102b" id="r_a4350e8d16aa962401eb3e080f11a102b"><td class="memItemLeft">std::vector&lt; <a class="el" href="struct_time_slot.html">TimeSlot</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a4350e8d16aa962401eb3e080f11a102b">cleanSlots</a> (auto slots)</td></tr>
+<tr class="memdesc:a4350e8d16aa962401eb3e080f11a102b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares slots for saving: trims values and drops entries whose time is empty.  <br /></td></tr>
+<tr class="memitem:af07fff0e9b35584266a166d69573630c" id="r_af07fff0e9b35584266a166d69573630c"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#af07fff0e9b35584266a166d69573630c">formatSlot</a> (<a class="el" href="struct_time_slot.html">TimeSlot</a> slot)</td></tr>
+<tr class="memdesc:af07fff0e9b35584266a166d69573630c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats a slot for display.  <br /></td></tr>
+<tr class="memitem:a70ea85d124023c281bd2b7426991421f" id="r_a70ea85d124023c281bd2b7426991421f"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#a70ea85d124023c281bd2b7426991421f">slotLabel</a> (string base, number index, number count)</td></tr>
+<tr class="memdesc:a70ea85d124023c281bd2b7426991421f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Label of one slot, numbered only if there are several.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Ausführliche Beschreibung</h2>
+<div class="textblock"><p>Lecture/exercise time slots of a module (room + free-text time). </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentation der Funktionen</h2>
+<a id="a4350e8d16aa962401eb3e080f11a102b" name="a4350e8d16aa962401eb3e080f11a102b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4350e8d16aa962401eb3e080f11a102b">&#9670;&#160;</a></span>cleanSlots()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="struct_time_slot.html">TimeSlot</a> &gt; cleanSlots </td>
+          <td>(</td>
+          <td class="paramtype">auto</td>          <td class="paramname"><span class="paramname"><em>slots</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prepares slots for saving: trims values and drops entries whose time is empty. </p>
+<p>Clearing the time of a lecture is how the user deletes it. </p><dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">slots</td><td>Slots from the form. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Slots to store. </dd></dl>
+
+</div>
+</div>
+<a id="af07fff0e9b35584266a166d69573630c" name="af07fff0e9b35584266a166d69573630c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af07fff0e9b35584266a166d69573630c">&#9670;&#160;</a></span>formatSlot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string formatSlot </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_time_slot.html">TimeSlot</a></td>          <td class="paramname"><span class="paramname"><em>slot</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Formats a slot for display. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">slot</td><td>Slot to format. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>E.g. "H-1.10 · Di 10:00–11:30" (empty parts are skipped). </dd></dl>
+
+</div>
+</div>
+<a id="afc1870b1b090b62fa8fe845b72a54d99" name="afc1870b1b090b62fa8fe845b72a54d99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc1870b1b090b62fa8fe845b72a54d99">&#9670;&#160;</a></span>normalizeSlots()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="struct_time_slot.html">TimeSlot</a> &gt; normalizeSlots </td>
+          <td>(</td>
+          <td class="paramtype">unknown</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reads a slot list coming from the database defensively. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>Raw JSON value (should be an array of { room, time }). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Valid slots; non-object entries are skipped, missing fields become "". </dd></dl>
+
+</div>
+</div>
+<a id="a70ea85d124023c281bd2b7426991421f" name="a70ea85d124023c281bd2b7426991421f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70ea85d124023c281bd2b7426991421f">&#9670;&#160;</a></span>slotLabel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string slotLabel </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>base</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">number</td>          <td class="paramname"><span class="paramname"><em>index</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">number</td>          <td class="paramname"><span class="paramname"><em>count</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Label of one slot, numbered only if there are several. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>Kind, e.g. "Vorlesung". </td></tr>
+    <tr><td class="paramname">index</td><td>Zero-based position. </td></tr>
+    <tr><td class="paramname">count</td><td>Number of slots of this kind. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>"Vorlesung" or "Vorlesung 2". </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>
