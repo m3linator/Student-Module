@@ -2,6 +2,7 @@ import { AppHeader } from '@/components/layout/AppHeader';
 import { HabitSection } from '@/components/habit/HabitSection';
 import { ModulesSection } from '@/components/modules/ModulesSection';
 import { TasksSection } from '@/components/tasks/TasksSection';
+import { TimetableSection } from '@/components/timetable/TimetableSection';
 import { SwipeGroup } from '@/components/ui/SwipeGroup';
 
 /**
@@ -20,6 +21,7 @@ export function OverviewPage() {
           </div>
           <div className="flex min-w-0 flex-col gap-10">
             <ModulesSection />
+            <TimetableSection />
             <HabitSection />
           </div>
         </main>
