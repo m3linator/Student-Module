@@ -48,7 +48,10 @@ in Echtzeit zwischen allen geöffneten Geräten synchronisiert.
 ### Module
 
 - Kachel-Raster mit Name, ECTS, Prof und Anzahl offener Aufgaben.
-- Eigene Modulseite (`/module/:id`) mit Infos (Vorlesung/Übung: Raum & Uhrzeit).
+- Eigene Modulseite (`/module/:id`) mit Infos-Karte.
+- **Beliebig viele Vorlesungen und Übungen** pro Modul (Raum + Uhrzeit). Ein schmaler
+  „+ Vorlesung“-/„+ Übung“-Button fügt weitere hinzu. Ein Eintrag ohne Uhrzeit wird beim
+  Speichern entfernt.
 - **Wichtige Links**: angezeigt wird nur der Name. `https://` wird automatisch ergänzt. Die
   Links lassen sich per Wischen bearbeiten oder löschen und per Drag & Drop (oder Pfeiltasten)
   sortieren.
@@ -65,6 +68,14 @@ in Echtzeit zwischen allen geöffneten Geräten synchronisiert.
   umrandet, zukünftige Tage sind gesperrt.
 - **Serie** („🔥 N Tage in Folge“) und Blättern durch vergangene Monate.
 
+### Design
+
+- **Apple-Look**: iOS-Systemfarben, gruppierte Karten auf hellgrauem Grund, iOS-Blau als
+  Akzent, grüne Schalter, Pop-ups mit iOS-Navigationsleiste („Abbrechen | Titel | Speichern“).
+- **Dark Mode** mit Schalter **Hell / Dunkel / Auto** (Auto folgt dem System). Die Wahl wird pro
+  Gerät gespeichert und schon vor dem ersten Rendern angewendet, sodass nichts aufblitzt.
+- Alle Farben sind zentrale Variablen in `src/index.css`. Text-Kontraste erfüllen WCAG AA.
+
 ### Plattform & Qualität
 
 - Responsives Layout nach Bildschirmbreite: einspaltig unter 1024 px (ab 768 px zentriert, max.
@@ -72,7 +83,8 @@ in Echtzeit zwischen allen geöffneten Geräten synchronisiert.
 - Pop-ups erscheinen auf dem Handy als Bottom-Sheet und auf dem Desktop als zentriertes Modal.
   Esc schließt, Enter speichert.
 - iOS-Details: Safe Areas (Notch, Home-Indicator), Touch-Ziele ≥ 44 px, 16-px-Eingabefelder
-  (kein Auto-Zoom).
+  (kein Auto-Zoom). Pop-ups folgen dem sichtbaren Bereich (`visualViewport`) und bleiben so über
+  der Bildschirmtastatur bedienbar.
 - Optimistische Updates mit Rollback und verständlichen deutschen Fehlermeldungen.
 - Echtzeit-Sync über Supabase Realtime. Nach einem Verbindungsabbruch oder längerer Zeit im
   Hintergrund lädt die App automatisch nach.
@@ -178,14 +190,14 @@ Die vollständige Ersteinrichtung (Datenbank, Benutzer, Vercel, Installation) st
 │   ├── generate-icons.mjs       # SVG → PNG-Icons (sharp)
 │   ├── generate-docs.mjs        # Doxygen ausführen und ungenutzte Dateien entfernen
 │   └── doxygen-ts-filter.mjs    # übersetzt TypeScript für Doxygen in C++-ähnliche Deklarationen
-├── supabase/migrations/         # SQL: Tabellen, RLS-Policies, Realtime
+├── supabase/migrations/         # SQL-Migrationen, in Reihenfolge ausführen (SETUP.md)
 ├── docs/
 │   ├── Doxyfile                 # Doxygen-Konfiguration (nur abweichende Einstellungen)
 │   ├── mainpage.md              # Startseite der Code-Doku
 │   └── html/                    # generierte, verschlankte HTML-Doku (index.html öffnen)
 ├── src/
 │   ├── config/app.ts            # ⚙️ App-Name, Zeitzone, Breakpoint, Timings
-│   ├── index.css                # 🎨 Tailwind-Theme, Schrift, Safe-Area-Utilities, Markdown-Stile
+│   ├── index.css                # 🎨 Farb-Variablen (hell/dunkel), Schrift, Utilities, Markdown-Stile
 │   ├── main.tsx / App.tsx       # Einstieg, Provider, Routen
 │   ├── pages/                   # Login, Übersicht, Modulseite, Einrichtungshinweis
 │   ├── components/
@@ -209,16 +221,17 @@ Die vollständige Ersteinrichtung (Datenbank, Benutzer, Vercel, Installation) st
 
 ### Wo ändere ich was?
 
-| Ich möchte …                      | Datei                                                                                                         |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| den **App-Namen** ändern          | `APP_NAME` in [`src/config/app.ts`](src/config/app.ts) (Manifest, Titel, Kopfzeile)                           |
-| den **Desktop-Breakpoint** ändern | `DESKTOP_MIN_WIDTH` in `src/config/app.ts` **und** die `lg:`-Klassen bzw. `64rem` in `src/index.css`          |
-| die **Farben** anpassen           | Tailwind-Klassen in `src/components/**` (Grautöne, `red-*` für Fristen/Löschen, `green-*` für Erledigt/Habit) |
-| die **Schrift** ändern            | `--font-sans` in [`src/index.css`](src/index.css)                                                             |
-| **Texte** ändern                  | direkt in der jeweiligen Komponente (alle UI-Texte sind deutsch, z. B. `TasksSection.tsx`)                    |
-| die **Rot-Schwelle** ändern       | `URGENT_DAYS` in [`src/lib/deadline.ts`](src/lib/deadline.ts)                                                 |
-| **Autosave-/Toast-Dauer** ändern  | `NOTES_SAVE_DEBOUNCE_MS`, `UNDO_TOAST_MS`, `TOAST_MS` in `src/config/app.ts`                                  |
-| das **Icon** ändern               | `public/icon.svg` bearbeiten → `npm run icons`                                                                |
+| Ich möchte …                            | Datei                                                                                                                                             |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| den **App-Namen** ändern                | `APP_NAME` in [`src/config/app.ts`](src/config/app.ts) (Manifest, Titel, Kopfzeile)                                                               |
+| den **Desktop-Breakpoint** ändern       | `DESKTOP_MIN_WIDTH` in `src/config/app.ts` **und** die `lg:`-Klassen bzw. `64rem` in `src/index.css`                                              |
+| die **Farben** anpassen                 | Farb-Variablen in [`src/index.css`](src/index.css) – oben Hell, im `.dark`-Block Dunkel (`--color-accent`, `--color-danger`, `--color-success` …) |
+| den **Standard der Darstellung** ändern | Fallback `'system'` in `readThemePreference()` in [`src/lib/theme.ts`](src/lib/theme.ts)                                                          |
+| die **Schrift** ändern                  | `--font-sans` in [`src/index.css`](src/index.css)                                                                                                 |
+| **Texte** ändern                        | direkt in der jeweiligen Komponente (alle UI-Texte sind deutsch, z. B. `TasksSection.tsx`)                                                        |
+| die **Rot-Schwelle** ändern             | `URGENT_DAYS` in [`src/lib/deadline.ts`](src/lib/deadline.ts)                                                                                     |
+| **Autosave-/Toast-Dauer** ändern        | `NOTES_SAVE_DEBOUNCE_MS`, `UNDO_TOAST_MS`, `TOAST_MS` in `src/config/app.ts`                                                                      |
+| das **Icon** ändern                     | `public/icon.svg` bearbeiten → `npm run icons`                                                                                                    |
 
 ---
 
@@ -303,9 +316,10 @@ _Platzhalter – noch keine Lizenz gewählt._ Ohne Lizenzdatei gilt: Alle Rechte
 
 ## Releases
 
-| Version | Datum      | Inhalt                                                                                  |
-| ------- | ---------- | --------------------------------------------------------------------------------------- |
-| 0.1.0   | 2026-10-10 | Erste Version: Aufgaben, Module mit Links und Notizen, Habittracker, Realtime-Sync, PWA |
+| Version | Datum      | Inhalt                                                                                                                                                              |
+| ------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0.2.0   | 2026-10-11 | Apple-Look, Dark Mode (Hell/Dunkel/Auto), mehrere Vorlesungen & Übungen, Tastatur-Fix für Pop-ups auf dem iPhone – **neue Migration nötig** (SETUP.md, Abschnitt 7) |
+| 0.1.0   | 2026-10-10 | Erste Version: Aufgaben, Module mit Links und Notizen, Habittracker, Realtime-Sync, PWA                                                                             |
 
 Neue Versionen: `version` in `package.json` erhöhen, Zeile hier ergänzen, dann
 `git tag vX.Y.Z && git push --tags`.
