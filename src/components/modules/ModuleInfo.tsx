@@ -1,41 +1,55 @@
 import { formatEcts } from '@/lib/module';
+import { formatSlot, normalizeSlots, slotLabel } from '@/lib/slots';
 import type { ModuleRow } from '@/types/database';
 
-/**
- * @brief Joins room and time ("H-1.10 · Di 10:00–11:30"), skipping empty parts.
- * @param room Room or null.
- * @param time Time text or null.
- * @returns Combined text, or null if both are empty.
- */
-function joinSlot(room: string | null, time: string | null): string | null {
-  const parts = [room, time].filter((part): part is string => Boolean(part));
-  return parts.length ? parts.join(' · ') : null;
+/** @brief One row of the info card. */
+interface InfoRow {
+  term: string;
+  value: string;
 }
 
 /**
- * @brief Module facts (name, professor, ECTS, lecture, exercise); empty fields are hidden.
+ * @brief Builds the rows for a list of appointments ("Vorlesung 1", "Vorlesung 2", …).
+ * @param kind Label base, e.g. "Vorlesung".
+ * @param value Stored slot list.
+ * @returns Info rows.
+ */
+function slotRows(kind: string, value: unknown): InfoRow[] {
+  const slots = normalizeSlots(value);
+  return slots.map((slot, index) => ({
+    term: slotLabel(kind, index, slots.length),
+    value: formatSlot(slot),
+  }));
+}
+
+/**
+ * @brief Module facts as an iOS-style card: professor, ECTS, all lectures and exercises.
+ *        Empty fields are hidden.
  * @param props.module Module to describe.
- * @returns Heading plus definition list.
+ * @returns Large title plus info card.
  */
 export function ModuleInfo({ module }: { module: ModuleRow }) {
-  const rows = [
-    { term: 'Prof', value: module.professor },
-    { term: 'ECTS', value: module.ects !== null ? formatEcts(module.ects) : null },
-    { term: 'Vorlesung', value: joinSlot(module.lecture_room, module.lecture_time) },
-    { term: 'Übung', value: joinSlot(module.exercise_room, module.exercise_time) },
-  ].filter((row): row is { term: string; value: string } => Boolean(row.value));
+  const rows: InfoRow[] = [
+    ...(module.professor ? [{ term: 'Prof', value: module.professor }] : []),
+    ...(module.ects !== null ? [{ term: 'ECTS', value: formatEcts(module.ects) }] : []),
+    ...slotRows('Vorlesung', module.lectures),
+    ...slotRows('Übung', module.exercises),
+  ];
 
   return (
-    <div className="flex flex-col gap-3">
-      <h1 className="text-2xl leading-tight font-semibold tracking-tight break-words lg:text-3xl">
+    <div className="flex flex-col gap-4">
+      <h1 className="text-[28px] leading-tight font-bold tracking-tight break-words hyphens-auto lg:text-[34px]">
         {module.name}
       </h1>
       {rows.length > 0 && (
-        <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 text-[15px]">
+        <dl className="card divide-separator divide-y-[0.5px]">
           {rows.map((row) => (
-            <div key={row.term} className="contents">
-              <dt className="text-gray-500">{row.term}</dt>
-              <dd className="min-w-0 break-words text-gray-900">{row.value}</dd>
+            <div
+              key={row.term}
+              className="flex min-h-11 items-baseline justify-between gap-4 px-4 py-2.5"
+            >
+              <dt className="text-label shrink-0 text-base">{row.term}</dt>
+              <dd className="text-label-2 min-w-0 text-right text-base break-words">{row.value}</dd>
             </div>
           ))}
         </dl>

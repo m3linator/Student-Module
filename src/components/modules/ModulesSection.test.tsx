@@ -32,10 +32,8 @@ describe('ModulesSection', () => {
       name: 'Physik',
       professor: null,
       ects: 7.5,
-      lecture_room: null,
-      lecture_time: null,
-      exercise_room: null,
-      exercise_time: null,
+      lectures: [],
+      exercises: [],
     });
   });
 

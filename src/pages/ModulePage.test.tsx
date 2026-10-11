@@ -13,8 +13,10 @@ const module = makeModule({
   name: 'Mathematik 1',
   professor: 'Prof. Dr. Euler',
   ects: 7.5,
-  lecture_room: 'H-1.10',
-  lecture_time: 'Di 10:00–11:30',
+  lectures: [
+    { room: 'H-1.10', time: 'Di 10:00–11:30' },
+    { room: 'C-116', time: 'Fr 8:00–9:30' },
+  ],
   notes: '# Klausur\n- [ ] Blatt 1',
 });
 
@@ -60,8 +62,11 @@ describe('ModulePage', () => {
     expect(screen.getByRole('heading', { level: 1, name: 'Mathematik 1' })).toBeInTheDocument();
     expect(screen.getByText('Prof. Dr. Euler')).toBeInTheDocument();
     expect(screen.getByText('7,5 ECTS')).toBeInTheDocument();
+    expect(screen.getByText('Vorlesung 1')).toBeInTheDocument();
     expect(screen.getByText('H-1.10 · Di 10:00–11:30')).toBeInTheDocument();
-    expect(screen.queryByText('Übung')).not.toBeInTheDocument();
+    expect(screen.getByText('Vorlesung 2')).toBeInTheDocument();
+    expect(screen.getByText('C-116 · Fr 8:00–9:30')).toBeInTheDocument();
+    expect(screen.queryByText(/Übung/)).not.toBeInTheDocument();
   });
 
   it('lists links by name only, in order, opening in the browser', () => {

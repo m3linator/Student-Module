@@ -37,10 +37,8 @@ const mod: ModuleRow = {
   name: 'Mathe',
   professor: null,
   ects: 5,
-  lecture_room: null,
-  lecture_time: null,
-  exercise_room: null,
-  exercise_time: null,
+  lectures: [],
+  exercises: [],
   notes: 'Notiz',
   created_at: '2026-10-01T00:00:00Z',
   updated_at: '2026-10-01T00:00:00Z',
@@ -162,10 +160,8 @@ describe('module actions', () => {
       name: 'Physik',
       professor: null,
       ects: null,
-      lecture_room: null,
-      lecture_time: null,
-      exercise_room: null,
-      exercise_time: null,
+      lectures: [],
+      exercises: [],
     });
     expect(id && store.getState().tables.modules[id]?.name).toBe('Physik');
   });
