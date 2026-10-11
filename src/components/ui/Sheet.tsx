@@ -7,6 +7,7 @@ import {
   type KeyboardEvent,
   type ReactNode,
 } from 'react';
+import { useVisualViewport } from '@/hooks/useVisualViewport';
 import { leaveDuration } from '@/lib/motion';
 import { Button, type ButtonVariant } from './Button';
 
@@ -54,6 +55,8 @@ export function Sheet({
   const titleId = useId();
   const [mounted, setMounted] = useState(open);
   const [visible, setVisible] = useState(false);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const viewport = useVisualViewport(mounted);
 
   // Mount synchronously when opening; unmounting happens after the leave transition.
   if (open && !mounted) setMounted(true);
@@ -77,15 +80,28 @@ export function Sheet({
     };
   }, [open, mounted]);
 
+  // Scroll lock that also works on iOS (overflow: hidden on <html> is ignored there).
   useEffect(() => {
     if (!mounted) return;
-    const root = document.documentElement;
-    const previous = root.style.overflow;
-    root.style.overflow = 'hidden';
+    const { style } = document.body;
+    const scrollY = window.scrollY;
+    const previous = { position: style.position, top: style.top, width: style.width };
+    style.position = 'fixed';
+    style.top = `-${scrollY}px`;
+    style.width = '100%';
     return () => {
-      root.style.overflow = previous;
+      Object.assign(style, previous);
+      window.scrollTo(0, scrollY);
     };
   }, [mounted]);
+
+  // Keep the focused field visible when the keyboard changes the visible height.
+  useEffect(() => {
+    const active = document.activeElement;
+    if (active instanceof HTMLElement && panelRef.current?.contains(active)) {
+      active.scrollIntoView?.({ block: 'nearest' });
+    }
+  }, [viewport.height]);
 
   if (!mounted) return null;
 
@@ -117,7 +133,11 @@ export function Sheet({
     event.currentTarget.requestSubmit();
   }
 
-  const body = <div className="overflow-y-auto px-5 pt-1 pb-4">{children}</div>;
+  const body = (
+    <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 pt-1 pb-4">
+      {children}
+    </div>
+  );
   const footer = onSubmit && (
     <div className="flex gap-3 border-t border-gray-100 px-5 pt-3 pb-[max(1rem,env(safe-area-inset-bottom))] lg:justify-end lg:pb-4">
       <Button variant="secondary" onClick={onClose} className="flex-1 lg:flex-none">
@@ -149,10 +169,18 @@ export function Sheet({
         onClick={onClose}
         className="absolute inset-0 bg-black/30 opacity-0 transition-opacity duration-200 data-[visible=true]:opacity-100 motion-reduce:transition-none"
       />
-      <div className="pointer-events-none relative flex h-full items-end justify-center lg:items-center lg:p-6">
+      {/* Follows the visual viewport so the sheet always sits right above the iOS keyboard. */}
+      <div
+        style={{ height: viewport.height, transform: `translateY(${viewport.offsetTop}px)` }}
+        className="pointer-events-none absolute inset-x-0 top-0 flex items-end justify-center lg:items-center lg:p-6"
+      >
         <div
+          ref={panelRef}
+          style={{
+            maxHeight: `min(90dvh, calc(${viewport.height}px - env(safe-area-inset-top) - 0.75rem))`,
+          }}
           data-visible={visible}
-          className="pointer-events-auto flex max-h-[90dvh] w-full max-w-[640px] translate-y-full flex-col rounded-t-2xl bg-white transition duration-200 ease-out data-[visible=true]:translate-y-0 motion-reduce:transition-none lg:max-w-md lg:translate-y-2 lg:rounded-2xl lg:border lg:border-gray-200 lg:opacity-0 lg:shadow-lg lg:data-[visible=true]:translate-y-0 lg:data-[visible=true]:opacity-100"
+          className="pointer-events-auto flex w-full max-w-[640px] translate-y-full flex-col rounded-t-2xl bg-white transition duration-200 ease-out data-[visible=true]:translate-y-0 motion-reduce:transition-none lg:max-w-md lg:translate-y-2 lg:rounded-2xl lg:border lg:border-gray-200 lg:opacity-0 lg:shadow-lg lg:data-[visible=true]:translate-y-0 lg:data-[visible=true]:opacity-100"
         >
           <div
             className="mx-auto mt-2 h-1 w-10 rounded-full bg-gray-200 lg:hidden"
