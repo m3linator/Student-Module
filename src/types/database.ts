@@ -7,6 +7,14 @@
  * requires them to be assignable to `Record<string, unknown>`.
  */
 
+/** @brief One lecture or exercise appointment (stored as JSON in `modules`). */
+export type TimeSlot = {
+  /** Room, may be empty. */
+  room: string;
+  /** Free-text time, e.g. "Di 10:00–11:30". */
+  time: string;
+};
+
 /** @brief Row type of `public.modules`. */
 export type ModuleRow = {
   id: string;
@@ -14,10 +22,10 @@ export type ModuleRow = {
   name: string;
   professor: string | null;
   ects: number | null;
-  lecture_room: string | null;
-  lecture_time: string | null;
-  exercise_room: string | null;
-  exercise_time: string | null;
+  /** Lectures of the module (jsonb array). */
+  lectures: TimeSlot[];
+  /** Exercises / tutorials of the module (jsonb array). */
+  exercises: TimeSlot[];
   notes: string;
   created_at: string;
   updated_at: string;
@@ -93,10 +101,8 @@ export type Database = {
         | 'user_id'
         | 'professor'
         | 'ects'
-        | 'lecture_room'
-        | 'lecture_time'
-        | 'exercise_room'
-        | 'exercise_time'
+        | 'lectures'
+        | 'exercises'
         | 'notes'
         | 'created_at'
         | 'updated_at'
