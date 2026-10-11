@@ -16,6 +16,7 @@ Du brauchst dafür etwa 30 Minuten, ein GitHub-Konto und einen Rechner mit **Nod
 4. [App installieren](#4-app-installieren)
 5. [Hinweise](#5-hinweise)
 6. [Prüf-Checkliste](#6-prüf-checkliste)
+7. [Datenbank-Updates (neue Migrationen)](#7-datenbank-updates-neue-migrationen)
 
 ---
 
@@ -33,18 +34,26 @@ Du brauchst dafür etwa 30 Minuten, ein GitHub-Konto und einen Rechner mit **Nod
    - **Plan / Instance:** Free
 4. **Create new project** → ca. 1–2 Minuten warten, bis das Projekt bereit ist.
 
-### 1.2 Datenbank anlegen (SQL-Migration ausführen)
+### 1.2 Datenbank anlegen (SQL-Migrationen ausführen)
+
+Im Ordner [`supabase/migrations/`](supabase/migrations/) liegen die Migrationen. Führe **alle**
+nacheinander aus, in der Reihenfolge ihrer Dateinamen (das Datum am Anfang):
+
+| Reihenfolge | Datei                             | Inhalt                                 |
+| ----------- | --------------------------------- | -------------------------------------- |
+| 1           | `20261010000000_init.sql`         | Tabellen, Row Level Security, Realtime |
+| 2           | `20261011000000_module_slots.sql` | mehrere Vorlesungen/Übungen pro Modul  |
+
+Für jede Datei:
 
 1. Linke Seitenleiste → **SQL Editor**.
 2. Oben links **+ New query** (bzw. **New SQL snippet**).
-3. Den **kompletten** Inhalt der Datei
-   [`supabase/migrations/20261010000000_init.sql`](supabase/migrations/20261010000000_init.sql)
-   kopieren und einfügen.
+3. Den **kompletten** Inhalt der Datei kopieren und einfügen.
 4. Unten rechts **Run** (oder `Cmd + Enter`).
 5. Erwartete Meldung: **Success. No rows returned**.
 
-> Die Migration darf nur **einmal** ausgeführt werden. Ein zweiter Lauf bricht mit
-> „relation already exists“ ab – das ist dann harmlos.
+> Jede Migration darf nur **einmal** ausgeführt werden. Ein zweiter Lauf bricht mit
+> „already exists“ bzw. „does not exist“ ab und ändert dabei nichts.
 
 ### 1.3 Prüfen: RLS aktiv, Realtime eingeschaltet
 
@@ -263,6 +272,12 @@ Siehe Abschnitt **Projektstruktur** in der [README](README.md#projektstruktur).
 - [ ] Notiz schreiben → „Speichert…“ → „Gespeichert“; App schließen und neu öffnen → Notiz ist da.
 - [ ] Notiz auf zwei Geräten: Während du auf Gerät A tippst, überschreibt Gerät B deinen Text nicht.
 - [ ] Modul löschen → Bestätigungsdialog; danach sind Links/Notizen weg, die Aufgaben bleiben ohne Modul.
+- [ ] Modul bearbeiten → „+ Vorlesung“ fügt eine weitere Vorlesung hinzu; nach dem Speichern zeigt
+      die Modulseite „Vorlesung 1“, „Vorlesung 2“. Uhrzeit leeren und speichern entfernt den Eintrag.
+- [ ] iPhone: Pop-up „Neue Aufgabe“ öffnen, ins Feld tippen → das Pop-up bleibt über der Tastatur,
+      lässt sich scrollen, und „Speichern“ oben ist erreichbar.
+- [ ] Konto-Menü (iPhone) bzw. Darstellungs-Symbol (Mac) → Hell / Dunkel / Auto wechselt sofort;
+      „Auto“ folgt der Systemeinstellung.
 - [ ] Habit-Tag antippen → grün; erneut tippen → wieder leer. Zukünftige Tage sind gesperrt.
 - [ ] Heute ist schwarz umrandet, die Serie („🔥 N Tage in Folge“) stimmt.
 - [ ] WLAN aus → dezenter Offline-Hinweis oben; WLAN an → Hinweis verschwindet.
@@ -280,3 +295,26 @@ Siehe Abschnitt **Projektstruktur** in der [README](README.md#projektstruktur).
   ```bash
   git log --format='%b' | grep -i "co-authored-by"
   ```
+
+---
+
+## 7. Datenbank-Updates (neue Migrationen)
+
+Wenn ein Update eine neue Datei in `supabase/migrations/` mitbringt, musst du **nur diese neue
+Datei** einmal ausführen (bereits ausgeführte nicht noch einmal).
+
+### Update auf Version 0.2.0 (mehrere Vorlesungen und Übungen)
+
+Bestehende Projekte (bei denen `20261010000000_init.sql` schon gelaufen ist):
+
+1. Code aktualisieren: `git pull`, danach `npm install`.
+2. Supabase → **SQL Editor** → **+ New query**.
+3. Inhalt von
+   [`supabase/migrations/20261011000000_module_slots.sql`](supabase/migrations/20261011000000_module_slots.sql)
+   einfügen → **Run** → **Success. No rows returned**.
+4. Dev-Server neu starten (`Ctrl + C`, `npm run dev`) bzw. auf Vercel neu deployen.
+
+Deine bisherigen Vorlesungs- und Übungsangaben werden dabei automatisch übernommen.
+
+> Solange die Migration nicht ausgeführt ist, zeigt die App Module zwar an, kann sie aber nicht
+> speichern (Fehlermeldung „Das Modul konnte nicht gespeichert werden.“).
